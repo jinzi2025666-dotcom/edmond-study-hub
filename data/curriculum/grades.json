@@ -1,0 +1,26 @@
+[
+  {
+    "id": "7",
+    "name_zh": "七年级",
+    "name_en": "Year 7",
+    "stage_zh": "剑桥中学初级阶段第 7 阶段",
+    "stage_en": "Cambridge Lower Secondary Stage 7",
+    "status": "upcoming"
+  },
+  {
+    "id": "8",
+    "name_zh": "八年级",
+    "name_en": "Year 8",
+    "stage_zh": "剑桥中学初级阶段第 8 阶段",
+    "stage_en": "Cambridge Lower Secondary Stage 8",
+    "status": "active"
+  },
+  {
+    "id": "9",
+    "name_zh": "九年级",
+    "name_en": "Year 9",
+    "stage_zh": "剑桥中学初级阶段第 9 阶段",
+    "stage_en": "Cambridge Lower Secondary Stage 9",
+    "status": "upcoming"
+  }
+]

@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+
+# Builds
+frontend/dist/
+frontend/dist-ssr/
+*.local
+
+# User data (runtime; schema is created automatically)
+data/user.db
+data/user.db-wal
+data/user.db-shm
+data/*.db
+
+# Logs and caches
+.npm
+.cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.log
+npm-debug.log*
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# offline intermediate build
+offline/build/

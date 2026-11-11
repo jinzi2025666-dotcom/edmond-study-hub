@@ -1,0 +1,138 @@
+[
+  {
+    "id": "chinese",
+    "name_zh": "中文",
+    "name_en": "Chinese",
+    "accent": "#9c2a2a",
+    "framework_zh": "八年级实用结构（第一语言／第二语言取向）",
+    "framework_en": "Practical Year 8 structure (first / second language orientation)",
+    "framework_code": null,
+    "level": "Year 8",
+    "blurb_zh": "现代文阅读、写作、语文知识、口语交际、文学文化与古诗文。",
+    "blurb_en": "Modern reading, writing, language knowledge, speaking, literature and classical texts.",
+    "development": {
+      "7": "upcoming",
+      "8": "ready",
+      "9": "upcoming"
+    }
+  },
+  {
+    "id": "mathematics",
+    "name_zh": "数学",
+    "name_en": "Mathematics",
+    "accent": "#1e4d43",
+    "framework_zh": "剑桥中学初级阶段数学（0862）第 8 阶段",
+    "framework_en": "Cambridge Lower Secondary Mathematics (0862) Stage 8",
+    "framework_code": "0862",
+    "level": "Stage 8",
+    "blurb_zh": "数与运算、代数、几何与度量、统计与概率。",
+    "blurb_en": "Number, algebra, geometry and measure, statistics and probability.",
+    "development": {
+      "7": "upcoming",
+      "8": "ready",
+      "9": "upcoming"
+    }
+  },
+  {
+    "id": "english",
+    "name_zh": "英语",
+    "name_en": "English",
+    "accent": "#1a365d",
+    "framework_zh": "剑桥中学初级阶段英语（0861）第 8 阶段",
+    "framework_en": "Cambridge Lower Secondary English (0861) Stage 8",
+    "framework_code": "0861",
+    "level": "Stage 8",
+    "blurb_zh": "阅读、写作、听说：官方方案中的六个主题单元。",
+    "blurb_en": "Reading, writing, speaking and listening across the official six thematic units.",
+    "development": {
+      "7": "upcoming",
+      "8": "ready",
+      "9": "upcoming"
+    }
+  },
+  {
+    "id": "computer-science",
+    "name_zh": "计算机",
+    "name_en": "Computer Science",
+    "accent": "#24556b",
+    "framework_zh": "剑桥中学初级阶段计算（0860）第 8 阶段",
+    "framework_en": "Cambridge Lower Secondary Computing (0860) Stage 8",
+    "framework_code": "0860",
+    "level": "Stage 8",
+    "blurb_zh": "网络、算法与伪代码、计算机系统、编程与数据。",
+    "blurb_en": "Networks, algorithms and pseudocode, computer systems, programming and data.",
+    "development": {
+      "7": "upcoming",
+      "8": "ready",
+      "9": "upcoming"
+    }
+  },
+  {
+    "id": "economics",
+    "name_zh": "经济",
+    "name_en": "Economics",
+    "accent": "#8a5a2b",
+    "framework_zh": "剑桥 IGCSE 经济（0455）入门基础",
+    "framework_en": "Cambridge IGCSE Economics (0455) foundation",
+    "framework_code": "0455",
+    "level": "IGCSE foundation",
+    "blurb_zh": "基本经济问题、资源配置、微观与宏观入门。",
+    "blurb_en": "The basic economic problem, resource allocation, and an introduction to micro and macro.",
+    "development": {
+      "7": "upcoming",
+      "8": "ready",
+      "9": "upcoming"
+    }
+  },
+  {
+    "id": "physics",
+    "name_zh": "物理",
+    "name_en": "Physics",
+    "accent": "#2a3a6e",
+    "framework_zh": "剑桥中学初级阶段科学（0893）第 8 阶段 · 物理（含部分地球与太空）",
+    "framework_en": "Cambridge Lower Secondary Science (0893) Stage 8 · Physics (plus selected Earth and Space)",
+    "framework_code": "0893",
+    "level": "Stage 8",
+    "blurb_zh": "力与能量、光与声、电与磁，以及地球磁场与太空。",
+    "blurb_en": "Forces and energy, light and sound, electricity and magnetism, plus Earth's magnetism and space.",
+    "development": {
+      "7": "upcoming",
+      "8": "ready",
+      "9": "upcoming"
+    }
+  },
+  {
+    "id": "chemistry",
+    "name_zh": "化学",
+    "name_en": "Chemistry",
+    "accent": "#1f5a45",
+    "framework_zh": "剑桥中学初级阶段科学（0893）第 8 阶段 · 化学（含地球循环与资源）",
+    "framework_en": "Cambridge Lower Secondary Science (0893) Stage 8 · Chemistry (plus Earth cycles and resources)",
+    "framework_code": "0893",
+    "level": "Stage 8",
+    "blurb_zh": "原子结构、溶液与层析、化学反应，以及气候循环与资源。",
+    "blurb_en": "Atomic structure, solutions and chromatography, chemical change, plus climate cycles and resources.",
+    "development": {
+      "7": "upcoming",
+      "8": "ready",
+      "9": "upcoming"
+    }
+  },
+  {
+    "id": "biology",
+    "name_zh": "生物",
+    "name_en": "Biology",
+    "accent": "#4a5c28",
+    "framework_zh": "剑桥中学初级阶段科学（0893）第 8 阶段 · 生物",
+    "framework_en": "Cambridge Lower Secondary Science (0893) Stage 8 · Biology",
+    "framework_code": "0893",
+    "level": "Stage 8",
+    "blurb_zh": "结构与功能、生命过程与生态系统。",
+    "blurb_en": "Structure and function, life processes and ecosystems.",
+    "development": {
+      "7": "upcoming",
+      "8": "ready",
+      "9": "upcoming"
+    }
+  }
+]

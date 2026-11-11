@@ -1,0 +1,3249 @@
+[
+  {
+    "id": "chinese-1",
+    "subject_id": "chinese",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "1",
+    "order": 1,
+    "title_zh": "现代文阅读",
+    "title_en": "Modern text reading",
+    "developed": true,
+    "units": [
+      {
+        "id": "chinese-1-u1",
+        "code": "1-1",
+        "order": 1,
+        "title_zh": "提取与理解",
+        "title_en": "Retrieval and understanding",
+        "sections": [
+          {
+            "id": "chinese-1-1",
+            "code": "1.1",
+            "title_zh": "信息提取与概括",
+            "title_en": "Retrieving and summarising information",
+            "knowledge_id": "kp-chinese-1-1"
+          },
+          {
+            "id": "chinese-1-2",
+            "code": "1.2",
+            "title_zh": "理解与推断",
+            "title_en": "Understanding and inference",
+            "knowledge_id": "kp-chinese-1-2"
+          }
+        ]
+      },
+      {
+        "id": "chinese-1-u2",
+        "code": "1-2",
+        "order": 2,
+        "title_zh": "赏析与评价",
+        "title_en": "Analysis and evaluation",
+        "sections": [
+          {
+            "id": "chinese-1-3",
+            "code": "1.3",
+            "title_zh": "语言赏析与作用",
+            "title_en": "Language analysis and effect",
+            "knowledge_id": "kp-chinese-1-3"
+          },
+          {
+            "id": "chinese-1-4",
+            "code": "1.4",
+            "title_zh": "观点评价与比较",
+            "title_en": "Evaluating and comparing viewpoints",
+            "knowledge_id": "kp-chinese-1-4"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "chinese-1-1",
+        "title_zh": "信息提取与概括",
+        "title_en": "Retrieving and summarising information"
+      },
+      {
+        "id": "chinese-1-2",
+        "title_zh": "理解与推断",
+        "title_en": "Understanding and inference"
+      },
+      {
+        "id": "chinese-1-3",
+        "title_zh": "语言赏析与作用",
+        "title_en": "Language analysis and effect"
+      },
+      {
+        "id": "chinese-1-4",
+        "title_zh": "观点评价与比较",
+        "title_en": "Evaluating and comparing viewpoints"
+      }
+    ]
+  },
+  {
+    "id": "chinese-2",
+    "subject_id": "chinese",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "2",
+    "order": 2,
+    "title_zh": "写作",
+    "title_en": "Writing",
+    "developed": true,
+    "units": [
+      {
+        "id": "chinese-2-u1",
+        "code": "2-1",
+        "order": 1,
+        "title_zh": "记叙与说明",
+        "title_en": "Narrative and exposition",
+        "sections": [
+          {
+            "id": "chinese-2-1",
+            "code": "2.1",
+            "title_zh": "记叙与描写",
+            "title_en": "Narrative and descriptive writing",
+            "knowledge_id": "kp-chinese-2-1"
+          },
+          {
+            "id": "chinese-2-2",
+            "code": "2.2",
+            "title_zh": "说明文",
+            "title_en": "Expository writing",
+            "knowledge_id": "kp-chinese-2-2"
+          }
+        ]
+      },
+      {
+        "id": "chinese-2-u2",
+        "code": "2-2",
+        "order": 2,
+        "title_zh": "议论与实用",
+        "title_en": "Argument and practical writing",
+        "sections": [
+          {
+            "id": "chinese-2-3",
+            "code": "2.3",
+            "title_zh": "议论文与说理",
+            "title_en": "Argument and persuasion",
+            "knowledge_id": "kp-chinese-2-3"
+          },
+          {
+            "id": "chinese-2-4",
+            "code": "2.4",
+            "title_zh": "实用文与书信",
+            "title_en": "Practical and letter writing",
+            "knowledge_id": "kp-chinese-2-4"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "chinese-2-1",
+        "title_zh": "记叙与描写",
+        "title_en": "Narrative and descriptive writing"
+      },
+      {
+        "id": "chinese-2-2",
+        "title_zh": "说明文",
+        "title_en": "Expository writing"
+      },
+      {
+        "id": "chinese-2-3",
+        "title_zh": "议论文与说理",
+        "title_en": "Argument and persuasion"
+      },
+      {
+        "id": "chinese-2-4",
+        "title_zh": "实用文与书信",
+        "title_en": "Practical and letter writing"
+      }
+    ]
+  },
+  {
+    "id": "chinese-3",
+    "subject_id": "chinese",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "3",
+    "order": 3,
+    "title_zh": "语文知识与语法",
+    "title_en": "Language knowledge and grammar",
+    "developed": true,
+    "units": [
+      {
+        "id": "chinese-3-u1",
+        "code": "3-1",
+        "order": 1,
+        "title_zh": "字词与句子",
+        "title_en": "Words and sentences",
+        "sections": [
+          {
+            "id": "chinese-3-1",
+            "code": "3.1",
+            "title_zh": "字词与成语",
+            "title_en": "Characters, words and idioms",
+            "knowledge_id": "kp-chinese-3-1"
+          },
+          {
+            "id": "chinese-3-2",
+            "code": "3.2",
+            "title_zh": "句子成分与句式",
+            "title_en": "Sentence elements and patterns",
+            "knowledge_id": "kp-chinese-3-2"
+          }
+        ]
+      },
+      {
+        "id": "chinese-3-u2",
+        "code": "3-2",
+        "order": 2,
+        "title_zh": "修辞与修改",
+        "title_en": "Rhetoric and correction",
+        "sections": [
+          {
+            "id": "chinese-3-3",
+            "code": "3.3",
+            "title_zh": "修辞手法",
+            "title_en": "Rhetorical devices",
+            "knowledge_id": "kp-chinese-3-3"
+          },
+          {
+            "id": "chinese-3-4",
+            "code": "3.4",
+            "title_zh": "标点与语病修改",
+            "title_en": "Punctuation and sentence correction",
+            "knowledge_id": "kp-chinese-3-4"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "chinese-3-1",
+        "title_zh": "字词与成语",
+        "title_en": "Characters, words and idioms"
+      },
+      {
+        "id": "chinese-3-2",
+        "title_zh": "句子成分与句式",
+        "title_en": "Sentence elements and patterns"
+      },
+      {
+        "id": "chinese-3-3",
+        "title_zh": "修辞手法",
+        "title_en": "Rhetorical devices"
+      },
+      {
+        "id": "chinese-3-4",
+        "title_zh": "标点与语病修改",
+        "title_en": "Punctuation and sentence correction"
+      }
+    ]
+  },
+  {
+    "id": "chinese-4",
+    "subject_id": "chinese",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "4",
+    "order": 4,
+    "title_zh": "口语与交际",
+    "title_en": "Speaking and communication",
+    "developed": true,
+    "units": [
+      {
+        "id": "chinese-4-u1",
+        "code": "4-1",
+        "order": 1,
+        "title_zh": "表达与讨论",
+        "title_en": "Speaking and discussion",
+        "sections": [
+          {
+            "id": "chinese-4-1",
+            "code": "4.1",
+            "title_zh": "讲述与汇报",
+            "title_en": "Talks and presentations",
+            "knowledge_id": "kp-chinese-4-1"
+          },
+          {
+            "id": "chinese-4-2",
+            "code": "4.2",
+            "title_zh": "讨论与辩论",
+            "title_en": "Discussion and debate",
+            "knowledge_id": "kp-chinese-4-2"
+          }
+        ]
+      },
+      {
+        "id": "chinese-4-u2",
+        "code": "4-2",
+        "order": 2,
+        "title_zh": "倾听与回应",
+        "title_en": "Listening and responding",
+        "sections": [
+          {
+            "id": "chinese-4-3",
+            "code": "4.3",
+            "title_zh": "倾听与回应",
+            "title_en": "Listening and responding",
+            "knowledge_id": "kp-chinese-4-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "chinese-4-1",
+        "title_zh": "讲述与汇报",
+        "title_en": "Talks and presentations"
+      },
+      {
+        "id": "chinese-4-2",
+        "title_zh": "讨论与辩论",
+        "title_en": "Discussion and debate"
+      },
+      {
+        "id": "chinese-4-3",
+        "title_zh": "倾听与回应",
+        "title_en": "Listening and responding"
+      }
+    ]
+  },
+  {
+    "id": "chinese-5",
+    "subject_id": "chinese",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "5",
+    "order": 5,
+    "title_zh": "文学与文化",
+    "title_en": "Literature and culture",
+    "developed": true,
+    "units": [
+      {
+        "id": "chinese-5-u1",
+        "code": "5-1",
+        "order": 1,
+        "title_zh": "文学赏析",
+        "title_en": "Literary appreciation",
+        "sections": [
+          {
+            "id": "chinese-5-1",
+            "code": "5.1",
+            "title_zh": "文学作品赏析",
+            "title_en": "Appreciating literary works",
+            "knowledge_id": "kp-chinese-5-1"
+          }
+        ]
+      },
+      {
+        "id": "chinese-5-u2",
+        "code": "5-2",
+        "order": 2,
+        "title_zh": "文化与比较",
+        "title_en": "Culture and comparison",
+        "sections": [
+          {
+            "id": "chinese-5-2",
+            "code": "5.2",
+            "title_zh": "文化常识与习俗",
+            "title_en": "Cultural knowledge and customs",
+            "knowledge_id": "kp-chinese-5-2"
+          },
+          {
+            "id": "chinese-5-3",
+            "code": "5.3",
+            "title_zh": "跨文化比较",
+            "title_en": "Cross-cultural comparison",
+            "knowledge_id": "kp-chinese-5-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "chinese-5-1",
+        "title_zh": "文学作品赏析",
+        "title_en": "Appreciating literary works"
+      },
+      {
+        "id": "chinese-5-2",
+        "title_zh": "文化常识与习俗",
+        "title_en": "Cultural knowledge and customs"
+      },
+      {
+        "id": "chinese-5-3",
+        "title_zh": "跨文化比较",
+        "title_en": "Cross-cultural comparison"
+      }
+    ]
+  },
+  {
+    "id": "chinese-6",
+    "subject_id": "chinese",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "6",
+    "order": 6,
+    "title_zh": "古诗文",
+    "title_en": "Classical Chinese poetry and prose",
+    "developed": true,
+    "units": [
+      {
+        "id": "chinese-6-u1",
+        "code": "6-1",
+        "order": 1,
+        "title_zh": "古诗词",
+        "title_en": "Classical poetry",
+        "sections": [
+          {
+            "id": "chinese-6-1",
+            "code": "6.1",
+            "title_zh": "古诗词意象与情感",
+            "title_en": "Imagery and emotion in classical poetry",
+            "knowledge_id": "kp-chinese-6-1"
+          }
+        ]
+      },
+      {
+        "id": "chinese-6-u2",
+        "code": "6-2",
+        "order": 2,
+        "title_zh": "文言文",
+        "title_en": "Classical prose",
+        "sections": [
+          {
+            "id": "chinese-6-2",
+            "code": "6.2",
+            "title_zh": "文言文实词与虚词",
+            "title_en": "Classical function and content words",
+            "knowledge_id": "kp-chinese-6-2"
+          },
+          {
+            "id": "chinese-6-3",
+            "code": "6.3",
+            "title_zh": "文言句式与翻译",
+            "title_en": "Classical sentence patterns and translation",
+            "knowledge_id": "kp-chinese-6-3"
+          }
+        ]
+      }
+    ],
+    "note_zh": "本站中文按新加坡国际学校八年级常用的第一语言／第二语言实用结构编写，不对应某一份剑桥试卷代码。古诗文例句选用公有领域作品，讲解与练习为原创。",
+    "note_en": "Chinese on this site follows a practical Year 8 first- / second-language structure used in many Singapore international schools. It does not claim a Cambridge paper code. Classical examples are public-domain texts; commentary and questions are original.",
+    "topics": [
+      {
+        "id": "chinese-6-1",
+        "title_zh": "古诗词意象与情感",
+        "title_en": "Imagery and emotion in classical poetry"
+      },
+      {
+        "id": "chinese-6-2",
+        "title_zh": "文言文实词与虚词",
+        "title_en": "Classical function and content words"
+      },
+      {
+        "id": "chinese-6-3",
+        "title_zh": "文言句式与翻译",
+        "title_en": "Classical sentence patterns and translation"
+      }
+    ]
+  },
+  {
+    "id": "mathematics-8-1",
+    "subject_id": "mathematics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.1",
+    "order": 1,
+    "title_zh": "数与运算",
+    "title_en": "Number and calculation",
+    "developed": true,
+    "units": [
+      {
+        "id": "mathematics-8-1-u1",
+        "code": "8.1-1",
+        "order": 1,
+        "title_zh": "数位、近似与指数",
+        "title_en": "Place value, rounding and indices",
+        "sections": [
+          {
+            "id": "mathematics-8-1-1",
+            "code": "8.1.1",
+            "title_zh": "数位与近似",
+            "title_en": "Place value and rounding",
+            "knowledge_id": "kp-mathematics-8-1-1"
+          },
+          {
+            "id": "mathematics-8-1-2",
+            "code": "8.1.2",
+            "title_zh": "指数、因数与倍数",
+            "title_en": "Indices, factors and multiples",
+            "knowledge_id": "kp-mathematics-8-1-2"
+          }
+        ]
+      },
+      {
+        "id": "mathematics-8-1-u2",
+        "code": "8.1-2",
+        "order": 2,
+        "title_zh": "整数与小数运算",
+        "title_en": "Calculating with integers and decimals",
+        "sections": [
+          {
+            "id": "mathematics-8-1-3",
+            "code": "8.1.3",
+            "title_zh": "整数与小数运算",
+            "title_en": "Calculating with integers and decimals",
+            "knowledge_id": "kp-mathematics-8-1-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "mathematics-8-1-1",
+        "title_zh": "数位与近似",
+        "title_en": "Place value and rounding"
+      },
+      {
+        "id": "mathematics-8-1-2",
+        "title_zh": "指数、因数与倍数",
+        "title_en": "Indices, factors and multiples"
+      },
+      {
+        "id": "mathematics-8-1-3",
+        "title_zh": "整数与小数运算",
+        "title_en": "Calculating with integers and decimals"
+      }
+    ]
+  },
+  {
+    "id": "mathematics-8-2",
+    "subject_id": "mathematics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.2",
+    "order": 2,
+    "title_zh": "代数表示与变形",
+    "title_en": "Algebraic representation and manipulation",
+    "developed": true,
+    "units": [
+      {
+        "id": "mathematics-8-2-u1",
+        "code": "8.2-1",
+        "order": 1,
+        "title_zh": "代数式与公式",
+        "title_en": "Expressions and formulae",
+        "sections": [
+          {
+            "id": "mathematics-8-2-1",
+            "code": "8.2.1",
+            "title_zh": "代数式、表达式与公式",
+            "title_en": "Manipulating algebra, expressions and formulae",
+            "knowledge_id": "kp-mathematics-8-2-1"
+          }
+        ]
+      },
+      {
+        "id": "mathematics-8-2-u2",
+        "code": "8.2-2",
+        "order": 2,
+        "title_zh": "方程与不等式",
+        "title_en": "Equations and inequalities",
+        "sections": [
+          {
+            "id": "mathematics-8-2-2",
+            "code": "8.2.2",
+            "title_zh": "方程与不等式",
+            "title_en": "Equations and inequalities",
+            "knowledge_id": "kp-mathematics-8-2-2"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "mathematics-8-2-1",
+        "title_zh": "代数式、表达式与公式",
+        "title_en": "Manipulating algebra, expressions and formulae"
+      },
+      {
+        "id": "mathematics-8-2-2",
+        "title_zh": "方程与不等式",
+        "title_en": "Equations and inequalities"
+      }
+    ]
+  },
+  {
+    "id": "mathematics-8-3",
+    "subject_id": "mathematics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.3",
+    "order": 3,
+    "title_zh": "平面图形与立体图形",
+    "title_en": "2D and 3D shape",
+    "developed": true,
+    "units": [
+      {
+        "id": "mathematics-8-3-u1",
+        "code": "8.3-1",
+        "order": 1,
+        "title_zh": "平面图形",
+        "title_en": "2D shape",
+        "sections": [
+          {
+            "id": "mathematics-8-3-1",
+            "code": "8.3.1",
+            "title_zh": "四边形与多边形",
+            "title_en": "Quadrilaterals and polygons",
+            "knowledge_id": "kp-mathematics-8-3-1"
+          },
+          {
+            "id": "mathematics-8-3-2",
+            "code": "8.3.2",
+            "title_zh": "面积、周长与圆周",
+            "title_en": "Area, perimeter and circumference",
+            "knowledge_id": "kp-mathematics-8-3-2"
+          }
+        ]
+      },
+      {
+        "id": "mathematics-8-3-u2",
+        "code": "8.3-2",
+        "order": 2,
+        "title_zh": "立体图形",
+        "title_en": "3D shape",
+        "sections": [
+          {
+            "id": "mathematics-8-3-3",
+            "code": "8.3.3",
+            "title_zh": "立体图形、表面积与体积",
+            "title_en": "3D shapes, surface area and volume",
+            "knowledge_id": "kp-mathematics-8-3-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "mathematics-8-3-1",
+        "title_zh": "四边形与多边形",
+        "title_en": "Quadrilaterals and polygons"
+      },
+      {
+        "id": "mathematics-8-3-2",
+        "title_zh": "面积、周长与圆周",
+        "title_en": "Area, perimeter and circumference"
+      },
+      {
+        "id": "mathematics-8-3-3",
+        "title_zh": "立体图形、表面积与体积",
+        "title_en": "3D shapes, surface area and volume"
+      }
+    ]
+  },
+  {
+    "id": "mathematics-8-4",
+    "subject_id": "mathematics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.4",
+    "order": 4,
+    "title_zh": "分数、小数、百分数、比与比例",
+    "title_en": "Fractions, decimals, percentages, ratio and proportion",
+    "developed": true,
+    "units": [
+      {
+        "id": "mathematics-8-4-u1",
+        "code": "8.4-1",
+        "order": 1,
+        "title_zh": "比较与分数运算",
+        "title_en": "Comparing numbers and fraction calculations",
+        "sections": [
+          {
+            "id": "mathematics-8-4-1",
+            "code": "8.4.1",
+            "title_zh": "比较数的大小",
+            "title_en": "Comparing numbers",
+            "knowledge_id": "kp-mathematics-8-4-1"
+          },
+          {
+            "id": "mathematics-8-4-2",
+            "code": "8.4.2",
+            "title_zh": "分数运算",
+            "title_en": "Calculating with fractions",
+            "knowledge_id": "kp-mathematics-8-4-2"
+          }
+        ]
+      },
+      {
+        "id": "mathematics-8-4-u2",
+        "code": "8.4-2",
+        "order": 2,
+        "title_zh": "百分数、比与比例",
+        "title_en": "Percentages, ratio and proportion",
+        "sections": [
+          {
+            "id": "mathematics-8-4-3",
+            "code": "8.4.3",
+            "title_zh": "百分数变化、比与比例",
+            "title_en": "Percentage change, ratio and proportion",
+            "knowledge_id": "kp-mathematics-8-4-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "mathematics-8-4-1",
+        "title_zh": "比较数的大小",
+        "title_en": "Comparing numbers"
+      },
+      {
+        "id": "mathematics-8-4-2",
+        "title_zh": "分数运算",
+        "title_en": "Calculating with fractions"
+      },
+      {
+        "id": "mathematics-8-4-3",
+        "title_zh": "百分数变化、比与比例",
+        "title_en": "Percentage change, ratio and proportion"
+      }
+    ]
+  },
+  {
+    "id": "mathematics-8-5",
+    "subject_id": "mathematics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.5",
+    "order": 5,
+    "title_zh": "概率",
+    "title_en": "Probability",
+    "developed": true,
+    "units": [
+      {
+        "id": "mathematics-8-5-u1",
+        "code": "8.5-1",
+        "order": 1,
+        "title_zh": "理论概率",
+        "title_en": "Theoretical probability",
+        "sections": [
+          {
+            "id": "mathematics-8-5-1",
+            "code": "8.5.1",
+            "title_zh": "互补事件与复合事件",
+            "title_en": "Complementary and combined events",
+            "knowledge_id": "kp-mathematics-8-5-1"
+          }
+        ]
+      },
+      {
+        "id": "mathematics-8-5-u2",
+        "code": "8.5-2",
+        "order": 2,
+        "title_zh": "实验概率",
+        "title_en": "Experimental probability",
+        "sections": [
+          {
+            "id": "mathematics-8-5-2",
+            "code": "8.5.2",
+            "title_zh": "实验概率",
+            "title_en": "Experimental probability",
+            "knowledge_id": "kp-mathematics-8-5-2"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "mathematics-8-5-1",
+        "title_zh": "互补事件与复合事件",
+        "title_en": "Complementary and combined events"
+      },
+      {
+        "id": "mathematics-8-5-2",
+        "title_zh": "实验概率",
+        "title_en": "Experimental probability"
+      }
+    ]
+  },
+  {
+    "id": "mathematics-8-6",
+    "subject_id": "mathematics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.6",
+    "order": 6,
+    "title_zh": "角与作图",
+    "title_en": "Angles and construction",
+    "developed": true,
+    "units": [
+      {
+        "id": "mathematics-8-6-u1",
+        "code": "8.6-1",
+        "order": 1,
+        "title_zh": "角与方位角",
+        "title_en": "Angles and bearings",
+        "sections": [
+          {
+            "id": "mathematics-8-6-1",
+            "code": "8.6.1",
+            "title_zh": "角、方位角与测量",
+            "title_en": "Angles, bearings and measurement",
+            "knowledge_id": "kp-mathematics-8-6-1"
+          }
+        ]
+      },
+      {
+        "id": "mathematics-8-6-u2",
+        "code": "8.6-2",
+        "order": 2,
+        "title_zh": "作图",
+        "title_en": "Construction",
+        "sections": [
+          {
+            "id": "mathematics-8-6-2",
+            "code": "8.6.2",
+            "title_zh": "作图与中点",
+            "title_en": "Construction and midpoints",
+            "knowledge_id": "kp-mathematics-8-6-2"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "mathematics-8-6-1",
+        "title_zh": "角、方位角与测量",
+        "title_en": "Angles, bearings and measurement"
+      },
+      {
+        "id": "mathematics-8-6-2",
+        "title_zh": "作图与中点",
+        "title_en": "Construction and midpoints"
+      }
+    ]
+  },
+  {
+    "id": "mathematics-8-7",
+    "subject_id": "mathematics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.7",
+    "order": 7,
+    "title_zh": "数列、函数与图像",
+    "title_en": "Sequences, functions and graphs",
+    "developed": true,
+    "units": [
+      {
+        "id": "mathematics-8-7-u1",
+        "code": "8.7-1",
+        "order": 1,
+        "title_zh": "数列与函数",
+        "title_en": "Sequences and functions",
+        "sections": [
+          {
+            "id": "mathematics-8-7-1",
+            "code": "8.7.1",
+            "title_zh": "数列与函数",
+            "title_en": "Sequences and functions",
+            "knowledge_id": "kp-mathematics-8-7-1"
+          }
+        ]
+      },
+      {
+        "id": "mathematics-8-7-u2",
+        "code": "8.7-2",
+        "order": 2,
+        "title_zh": "直线图像",
+        "title_en": "Straight-line graphs",
+        "sections": [
+          {
+            "id": "mathematics-8-7-2",
+            "code": "8.7.2",
+            "title_zh": "直线的图像与方程",
+            "title_en": "Graphs and equations of straight lines",
+            "knowledge_id": "kp-mathematics-8-7-2"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "mathematics-8-7-1",
+        "title_zh": "数列与函数",
+        "title_en": "Sequences and functions"
+      },
+      {
+        "id": "mathematics-8-7-2",
+        "title_zh": "直线的图像与方程",
+        "title_en": "Graphs and equations of straight lines"
+      }
+    ]
+  },
+  {
+    "id": "mathematics-8-8",
+    "subject_id": "mathematics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.8",
+    "order": 8,
+    "title_zh": "变换",
+    "title_en": "Transformations",
+    "developed": true,
+    "units": [
+      {
+        "id": "mathematics-8-8-u1",
+        "code": "8.8-1",
+        "order": 1,
+        "title_zh": "平移与向量",
+        "title_en": "Translations and vectors",
+        "sections": [
+          {
+            "id": "mathematics-8-8-1",
+            "code": "8.8.1",
+            "title_zh": "平移与向量",
+            "title_en": "Translations and vectors",
+            "knowledge_id": "kp-mathematics-8-8-1"
+          }
+        ]
+      },
+      {
+        "id": "mathematics-8-8-u2",
+        "code": "8.8-2",
+        "order": 2,
+        "title_zh": "反射、旋转与放大",
+        "title_en": "Reflections, rotations and enlargements",
+        "sections": [
+          {
+            "id": "mathematics-8-8-2",
+            "code": "8.8.2",
+            "title_zh": "反射、旋转与放大",
+            "title_en": "Reflections, rotations and enlargements",
+            "knowledge_id": "kp-mathematics-8-8-2"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "mathematics-8-8-1",
+        "title_zh": "平移与向量",
+        "title_en": "Translations and vectors"
+      },
+      {
+        "id": "mathematics-8-8-2",
+        "title_zh": "反射、旋转与放大",
+        "title_en": "Reflections, rotations and enlargements"
+      }
+    ]
+  },
+  {
+    "id": "mathematics-8-9",
+    "subject_id": "mathematics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.9",
+    "order": 9,
+    "title_zh": "统计",
+    "title_en": "Statistics",
+    "developed": true,
+    "units": [
+      {
+        "id": "mathematics-8-9-u1",
+        "code": "8.9-1",
+        "order": 1,
+        "title_zh": "数据的收集与记录",
+        "title_en": "Collecting and recording data",
+        "sections": [
+          {
+            "id": "mathematics-8-9-1",
+            "code": "8.9.1",
+            "title_zh": "数据类型与收集方法",
+            "title_en": "Data types and collection methods",
+            "knowledge_id": "kp-mathematics-8-9-1"
+          },
+          {
+            "id": "mathematics-8-9-2",
+            "code": "8.9.2",
+            "title_zh": "记录与解释数据",
+            "title_en": "Recording and interpreting data",
+            "knowledge_id": "kp-mathematics-8-9-2"
+          }
+        ]
+      },
+      {
+        "id": "mathematics-8-9-u2",
+        "code": "8.9-2",
+        "order": 2,
+        "title_zh": "统计量与统计循环",
+        "title_en": "Descriptive statistics and the statistical cycle",
+        "sections": [
+          {
+            "id": "mathematics-8-9-3",
+            "code": "8.9.3",
+            "title_zh": "描述统计量",
+            "title_en": "Using descriptive statistics",
+            "knowledge_id": "kp-mathematics-8-9-3"
+          },
+          {
+            "id": "mathematics-8-9-4",
+            "code": "8.9.4",
+            "title_zh": "统计循环",
+            "title_en": "The statistical cycle",
+            "knowledge_id": "kp-mathematics-8-9-4"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "mathematics-8-9-1",
+        "title_zh": "数据类型与收集方法",
+        "title_en": "Data types and collection methods"
+      },
+      {
+        "id": "mathematics-8-9-2",
+        "title_zh": "记录与解释数据",
+        "title_en": "Recording and interpreting data"
+      },
+      {
+        "id": "mathematics-8-9-3",
+        "title_zh": "描述统计量",
+        "title_en": "Using descriptive statistics"
+      },
+      {
+        "id": "mathematics-8-9-4",
+        "title_zh": "统计循环",
+        "title_en": "The statistical cycle"
+      }
+    ]
+  },
+  {
+    "id": "english-8-1",
+    "subject_id": "english",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.1",
+    "order": 1,
+    "title_zh": "悬疑与紧张",
+    "title_en": "Mystery and suspense",
+    "developed": true,
+    "units": [
+      {
+        "id": "english-8-1-u1",
+        "code": "8.1-1",
+        "order": 1,
+        "title_zh": "叙事技巧与节奏",
+        "title_en": "Narrative technique and rhythm",
+        "sections": [
+          {
+            "id": "english-8-1-1",
+            "code": "8.1.1",
+            "title_zh": "叙事技巧与氛围",
+            "title_en": "Narrative technique and atmosphere",
+            "knowledge_id": "kp-english-8-1-1"
+          },
+          {
+            "id": "english-8-1-2",
+            "code": "8.1.2",
+            "title_zh": "句子节奏与悬念",
+            "title_en": "Sentence rhythm and suspense",
+            "knowledge_id": "kp-english-8-1-2"
+          }
+        ]
+      },
+      {
+        "id": "english-8-1-u2",
+        "code": "8.1-2",
+        "order": 2,
+        "title_zh": "人物、线索与伏笔",
+        "title_en": "Character, clues and foreshadowing",
+        "sections": [
+          {
+            "id": "english-8-1-3",
+            "code": "8.1.3",
+            "title_zh": "人物、线索与伏笔",
+            "title_en": "Character, clues and foreshadowing",
+            "knowledge_id": "kp-english-8-1-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "english-8-1-1",
+        "title_zh": "叙事技巧与氛围",
+        "title_en": "Narrative technique and atmosphere"
+      },
+      {
+        "id": "english-8-1-2",
+        "title_zh": "句子节奏与悬念",
+        "title_en": "Sentence rhythm and suspense"
+      },
+      {
+        "id": "english-8-1-3",
+        "title_zh": "人物、线索与伏笔",
+        "title_en": "Character, clues and foreshadowing"
+      }
+    ]
+  },
+  {
+    "id": "english-8-2",
+    "subject_id": "english",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.2",
+    "order": 2,
+    "title_zh": "地球上的荒野",
+    "title_en": "Earth’s wild places",
+    "developed": true,
+    "units": [
+      {
+        "id": "english-8-2-u1",
+        "code": "8.2-1",
+        "order": 1,
+        "title_zh": "描写与非虚构",
+        "title_en": "Description and non-fiction",
+        "sections": [
+          {
+            "id": "english-8-2-1",
+            "code": "8.2.1",
+            "title_zh": "描写性语言与感官细节",
+            "title_en": "Descriptive language and sensory detail",
+            "knowledge_id": "kp-english-8-2-1"
+          },
+          {
+            "id": "english-8-2-2",
+            "code": "8.2.2",
+            "title_zh": "非虚构：旅行与自然文本",
+            "title_en": "Non-fiction: travel and nature writing",
+            "knowledge_id": "kp-english-8-2-2"
+          }
+        ]
+      },
+      {
+        "id": "english-8-2-u2",
+        "code": "8.2-2",
+        "order": 2,
+        "title_zh": "结构与观点",
+        "title_en": "Structure and viewpoint",
+        "sections": [
+          {
+            "id": "english-8-2-3",
+            "code": "8.2.3",
+            "title_zh": "结构与观点",
+            "title_en": "Structure and viewpoint",
+            "knowledge_id": "kp-english-8-2-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "english-8-2-1",
+        "title_zh": "描写性语言与感官细节",
+        "title_en": "Descriptive language and sensory detail"
+      },
+      {
+        "id": "english-8-2-2",
+        "title_zh": "非虚构：旅行与自然文本",
+        "title_en": "Non-fiction: travel and nature writing"
+      },
+      {
+        "id": "english-8-2-3",
+        "title_zh": "结构与观点",
+        "title_en": "Structure and viewpoint"
+      }
+    ]
+  },
+  {
+    "id": "english-8-3",
+    "subject_id": "english",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.3",
+    "order": 3,
+    "title_zh": "语言与权力",
+    "title_en": "Language and power",
+    "developed": true,
+    "units": [
+      {
+        "id": "english-8-3-u1",
+        "code": "8.3-1",
+        "order": 1,
+        "title_zh": "语域与修辞",
+        "title_en": "Register and rhetoric",
+        "sections": [
+          {
+            "id": "english-8-3-1",
+            "code": "8.3.1",
+            "title_zh": "语域、语气与目的",
+            "title_en": "Register, tone and purpose",
+            "knowledge_id": "kp-english-8-3-1"
+          },
+          {
+            "id": "english-8-3-2",
+            "code": "8.3.2",
+            "title_zh": "修辞与说服",
+            "title_en": "Rhetoric and persuasion",
+            "knowledge_id": "kp-english-8-3-2"
+          }
+        ]
+      },
+      {
+        "id": "english-8-3-u2",
+        "code": "8.3-2",
+        "order": 2,
+        "title_zh": "评论文本中的立场",
+        "title_en": "Evaluating stance",
+        "sections": [
+          {
+            "id": "english-8-3-3",
+            "code": "8.3.3",
+            "title_zh": "评论文本中的立场",
+            "title_en": "Evaluating stance in texts",
+            "knowledge_id": "kp-english-8-3-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "english-8-3-1",
+        "title_zh": "语域、语气与目的",
+        "title_en": "Register, tone and purpose"
+      },
+      {
+        "id": "english-8-3-2",
+        "title_zh": "修辞与说服",
+        "title_en": "Rhetoric and persuasion"
+      },
+      {
+        "id": "english-8-3-3",
+        "title_zh": "评论文本中的立场",
+        "title_en": "Evaluating stance in texts"
+      }
+    ]
+  },
+  {
+    "id": "english-8-4",
+    "subject_id": "english",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.4",
+    "order": 4,
+    "title_zh": "科技",
+    "title_en": "Technology",
+    "developed": true,
+    "units": [
+      {
+        "id": "english-8-4-u1",
+        "code": "8.4-1",
+        "order": 1,
+        "title_zh": "说明与论证",
+        "title_en": "Explanation and argument",
+        "sections": [
+          {
+            "id": "english-8-4-1",
+            "code": "8.4.1",
+            "title_zh": "说明与报告文本",
+            "title_en": "Explanatory and report texts",
+            "knowledge_id": "kp-english-8-4-1"
+          },
+          {
+            "id": "english-8-4-2",
+            "code": "8.4.2",
+            "title_zh": "论证科技议题",
+            "title_en": "Arguing a technology issue",
+            "knowledge_id": "kp-english-8-4-2"
+          }
+        ]
+      },
+      {
+        "id": "english-8-4-u2",
+        "code": "8.4-2",
+        "order": 2,
+        "title_zh": "准确用词",
+        "title_en": "Precise vocabulary",
+        "sections": [
+          {
+            "id": "english-8-4-3",
+            "code": "8.4.3",
+            "title_zh": "准确用词与术语",
+            "title_en": "Precise vocabulary and terminology",
+            "knowledge_id": "kp-english-8-4-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "english-8-4-1",
+        "title_zh": "说明与报告文本",
+        "title_en": "Explanatory and report texts"
+      },
+      {
+        "id": "english-8-4-2",
+        "title_zh": "论证科技议题",
+        "title_en": "Arguing a technology issue"
+      },
+      {
+        "id": "english-8-4-3",
+        "title_zh": "准确用词与术语",
+        "title_en": "Precise vocabulary and terminology"
+      }
+    ]
+  },
+  {
+    "id": "english-8-5",
+    "subject_id": "english",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.5",
+    "order": 5,
+    "title_zh": "生存",
+    "title_en": "Survival",
+    "developed": true,
+    "units": [
+      {
+        "id": "english-8-5-u1",
+        "code": "8.5-1",
+        "order": 1,
+        "title_zh": "记叙中的冲突",
+        "title_en": "Conflict in narrative",
+        "sections": [
+          {
+            "id": "english-8-5-1",
+            "code": "8.5.1",
+            "title_zh": "记叙中的冲突与选择",
+            "title_en": "Conflict and choice in narrative",
+            "knowledge_id": "kp-english-8-5-1"
+          }
+        ]
+      },
+      {
+        "id": "english-8-5-u2",
+        "code": "8.5-2",
+        "order": 2,
+        "title_zh": "说明、指导与推断",
+        "title_en": "Explanation, instruction and inference",
+        "sections": [
+          {
+            "id": "english-8-5-2",
+            "code": "8.5.2",
+            "title_zh": "说明性与指导性文本",
+            "title_en": "Explanatory and instructional texts",
+            "knowledge_id": "kp-english-8-5-2"
+          },
+          {
+            "id": "english-8-5-3",
+            "code": "8.5.3",
+            "title_zh": "从文本中推断",
+            "title_en": "Inferring from texts",
+            "knowledge_id": "kp-english-8-5-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "english-8-5-1",
+        "title_zh": "记叙中的冲突与选择",
+        "title_en": "Conflict and choice in narrative"
+      },
+      {
+        "id": "english-8-5-2",
+        "title_zh": "说明性与指导性文本",
+        "title_en": "Explanatory and instructional texts"
+      },
+      {
+        "id": "english-8-5-3",
+        "title_zh": "从文本中推断",
+        "title_en": "Inferring from texts"
+      }
+    ]
+  },
+  {
+    "id": "english-8-6",
+    "subject_id": "english",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.6",
+    "order": 6,
+    "title_zh": "喜剧",
+    "title_en": "Comedy",
+    "developed": true,
+    "units": [
+      {
+        "id": "english-8-6-u1",
+        "code": "8.6-1",
+        "order": 1,
+        "title_zh": "幽默手法与戏剧语言",
+        "title_en": "Humour and dramatic language",
+        "sections": [
+          {
+            "id": "english-8-6-1",
+            "code": "8.6.1",
+            "title_zh": "幽默手法",
+            "title_en": "Techniques of humour",
+            "knowledge_id": "kp-english-8-6-1"
+          },
+          {
+            "id": "english-8-6-2",
+            "code": "8.6.2",
+            "title_zh": "戏剧脚本与表演语言",
+            "title_en": "Playscripts and performance language",
+            "knowledge_id": "kp-english-8-6-2"
+          }
+        ]
+      },
+      {
+        "id": "english-8-6-u2",
+        "code": "8.6-2",
+        "order": 2,
+        "title_zh": "评鉴喜剧文本",
+        "title_en": "Evaluating comic texts",
+        "sections": [
+          {
+            "id": "english-8-6-3",
+            "code": "8.6.3",
+            "title_zh": "评鉴与比较喜剧文本",
+            "title_en": "Evaluating and comparing comic texts",
+            "knowledge_id": "kp-english-8-6-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "english-8-6-1",
+        "title_zh": "幽默手法",
+        "title_en": "Techniques of humour"
+      },
+      {
+        "id": "english-8-6-2",
+        "title_zh": "戏剧脚本与表演语言",
+        "title_en": "Playscripts and performance language"
+      },
+      {
+        "id": "english-8-6-3",
+        "title_zh": "评鉴与比较喜剧文本",
+        "title_en": "Evaluating and comparing comic texts"
+      }
+    ]
+  },
+  {
+    "id": "computer-science-8-1",
+    "subject_id": "computer-science",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.1",
+    "order": 1,
+    "title_zh": "构建网络：网络结构与安全",
+    "title_en": "Building networks: Network structure and security",
+    "developed": true,
+    "units": [
+      {
+        "id": "computer-science-8-1-u1",
+        "code": "8.1-1",
+        "order": 1,
+        "title_zh": "网络结构",
+        "title_en": "Network structure",
+        "sections": [
+          {
+            "id": "computer-science-8-1-1",
+            "code": "8.1.1",
+            "title_zh": "网络类型与拓扑",
+            "title_en": "Network types and topologies",
+            "knowledge_id": "kp-computer-science-8-1-1"
+          },
+          {
+            "id": "computer-science-8-1-2",
+            "code": "8.1.2",
+            "title_zh": "有线与无线传输",
+            "title_en": "Wired and wireless transmission",
+            "knowledge_id": "kp-computer-science-8-1-2"
+          }
+        ]
+      },
+      {
+        "id": "computer-science-8-1-u2",
+        "code": "8.1-2",
+        "order": 2,
+        "title_zh": "网络安全",
+        "title_en": "Network security",
+        "sections": [
+          {
+            "id": "computer-science-8-1-3",
+            "code": "8.1.3",
+            "title_zh": "网络安全与防护",
+            "title_en": "Network security and protection",
+            "knowledge_id": "kp-computer-science-8-1-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "computer-science-8-1-1",
+        "title_zh": "网络类型与拓扑",
+        "title_en": "Network types and topologies"
+      },
+      {
+        "id": "computer-science-8-1-2",
+        "title_zh": "有线与无线传输",
+        "title_en": "Wired and wireless transmission"
+      },
+      {
+        "id": "computer-science-8-1-3",
+        "title_zh": "网络安全与防护",
+        "title_en": "Network security and protection"
+      }
+    ]
+  },
+  {
+    "id": "computer-science-8-2",
+    "subject_id": "computer-science",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.2",
+    "order": 2,
+    "title_zh": "关键在规划：伪代码与算法",
+    "title_en": "It’s all in the planning: Pseudocode and algorithms",
+    "developed": true,
+    "units": [
+      {
+        "id": "computer-science-8-2-u1",
+        "code": "8.2-1",
+        "order": 1,
+        "title_zh": "算法与表示",
+        "title_en": "Algorithms and representation",
+        "sections": [
+          {
+            "id": "computer-science-8-2-1",
+            "code": "8.2.1",
+            "title_zh": "算法与分解",
+            "title_en": "Algorithms and decomposition",
+            "knowledge_id": "kp-computer-science-8-2-1"
+          },
+          {
+            "id": "computer-science-8-2-2",
+            "code": "8.2.2",
+            "title_zh": "伪代码与流程图",
+            "title_en": "Pseudocode and flowcharts",
+            "knowledge_id": "kp-computer-science-8-2-2"
+          }
+        ]
+      },
+      {
+        "id": "computer-science-8-2-u2",
+        "code": "8.2-2",
+        "order": 2,
+        "title_zh": "选择与循环",
+        "title_en": "Selection and iteration",
+        "sections": [
+          {
+            "id": "computer-science-8-2-3",
+            "code": "8.2.3",
+            "title_zh": "选择与循环结构",
+            "title_en": "Selection and iteration",
+            "knowledge_id": "kp-computer-science-8-2-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "computer-science-8-2-1",
+        "title_zh": "算法与分解",
+        "title_en": "Algorithms and decomposition"
+      },
+      {
+        "id": "computer-science-8-2-2",
+        "title_zh": "伪代码与流程图",
+        "title_en": "Pseudocode and flowcharts"
+      },
+      {
+        "id": "computer-science-8-2-3",
+        "title_zh": "选择与循环结构",
+        "title_en": "Selection and iteration"
+      }
+    ]
+  },
+  {
+    "id": "computer-science-8-3",
+    "subject_id": "computer-science",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.3",
+    "order": 3,
+    "title_zh": "谈谈技术：计算机内部",
+    "title_en": "Let’s talk technology: What’s going on inside",
+    "developed": true,
+    "units": [
+      {
+        "id": "computer-science-8-3-u1",
+        "code": "8.3-1",
+        "order": 1,
+        "title_zh": "系统组成",
+        "title_en": "System components",
+        "sections": [
+          {
+            "id": "computer-science-8-3-1",
+            "code": "8.3.1",
+            "title_zh": "硬件与软件",
+            "title_en": "Hardware and software",
+            "knowledge_id": "kp-computer-science-8-3-1"
+          },
+          {
+            "id": "computer-science-8-3-2",
+            "code": "8.3.2",
+            "title_zh": "数据表示（含 ASCII）",
+            "title_en": "Data representation, including ASCII",
+            "knowledge_id": "kp-computer-science-8-3-2"
+          }
+        ]
+      },
+      {
+        "id": "computer-science-8-3-u2",
+        "code": "8.3-2",
+        "order": 2,
+        "title_zh": "操作系统",
+        "title_en": "Operating systems",
+        "sections": [
+          {
+            "id": "computer-science-8-3-3",
+            "code": "8.3.3",
+            "title_zh": "操作系统的作用",
+            "title_en": "The role of the operating system",
+            "knowledge_id": "kp-computer-science-8-3-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "computer-science-8-3-1",
+        "title_zh": "硬件与软件",
+        "title_en": "Hardware and software"
+      },
+      {
+        "id": "computer-science-8-3-2",
+        "title_zh": "数据表示（含 ASCII）",
+        "title_en": "Data representation, including ASCII"
+      },
+      {
+        "id": "computer-science-8-3-3",
+        "title_zh": "操作系统的作用",
+        "title_en": "The role of the operating system"
+      }
+    ]
+  },
+  {
+    "id": "computer-science-8-4",
+    "subject_id": "computer-science",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.4",
+    "order": 4,
+    "title_zh": "测试条件：开发游戏",
+    "title_en": "Testing conditions: Developing games",
+    "developed": true,
+    "units": [
+      {
+        "id": "computer-science-8-4-u1",
+        "code": "8.4-1",
+        "order": 1,
+        "title_zh": "选择、逻辑与数据",
+        "title_en": "Selection, logic and data",
+        "sections": [
+          {
+            "id": "computer-science-8-4-1",
+            "code": "8.4.1",
+            "title_zh": "选择与布尔逻辑",
+            "title_en": "Selection and Boolean logic",
+            "knowledge_id": "kp-computer-science-8-4-1"
+          },
+          {
+            "id": "computer-science-8-4-2",
+            "code": "8.4.2",
+            "title_zh": "变量与数据类型",
+            "title_en": "Variables and data types",
+            "knowledge_id": "kp-computer-science-8-4-2"
+          }
+        ]
+      },
+      {
+        "id": "computer-science-8-4-u2",
+        "code": "8.4-2",
+        "order": 2,
+        "title_zh": "测试",
+        "title_en": "Testing",
+        "sections": [
+          {
+            "id": "computer-science-8-4-3",
+            "code": "8.4.3",
+            "title_zh": "测试计划与测试数据",
+            "title_en": "Test plans and test data",
+            "knowledge_id": "kp-computer-science-8-4-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "computer-science-8-4-1",
+        "title_zh": "选择与布尔逻辑",
+        "title_en": "Selection and Boolean logic"
+      },
+      {
+        "id": "computer-science-8-4-2",
+        "title_zh": "变量与数据类型",
+        "title_en": "Variables and data types"
+      },
+      {
+        "id": "computer-science-8-4-3",
+        "title_zh": "测试计划与测试数据",
+        "title_en": "Test plans and test data"
+      }
+    ]
+  },
+  {
+    "id": "computer-science-8-5",
+    "subject_id": "computer-science",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.5",
+    "order": 5,
+    "title_zh": "数据输入：收集与校验",
+    "title_en": "Data input: Data collection and validation",
+    "developed": true,
+    "units": [
+      {
+        "id": "computer-science-8-5-u1",
+        "code": "8.5-1",
+        "order": 1,
+        "title_zh": "收集与校验",
+        "title_en": "Collection and validation",
+        "sections": [
+          {
+            "id": "computer-science-8-5-1",
+            "code": "8.5.1",
+            "title_zh": "数据收集与质量",
+            "title_en": "Data collection and quality",
+            "knowledge_id": "kp-computer-science-8-5-1"
+          },
+          {
+            "id": "computer-science-8-5-2",
+            "code": "8.5.2",
+            "title_zh": "校验与核对",
+            "title_en": "Validation and verification",
+            "knowledge_id": "kp-computer-science-8-5-2"
+          }
+        ]
+      },
+      {
+        "id": "computer-science-8-5-u2",
+        "code": "8.5-2",
+        "order": 2,
+        "title_zh": "电子表格模型",
+        "title_en": "Spreadsheet models",
+        "sections": [
+          {
+            "id": "computer-science-8-5-3",
+            "code": "8.5.3",
+            "title_zh": "电子表格与简单模型",
+            "title_en": "Spreadsheets and simple models",
+            "knowledge_id": "kp-computer-science-8-5-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "computer-science-8-5-1",
+        "title_zh": "数据收集与质量",
+        "title_en": "Data collection and quality"
+      },
+      {
+        "id": "computer-science-8-5-2",
+        "title_zh": "校验与核对",
+        "title_en": "Validation and verification"
+      },
+      {
+        "id": "computer-science-8-5-3",
+        "title_zh": "电子表格与简单模型",
+        "title_en": "Spreadsheets and simple models"
+      }
+    ]
+  },
+  {
+    "id": "computer-science-8-6",
+    "subject_id": "computer-science",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8.6",
+    "order": 6,
+    "title_zh": "迭代求解：软件设计与开发",
+    "title_en": "Iterating through a solution: Software design and development",
+    "developed": true,
+    "units": [
+      {
+        "id": "computer-science-8-6-u1",
+        "code": "8.6-1",
+        "order": 1,
+        "title_zh": "设计与子程序",
+        "title_en": "Design and sub-routines",
+        "sections": [
+          {
+            "id": "computer-science-8-6-1",
+            "code": "8.6.1",
+            "title_zh": "开发阶段",
+            "title_en": "Development phases",
+            "knowledge_id": "kp-computer-science-8-6-1"
+          },
+          {
+            "id": "computer-science-8-6-2",
+            "code": "8.6.2",
+            "title_zh": "子程序与程序库",
+            "title_en": "Sub-routines and libraries",
+            "knowledge_id": "kp-computer-science-8-6-2"
+          }
+        ]
+      },
+      {
+        "id": "computer-science-8-6-u2",
+        "code": "8.6-2",
+        "order": 2,
+        "title_zh": "查错",
+        "title_en": "Debugging",
+        "sections": [
+          {
+            "id": "computer-science-8-6-3",
+            "code": "8.6.3",
+            "title_zh": "查错：语法错误与逻辑错误",
+            "title_en": "Debugging: syntax and logic errors",
+            "knowledge_id": "kp-computer-science-8-6-3"
+          }
+        ]
+      }
+    ],
+    "note_zh": "代码练习放在相应课时内（选择、循环、变量、子程序等），不再作为网站顶部的独立模块。",
+    "note_en": "Code exercises sit inside the relevant lessons (selection, iteration, variables, sub-routines and so on), not as a separate header module.",
+    "topics": [
+      {
+        "id": "computer-science-8-6-1",
+        "title_zh": "开发阶段",
+        "title_en": "Development phases"
+      },
+      {
+        "id": "computer-science-8-6-2",
+        "title_zh": "子程序与程序库",
+        "title_en": "Sub-routines and libraries"
+      },
+      {
+        "id": "computer-science-8-6-3",
+        "title_zh": "查错：语法错误与逻辑错误",
+        "title_en": "Debugging: syntax and logic errors"
+      }
+    ]
+  },
+  {
+    "id": "economics-1",
+    "subject_id": "economics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "1",
+    "order": 1,
+    "title_zh": "基本经济问题",
+    "title_en": "The basic economic problem",
+    "developed": true,
+    "units": [
+      {
+        "id": "economics-1-u1",
+        "code": "1-1",
+        "order": 1,
+        "title_zh": "稀缺与资源",
+        "title_en": "Scarcity and resources",
+        "sections": [
+          {
+            "id": "economics-1-1",
+            "code": "1.1",
+            "title_zh": "稀缺、欲望与经济物品",
+            "title_en": "Scarcity, wants and economic goods",
+            "knowledge_id": "kp-economics-1-1"
+          },
+          {
+            "id": "economics-1-2",
+            "code": "1.2",
+            "title_zh": "生产要素",
+            "title_en": "Factors of production",
+            "knowledge_id": "kp-economics-1-2"
+          }
+        ]
+      },
+      {
+        "id": "economics-1-u2",
+        "code": "1-2",
+        "order": 2,
+        "title_zh": "选择与机会成本",
+        "title_en": "Choice and opportunity cost",
+        "sections": [
+          {
+            "id": "economics-1-3",
+            "code": "1.3",
+            "title_zh": "机会成本与生产可能性曲线",
+            "title_en": "Opportunity cost and the PPC",
+            "knowledge_id": "kp-economics-1-3"
+          }
+        ]
+      }
+    ],
+    "note_zh": "经济不是剑桥中学初级阶段科目。本章按 IGCSE 经济（0455）的官方主题入门，深度控制在八年级基础，并不是完整的 IGCSE 课程。",
+    "note_en": "Economics is not a Cambridge Lower Secondary subject. These chapters follow the official IGCSE Economics (0455) topic structure at an introductory Year 8 depth. This is a foundation course, not a full IGCSE course.",
+    "topics": [
+      {
+        "id": "economics-1-1",
+        "title_zh": "稀缺、欲望与经济物品",
+        "title_en": "Scarcity, wants and economic goods"
+      },
+      {
+        "id": "economics-1-2",
+        "title_zh": "生产要素",
+        "title_en": "Factors of production"
+      },
+      {
+        "id": "economics-1-3",
+        "title_zh": "机会成本与生产可能性曲线",
+        "title_en": "Opportunity cost and the PPC"
+      }
+    ]
+  },
+  {
+    "id": "economics-2",
+    "subject_id": "economics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "2",
+    "order": 2,
+    "title_zh": "资源配置",
+    "title_en": "The allocation of resources",
+    "developed": true,
+    "units": [
+      {
+        "id": "economics-2-u1",
+        "code": "2-1",
+        "order": 1,
+        "title_zh": "市场与均衡",
+        "title_en": "Markets and equilibrium",
+        "sections": [
+          {
+            "id": "economics-2-1",
+            "code": "2.1",
+            "title_zh": "市场与价格机制",
+            "title_en": "Markets and the price mechanism",
+            "knowledge_id": "kp-economics-2-1"
+          },
+          {
+            "id": "economics-2-2",
+            "code": "2.2",
+            "title_zh": "需求、供给与均衡",
+            "title_en": "Demand, supply and equilibrium",
+            "knowledge_id": "kp-economics-2-2"
+          }
+        ]
+      },
+      {
+        "id": "economics-2-u2",
+        "code": "2-2",
+        "order": 2,
+        "title_zh": "弹性与市场失灵入门",
+        "title_en": "Elasticity and market failure (introductory)",
+        "sections": [
+          {
+            "id": "economics-2-3",
+            "code": "2.3",
+            "title_zh": "弹性入门",
+            "title_en": "An introduction to elasticity",
+            "knowledge_id": "kp-economics-2-3"
+          },
+          {
+            "id": "economics-2-4",
+            "code": "2.4",
+            "title_zh": "市场失灵入门",
+            "title_en": "An introduction to market failure",
+            "knowledge_id": "kp-economics-2-4"
+          }
+        ]
+      }
+    ],
+    "note_zh": "经济不是剑桥中学初级阶段科目。本章按 IGCSE 经济（0455）的官方主题入门，深度控制在八年级基础，并不是完整的 IGCSE 课程。",
+    "note_en": "Economics is not a Cambridge Lower Secondary subject. These chapters follow the official IGCSE Economics (0455) topic structure at an introductory Year 8 depth. This is a foundation course, not a full IGCSE course.",
+    "topics": [
+      {
+        "id": "economics-2-1",
+        "title_zh": "市场与价格机制",
+        "title_en": "Markets and the price mechanism"
+      },
+      {
+        "id": "economics-2-2",
+        "title_zh": "需求、供给与均衡",
+        "title_en": "Demand, supply and equilibrium"
+      },
+      {
+        "id": "economics-2-3",
+        "title_zh": "弹性入门",
+        "title_en": "An introduction to elasticity"
+      },
+      {
+        "id": "economics-2-4",
+        "title_zh": "市场失灵入门",
+        "title_en": "An introduction to market failure"
+      }
+    ]
+  },
+  {
+    "id": "economics-3",
+    "subject_id": "economics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "3",
+    "order": 3,
+    "title_zh": "微观经济决策者",
+    "title_en": "Microeconomic decision-makers",
+    "developed": true,
+    "units": [
+      {
+        "id": "economics-3-u1",
+        "code": "3-1",
+        "order": 1,
+        "title_zh": "货币、家庭与工人",
+        "title_en": "Money, households and workers",
+        "sections": [
+          {
+            "id": "economics-3-1",
+            "code": "3.1",
+            "title_zh": "货币与银行",
+            "title_en": "Money and banking",
+            "knowledge_id": "kp-economics-3-1"
+          },
+          {
+            "id": "economics-3-2",
+            "code": "3.2",
+            "title_zh": "家庭与消费、储蓄、支出",
+            "title_en": "Households: spending, saving and borrowing",
+            "knowledge_id": "kp-economics-3-2"
+          },
+          {
+            "id": "economics-3-3",
+            "code": "3.3",
+            "title_zh": "工人与工资",
+            "title_en": "Workers and wages",
+            "knowledge_id": "kp-economics-3-3"
+          }
+        ]
+      },
+      {
+        "id": "economics-3-u2",
+        "code": "3-2",
+        "order": 2,
+        "title_zh": "企业入门",
+        "title_en": "Firms (introductory)",
+        "sections": [
+          {
+            "id": "economics-3-4",
+            "code": "3.4",
+            "title_zh": "企业、生产与成本入门",
+            "title_en": "Firms, production and costs (introductory)",
+            "knowledge_id": "kp-economics-3-4"
+          }
+        ]
+      }
+    ],
+    "note_zh": "经济不是剑桥中学初级阶段科目。本章按 IGCSE 经济（0455）的官方主题入门，深度控制在八年级基础，并不是完整的 IGCSE 课程。",
+    "note_en": "Economics is not a Cambridge Lower Secondary subject. These chapters follow the official IGCSE Economics (0455) topic structure at an introductory Year 8 depth. This is a foundation course, not a full IGCSE course.",
+    "topics": [
+      {
+        "id": "economics-3-1",
+        "title_zh": "货币与银行",
+        "title_en": "Money and banking"
+      },
+      {
+        "id": "economics-3-2",
+        "title_zh": "家庭与消费、储蓄、支出",
+        "title_en": "Households: spending, saving and borrowing"
+      },
+      {
+        "id": "economics-3-3",
+        "title_zh": "工人与工资",
+        "title_en": "Workers and wages"
+      },
+      {
+        "id": "economics-3-4",
+        "title_zh": "企业、生产与成本入门",
+        "title_en": "Firms, production and costs (introductory)"
+      }
+    ]
+  },
+  {
+    "id": "economics-4",
+    "subject_id": "economics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "4",
+    "order": 4,
+    "title_zh": "政府与宏观经济",
+    "title_en": "Government and the macroeconomy",
+    "developed": true,
+    "units": [
+      {
+        "id": "economics-4-u1",
+        "code": "4-1",
+        "order": 1,
+        "title_zh": "目标与政策入门",
+        "title_en": "Aims and policy (introductory)",
+        "sections": [
+          {
+            "id": "economics-4-1",
+            "code": "4.1",
+            "title_zh": "政府的经济目标",
+            "title_en": "Government economic aims",
+            "knowledge_id": "kp-economics-4-1"
+          },
+          {
+            "id": "economics-4-2",
+            "code": "4.2",
+            "title_zh": "财政政策入门",
+            "title_en": "An introduction to fiscal policy",
+            "knowledge_id": "kp-economics-4-2"
+          },
+          {
+            "id": "economics-4-3",
+            "code": "4.3",
+            "title_zh": "货币政策与供给政策入门",
+            "title_en": "Monetary and supply-side policy (introductory)",
+            "knowledge_id": "kp-economics-4-3"
+          }
+        ]
+      },
+      {
+        "id": "economics-4-u2",
+        "code": "4-2",
+        "order": 2,
+        "title_zh": "增长、失业与通货膨胀",
+        "title_en": "Growth, unemployment and inflation",
+        "sections": [
+          {
+            "id": "economics-4-4",
+            "code": "4.4",
+            "title_zh": "经济增长、失业与通货膨胀",
+            "title_en": "Growth, unemployment and inflation",
+            "knowledge_id": "kp-economics-4-4"
+          }
+        ]
+      }
+    ],
+    "note_zh": "经济不是剑桥中学初级阶段科目。本章按 IGCSE 经济（0455）的官方主题入门，深度控制在八年级基础，并不是完整的 IGCSE 课程。",
+    "note_en": "Economics is not a Cambridge Lower Secondary subject. These chapters follow the official IGCSE Economics (0455) topic structure at an introductory Year 8 depth. This is a foundation course, not a full IGCSE course.",
+    "topics": [
+      {
+        "id": "economics-4-1",
+        "title_zh": "政府的经济目标",
+        "title_en": "Government economic aims"
+      },
+      {
+        "id": "economics-4-2",
+        "title_zh": "财政政策入门",
+        "title_en": "An introduction to fiscal policy"
+      },
+      {
+        "id": "economics-4-3",
+        "title_zh": "货币政策与供给政策入门",
+        "title_en": "Monetary and supply-side policy (introductory)"
+      },
+      {
+        "id": "economics-4-4",
+        "title_zh": "经济增长、失业与通货膨胀",
+        "title_en": "Growth, unemployment and inflation"
+      }
+    ]
+  },
+  {
+    "id": "economics-5",
+    "subject_id": "economics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "5",
+    "order": 5,
+    "title_zh": "经济发展",
+    "title_en": "Economic development",
+    "developed": true,
+    "units": [
+      {
+        "id": "economics-5-u1",
+        "code": "5-1",
+        "order": 1,
+        "title_zh": "生活水平与贫困",
+        "title_en": "Living standards and poverty",
+        "sections": [
+          {
+            "id": "economics-5-1",
+            "code": "5.1",
+            "title_zh": "生活水平",
+            "title_en": "Living standards",
+            "knowledge_id": "kp-economics-5-1"
+          },
+          {
+            "id": "economics-5-2",
+            "code": "5.2",
+            "title_zh": "贫困",
+            "title_en": "Poverty",
+            "knowledge_id": "kp-economics-5-2"
+          }
+        ]
+      },
+      {
+        "id": "economics-5-u2",
+        "code": "5-2",
+        "order": 2,
+        "title_zh": "人口与发展差异",
+        "title_en": "Population and differences in development",
+        "sections": [
+          {
+            "id": "economics-5-3",
+            "code": "5.3",
+            "title_zh": "人口",
+            "title_en": "Population",
+            "knowledge_id": "kp-economics-5-3"
+          },
+          {
+            "id": "economics-5-4",
+            "code": "5.4",
+            "title_zh": "发展差异",
+            "title_en": "Differences in development",
+            "knowledge_id": "kp-economics-5-4"
+          }
+        ]
+      }
+    ],
+    "note_zh": "经济不是剑桥中学初级阶段科目。本章按 IGCSE 经济（0455）的官方主题入门，深度控制在八年级基础，并不是完整的 IGCSE 课程。",
+    "note_en": "Economics is not a Cambridge Lower Secondary subject. These chapters follow the official IGCSE Economics (0455) topic structure at an introductory Year 8 depth. This is a foundation course, not a full IGCSE course.",
+    "topics": [
+      {
+        "id": "economics-5-1",
+        "title_zh": "生活水平",
+        "title_en": "Living standards"
+      },
+      {
+        "id": "economics-5-2",
+        "title_zh": "贫困",
+        "title_en": "Poverty"
+      },
+      {
+        "id": "economics-5-3",
+        "title_zh": "人口",
+        "title_en": "Population"
+      },
+      {
+        "id": "economics-5-4",
+        "title_zh": "发展差异",
+        "title_en": "Differences in development"
+      }
+    ]
+  },
+  {
+    "id": "economics-6",
+    "subject_id": "economics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "6",
+    "order": 6,
+    "title_zh": "国际贸易与全球化",
+    "title_en": "International trade and globalisation",
+    "developed": true,
+    "units": [
+      {
+        "id": "economics-6-u1",
+        "code": "6-1",
+        "order": 1,
+        "title_zh": "贸易与限制",
+        "title_en": "Trade and restrictions",
+        "sections": [
+          {
+            "id": "economics-6-1",
+            "code": "6.1",
+            "title_zh": "专业化与贸易",
+            "title_en": "Specialisation and trade",
+            "knowledge_id": "kp-economics-6-1"
+          },
+          {
+            "id": "economics-6-2",
+            "code": "6.2",
+            "title_zh": "贸易限制",
+            "title_en": "Trade restrictions",
+            "knowledge_id": "kp-economics-6-2"
+          }
+        ]
+      },
+      {
+        "id": "economics-6-u2",
+        "code": "6-2",
+        "order": 2,
+        "title_zh": "汇率与国际收支入门",
+        "title_en": "Exchange rates and the balance of payments (introductory)",
+        "sections": [
+          {
+            "id": "economics-6-3",
+            "code": "6.3",
+            "title_zh": "汇率入门",
+            "title_en": "An introduction to exchange rates",
+            "knowledge_id": "kp-economics-6-3"
+          },
+          {
+            "id": "economics-6-4",
+            "code": "6.4",
+            "title_zh": "国际收支入门",
+            "title_en": "An introduction to the balance of payments",
+            "knowledge_id": "kp-economics-6-4"
+          }
+        ]
+      }
+    ],
+    "note_zh": "经济不是剑桥中学初级阶段科目。本章按 IGCSE 经济（0455）的官方主题入门，深度控制在八年级基础，并不是完整的 IGCSE 课程。",
+    "note_en": "Economics is not a Cambridge Lower Secondary subject. These chapters follow the official IGCSE Economics (0455) topic structure at an introductory Year 8 depth. This is a foundation course, not a full IGCSE course.",
+    "topics": [
+      {
+        "id": "economics-6-1",
+        "title_zh": "专业化与贸易",
+        "title_en": "Specialisation and trade"
+      },
+      {
+        "id": "economics-6-2",
+        "title_zh": "贸易限制",
+        "title_en": "Trade restrictions"
+      },
+      {
+        "id": "economics-6-3",
+        "title_zh": "汇率入门",
+        "title_en": "An introduction to exchange rates"
+      },
+      {
+        "id": "economics-6-4",
+        "title_zh": "国际收支入门",
+        "title_en": "An introduction to the balance of payments"
+      }
+    ]
+  },
+  {
+    "id": "physics-8Pf",
+    "subject_id": "physics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8Pf",
+    "order": 1,
+    "title_zh": "力与能量",
+    "title_en": "Forces and energy",
+    "units": [
+      {
+        "id": "physics-8Pf-u1",
+        "code": "8Pf-1",
+        "order": 1,
+        "title_zh": "运动与图像",
+        "title_en": "Motion and graphs",
+        "sections": [
+          {
+            "id": "physics-8Pf-s01",
+            "code": "8Pf.01",
+            "lo_codes": [
+              "8Pf.01"
+            ],
+            "title_zh": "计算速度",
+            "title_en": "Calculating speed",
+            "knowledge_id": "kp-physics-8Pf-s01"
+          },
+          {
+            "id": "physics-8Pf-s02",
+            "code": "8Pf.02",
+            "lo_codes": [
+              "8Pf.02"
+            ],
+            "title_zh": "路程—时间图像",
+            "title_en": "Distance–time graphs",
+            "knowledge_id": "kp-physics-8Pf-s02"
+          }
+        ]
+      },
+      {
+        "id": "physics-8Pf-u2",
+        "code": "8Pf-2",
+        "order": 2,
+        "title_zh": "力与力矩",
+        "title_en": "Forces and moments",
+        "sections": [
+          {
+            "id": "physics-8Pf-s03",
+            "code": "8Pf.03",
+            "lo_codes": [
+              "8Pf.03"
+            ],
+            "title_zh": "平衡力与非平衡力",
+            "title_en": "Balanced and unbalanced forces",
+            "knowledge_id": "kp-physics-8Pf-s03"
+          },
+          {
+            "id": "physics-8Pf-s04",
+            "code": "8Pf.04",
+            "lo_codes": [
+              "8Pf.04"
+            ],
+            "title_zh": "力矩（转向力）",
+            "title_en": "Moments (turning forces)",
+            "knowledge_id": "kp-physics-8Pf-s04"
+          }
+        ]
+      },
+      {
+        "id": "physics-8Pf-u3",
+        "code": "8Pf-3",
+        "order": 3,
+        "title_zh": "压强、粒子与扩散",
+        "title_en": "Pressure, particles and diffusion",
+        "sections": [
+          {
+            "id": "physics-8Pf-s05",
+            "code": "8Pf.05",
+            "lo_codes": [
+              "8Pf.05"
+            ],
+            "title_zh": "压强",
+            "title_en": "Pressure",
+            "knowledge_id": "kp-physics-8Pf-s05"
+          },
+          {
+            "id": "physics-8Pf-s06",
+            "code": "8Pf.06",
+            "lo_codes": [
+              "8Pf.06"
+            ],
+            "title_zh": "用粒子模型解释压强",
+            "title_en": "Pressure and the particle model",
+            "knowledge_id": "kp-physics-8Pf-s06"
+          },
+          {
+            "id": "physics-8Pf-s07",
+            "code": "8Pf.07",
+            "lo_codes": [
+              "8Pf.07"
+            ],
+            "title_zh": "气体与液体的扩散",
+            "title_en": "Diffusion of gases and liquids",
+            "knowledge_id": "kp-physics-8Pf-s07"
+          }
+        ]
+      }
+    ],
+    "developed": true
+  },
+  {
+    "id": "physics-8Ps",
+    "subject_id": "physics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8Ps",
+    "order": 2,
+    "title_zh": "光与声",
+    "title_en": "Light and sound",
+    "note_zh": "第 8 阶段该分项（8Ps）的学习目标全部关于光；声音出现在第 7、第 9 阶段。本章保持官方分项名称，不另编声音课时。",
+    "note_en": "At Stage 8 the 8Ps learning objectives are about light only; sound is taught in Stages 7 and 9. The official sub-strand name is kept; no invented sound lessons are added.",
+    "units": [
+      {
+        "id": "physics-8Ps-u1",
+        "code": "8Ps-1",
+        "order": 1,
+        "title_zh": "反射与折射",
+        "title_en": "Reflection and refraction",
+        "sections": [
+          {
+            "id": "physics-8Ps-s01",
+            "code": "8Ps.01",
+            "lo_codes": [
+              "8Ps.01"
+            ],
+            "title_zh": "平面镜反射与反射定律",
+            "title_en": "Reflection at a plane surface and the law of reflection",
+            "knowledge_id": "kp-physics-8Ps-s01"
+          },
+          {
+            "id": "physics-8Ps-s02",
+            "code": "8Ps.02",
+            "lo_codes": [
+              "8Ps.02"
+            ],
+            "title_zh": "折射（空气—玻璃 / 空气—水）",
+            "title_en": "Refraction at air–glass and air–water boundaries",
+            "knowledge_id": "kp-physics-8Ps-s02"
+          }
+        ]
+      },
+      {
+        "id": "physics-8Ps-u2",
+        "code": "8Ps-2",
+        "order": 2,
+        "title_zh": "色散与色光",
+        "title_en": "Dispersion and colour",
+        "sections": [
+          {
+            "id": "physics-8Ps-s03",
+            "code": "8Ps.03",
+            "lo_codes": [
+              "8Ps.03"
+            ],
+            "title_zh": "白光的色散",
+            "title_en": "Dispersion of white light",
+            "knowledge_id": "kp-physics-8Ps-s03"
+          },
+          {
+            "id": "physics-8Ps-s04",
+            "code": "8Ps.04",
+            "lo_codes": [
+              "8Ps.04"
+            ],
+            "title_zh": "色光的混合、吸收与反射",
+            "title_en": "Adding, subtracting, absorbing and reflecting coloured light",
+            "knowledge_id": "kp-physics-8Ps-s04"
+          }
+        ]
+      }
+    ],
+    "developed": true
+  },
+  {
+    "id": "physics-8Pe",
+    "subject_id": "physics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8Pe",
+    "order": 3,
+    "title_zh": "电与磁",
+    "title_en": "Electricity and magnetism",
+    "units": [
+      {
+        "id": "physics-8Pe-u1",
+        "code": "8Pe-1",
+        "order": 1,
+        "title_zh": "磁场",
+        "title_en": "Magnetic fields",
+        "sections": [
+          {
+            "id": "physics-8Pe-s01",
+            "code": "8Pe.01",
+            "lo_codes": [
+              "8Pe.01"
+            ],
+            "title_zh": "磁场",
+            "title_en": "Magnetic fields",
+            "knowledge_id": "kp-physics-8Pe-s01"
+          }
+        ]
+      },
+      {
+        "id": "physics-8Pe-u2",
+        "code": "8Pe-2",
+        "order": 2,
+        "title_zh": "电磁铁",
+        "title_en": "Electromagnets",
+        "sections": [
+          {
+            "id": "physics-8Pe-s02",
+            "code": "8Pe.02",
+            "lo_codes": [
+              "8Pe.02"
+            ],
+            "title_zh": "电磁铁的制作与应用",
+            "title_en": "Making and using electromagnets",
+            "knowledge_id": "kp-physics-8Pe-s02"
+          },
+          {
+            "id": "physics-8Pe-s03",
+            "code": "8Pe.03",
+            "lo_codes": [
+              "8Pe.03"
+            ],
+            "title_zh": "影响电磁铁强弱的因素",
+            "title_en": "Factors that change the strength of an electromagnet",
+            "knowledge_id": "kp-physics-8Pe-s03"
+          }
+        ]
+      }
+    ],
+    "developed": true
+  },
+  {
+    "id": "physics-8ES",
+    "subject_id": "physics",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8ES",
+    "order": 4,
+    "title_zh": "地球与太空",
+    "title_en": "Earth and Space",
+    "note_zh": "官方科学课程将地球与太空单列。本站将其归入物理，便于分科复习。本阶段与物理相关的目标包括地球磁场、星系与小行星；资源与气候循环仍归在化学。",
+    "note_en": "Official Science lists Earth and Space as its own strand. It is placed under Physics here for subject-by-subject review. Stage 8 topics here are the Earth’s magnetic field, galaxies and asteroids; resources and climate cycles remain under Chemistry.",
+    "units": [
+      {
+        "id": "physics-8ES-u1",
+        "code": "8ES-1",
+        "order": 1,
+        "title_zh": "地球的磁场",
+        "title_en": "The Earth’s magnetic field",
+        "sections": [
+          {
+            "id": "physics-8ES-s01",
+            "code": "8ESp.01",
+            "lo_codes": [
+              "8ESp.01"
+            ],
+            "title_zh": "地球的磁场",
+            "title_en": "The Earth’s magnetic field",
+            "knowledge_id": "kp-physics-8ES-s01"
+          }
+        ]
+      },
+      {
+        "id": "physics-8ES-u2",
+        "code": "8ES-2",
+        "order": 2,
+        "title_zh": "太空中的天体",
+        "title_en": "Objects in space",
+        "sections": [
+          {
+            "id": "physics-8ES-s02",
+            "code": "8ESs.01",
+            "lo_codes": [
+              "8ESs.01"
+            ],
+            "title_zh": "星系",
+            "title_en": "Galaxies",
+            "knowledge_id": "kp-physics-8ES-s02"
+          },
+          {
+            "id": "physics-8ES-s03",
+            "code": "8ESs.02",
+            "lo_codes": [
+              "8ESs.02"
+            ],
+            "title_zh": "小行星",
+            "title_en": "Asteroids",
+            "knowledge_id": "kp-physics-8ES-s03"
+          }
+        ]
+      }
+    ],
+    "developed": true
+  },
+  {
+    "id": "chemistry-8Cm",
+    "subject_id": "chemistry",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8Cm",
+    "order": 1,
+    "title_zh": "物质及其结构",
+    "title_en": "Materials and their structure",
+    "developed": true,
+    "units": [
+      {
+        "id": "chemistry-8Cm-u1",
+        "code": "8Cm-1",
+        "order": 1,
+        "title_zh": "原子结构",
+        "title_en": "Atomic structure",
+        "sections": [
+          {
+            "id": "chemistry-8Cm-1",
+            "code": "8Cm.01",
+            "title_zh": "卢瑟福原子模型",
+            "title_en": "The Rutherford model of the atom",
+            "knowledge_id": "kp-chemistry-8Cm-1",
+            "lo_codes": [
+              "8Cm.01"
+            ]
+          },
+          {
+            "id": "chemistry-8Cm-2",
+            "code": "8Cm.02",
+            "title_zh": "质子、中子与电子的电荷",
+            "title_en": "Charges of protons, neutrons and electrons",
+            "knowledge_id": "kp-chemistry-8Cm-2",
+            "lo_codes": [
+              "8Cm.02"
+            ]
+          },
+          {
+            "id": "chemistry-8Cm-3",
+            "code": "8Cm.03",
+            "title_zh": "静电引力与原子",
+            "title_en": "Electrostatic attraction in atoms",
+            "knowledge_id": "kp-chemistry-8Cm-3",
+            "lo_codes": [
+              "8Cm.03"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chemistry-8Cm-u2",
+        "code": "8Cm-2",
+        "order": 2,
+        "title_zh": "纯度",
+        "title_en": "Purity",
+        "sections": [
+          {
+            "id": "chemistry-8Cm-4",
+            "code": "8Cm.04",
+            "title_zh": "纯度",
+            "title_en": "Purity",
+            "knowledge_id": "kp-chemistry-8Cm-4",
+            "lo_codes": [
+              "8Cm.04"
+            ]
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "chemistry-8Cm-1",
+        "title_zh": "卢瑟福原子模型",
+        "title_en": "The Rutherford model of the atom"
+      },
+      {
+        "id": "chemistry-8Cm-2",
+        "title_zh": "质子、中子与电子的电荷",
+        "title_en": "Charges of protons, neutrons and electrons"
+      },
+      {
+        "id": "chemistry-8Cm-3",
+        "title_zh": "静电引力与原子",
+        "title_en": "Electrostatic attraction in atoms"
+      },
+      {
+        "id": "chemistry-8Cm-4",
+        "title_zh": "纯度",
+        "title_en": "Purity"
+      }
+    ]
+  },
+  {
+    "id": "chemistry-8Cp",
+    "subject_id": "chemistry",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8Cp",
+    "order": 2,
+    "title_zh": "物质的性质",
+    "title_en": "Properties of materials",
+    "developed": true,
+    "units": [
+      {
+        "id": "chemistry-8Cp-u1",
+        "code": "8Cp-1",
+        "order": 1,
+        "title_zh": "溶液的浓度",
+        "title_en": "Concentration of solutions",
+        "sections": [
+          {
+            "id": "chemistry-8Cp-1",
+            "code": "8Cp.01",
+            "title_zh": "溶液的浓度",
+            "title_en": "Concentration of a solution",
+            "knowledge_id": "kp-chemistry-8Cp-1",
+            "lo_codes": [
+              "8Cp.01"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chemistry-8Cp-u2",
+        "code": "8Cp-2",
+        "order": 2,
+        "title_zh": "纸层析法",
+        "title_en": "Paper chromatography",
+        "sections": [
+          {
+            "id": "chemistry-8Cp-2",
+            "code": "8Cp.02",
+            "title_zh": "纸层析法",
+            "title_en": "Paper chromatography",
+            "knowledge_id": "kp-chemistry-8Cp-2",
+            "lo_codes": [
+              "8Cp.02"
+            ]
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "chemistry-8Cp-1",
+        "title_zh": "溶液的浓度",
+        "title_en": "Concentration of a solution"
+      },
+      {
+        "id": "chemistry-8Cp-2",
+        "title_zh": "纸层析法",
+        "title_en": "Paper chromatography"
+      }
+    ]
+  },
+  {
+    "id": "chemistry-8Cc",
+    "subject_id": "chemistry",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8Cc",
+    "order": 3,
+    "title_zh": "物质的变化",
+    "title_en": "Changes to materials",
+    "developed": true,
+    "units": [
+      {
+        "id": "chemistry-8Cc-u1",
+        "code": "8Cc-1",
+        "order": 1,
+        "title_zh": "反应与能量变化",
+        "title_en": "Reactions and energy changes",
+        "sections": [
+          {
+            "id": "chemistry-8Cc-1",
+            "code": "8Cc.01",
+            "title_zh": "用文字方程式描述反应",
+            "title_en": "Using word equations to describe reactions",
+            "knowledge_id": "kp-chemistry-8Cc-1",
+            "lo_codes": [
+              "8Cc.01"
+            ]
+          },
+          {
+            "id": "chemistry-8Cc-2",
+            "code": "8Cc.02",
+            "title_zh": "放热与吸热过程",
+            "title_en": "Exothermic and endothermic processes",
+            "knowledge_id": "kp-chemistry-8Cc-2",
+            "lo_codes": [
+              "8Cc.02"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chemistry-8Cc-u2",
+        "code": "8Cc-2",
+        "order": 2,
+        "title_zh": "金属、产物与溶解度",
+        "title_en": "Metals, products and solubility",
+        "sections": [
+          {
+            "id": "chemistry-8Cc-3",
+            "code": "8Cc.03",
+            "title_zh": "金属的反应性",
+            "title_en": "Reactivity of metals",
+            "knowledge_id": "kp-chemistry-8Cc-3",
+            "lo_codes": [
+              "8Cc.03"
+            ]
+          },
+          {
+            "id": "chemistry-8Cc-4",
+            "code": "8Cc.04",
+            "title_zh": "不纯产物与惰性物质",
+            "title_en": "Impure products and inert substances",
+            "knowledge_id": "kp-chemistry-8Cc-4",
+            "lo_codes": [
+              "8Cc.04"
+            ]
+          },
+          {
+            "id": "chemistry-8Cc-5",
+            "code": "8Cc.05",
+            "title_zh": "盐的溶解度与温度",
+            "title_en": "Solubility of salts and temperature",
+            "knowledge_id": "kp-chemistry-8Cc-5",
+            "lo_codes": [
+              "8Cc.05"
+            ]
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "chemistry-8Cc-1",
+        "title_zh": "用文字方程式描述反应",
+        "title_en": "Using word equations to describe reactions"
+      },
+      {
+        "id": "chemistry-8Cc-2",
+        "title_zh": "放热与吸热过程",
+        "title_en": "Exothermic and endothermic processes"
+      },
+      {
+        "id": "chemistry-8Cc-3",
+        "title_zh": "金属的反应性",
+        "title_en": "Reactivity of metals"
+      },
+      {
+        "id": "chemistry-8Cc-4",
+        "title_zh": "不纯产物与惰性物质",
+        "title_en": "Impure products and inert substances"
+      },
+      {
+        "id": "chemistry-8Cc-5",
+        "title_zh": "盐的溶解度与温度",
+        "title_en": "Solubility of salts and temperature"
+      }
+    ]
+  },
+  {
+    "id": "chemistry-8ES",
+    "subject_id": "chemistry",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8ES",
+    "order": 4,
+    "title_zh": "地球上的循环与资源（科学 0893 地球与太空）",
+    "title_en": "Cycles on Earth and resources (Science 0893 Earth and Space strand)",
+    "developed": true,
+    "units": [
+      {
+        "id": "chemistry-8ES-u1",
+        "code": "8ES-1",
+        "order": 1,
+        "title_zh": "资源",
+        "title_en": "Resources",
+        "sections": [
+          {
+            "id": "chemistry-8ES-1",
+            "code": "8ES.01",
+            "title_zh": "可再生与不可再生资源",
+            "title_en": "Renewable and non-renewable resources",
+            "knowledge_id": "kp-chemistry-8ES-1"
+          }
+        ]
+      },
+      {
+        "id": "chemistry-8ES-u2",
+        "code": "8ES-2",
+        "order": 2,
+        "title_zh": "气候与长期循环",
+        "title_en": "Climate and long-term cycles",
+        "sections": [
+          {
+            "id": "chemistry-8ES-2",
+            "code": "8ES.02",
+            "title_zh": "气候与天气",
+            "title_en": "Climate and weather",
+            "knowledge_id": "kp-chemistry-8ES-2"
+          },
+          {
+            "id": "chemistry-8ES-3",
+            "code": "8ES.03",
+            "title_zh": "地球气候的长期循环与大气变化",
+            "title_en": "Long-term climate cycles and atmospheric change",
+            "knowledge_id": "kp-chemistry-8ES-3"
+          }
+        ]
+      }
+    ],
+    "note_zh": "官方科学课程将地球与太空单列。本站把资源、气候与长期循环放在化学，便于分科复习；地球磁场、星系与小行星仍在物理。",
+    "note_en": "Official Science lists Earth and Space as its own strand. Resources, climate and long-term cycles are placed under Chemistry for subject-by-subject review; Earth’s magnetism, galaxies and asteroids remain under Physics.",
+    "topics": [
+      {
+        "id": "chemistry-8ES-1",
+        "title_zh": "可再生与不可再生资源",
+        "title_en": "Renewable and non-renewable resources"
+      },
+      {
+        "id": "chemistry-8ES-2",
+        "title_zh": "气候与天气",
+        "title_en": "Climate and weather"
+      },
+      {
+        "id": "chemistry-8ES-3",
+        "title_zh": "地球气候的长期循环与大气变化",
+        "title_en": "Long-term climate cycles and atmospheric change"
+      }
+    ]
+  },
+  {
+    "id": "biology-8Bs",
+    "subject_id": "biology",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8Bs",
+    "order": 1,
+    "title_zh": "结构与功能",
+    "title_en": "Structure and function",
+    "developed": true,
+    "units": [
+      {
+        "id": "biology-8Bs-u1",
+        "code": "8Bs-1",
+        "order": 1,
+        "title_zh": "运动系统",
+        "title_en": "The musculoskeletal system",
+        "sections": [
+          {
+            "id": "biology-8Bs-1",
+            "code": "8Bs.01",
+            "title_zh": "关节与拮抗肌",
+            "title_en": "Joints and antagonistic muscles",
+            "knowledge_id": "kp-biology-8Bs-1",
+            "lo_codes": [
+              "8Bs.01"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "biology-8Bs-u2",
+        "code": "8Bs-2",
+        "order": 2,
+        "title_zh": "血液与呼吸",
+        "title_en": "Blood and breathing",
+        "sections": [
+          {
+            "id": "biology-8Bs-2",
+            "code": "8Bs.02",
+            "title_zh": "血液的组成与功能",
+            "title_en": "Components of blood and their functions",
+            "knowledge_id": "kp-biology-8Bs-2",
+            "lo_codes": [
+              "8Bs.02"
+            ]
+          },
+          {
+            "id": "biology-8Bs-3",
+            "code": "8Bs.03",
+            "title_zh": "呼吸系统与气体交换",
+            "title_en": "The respiratory system and gas exchange",
+            "knowledge_id": "kp-biology-8Bs-3",
+            "lo_codes": [
+              "8Bs.03"
+            ]
+          },
+          {
+            "id": "biology-8Bs-4",
+            "code": "8Bs.04",
+            "title_zh": "肺泡处的扩散",
+            "title_en": "Diffusion of gases in the lungs",
+            "knowledge_id": "kp-biology-8Bs-4",
+            "lo_codes": [
+              "8Bs.04"
+            ]
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "biology-8Bs-1",
+        "title_zh": "关节与拮抗肌",
+        "title_en": "Joints and antagonistic muscles"
+      },
+      {
+        "id": "biology-8Bs-2",
+        "title_zh": "血液的组成与功能",
+        "title_en": "Components of blood and their functions"
+      },
+      {
+        "id": "biology-8Bs-3",
+        "title_zh": "呼吸系统与气体交换",
+        "title_en": "The respiratory system and gas exchange"
+      },
+      {
+        "id": "biology-8Bs-4",
+        "title_zh": "肺泡处的扩散",
+        "title_en": "Diffusion of gases in the lungs"
+      }
+    ]
+  },
+  {
+    "id": "biology-8Bp",
+    "subject_id": "biology",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8Bp",
+    "order": 2,
+    "title_zh": "生命过程",
+    "title_en": "Life processes",
+    "developed": true,
+    "units": [
+      {
+        "id": "biology-8Bp-u1",
+        "code": "8Bp-1",
+        "order": 1,
+        "title_zh": "饮食、能量与健康",
+        "title_en": "Diet, energy and health",
+        "sections": [
+          {
+            "id": "biology-8Bp-1",
+            "code": "8Bp.01",
+            "title_zh": "均衡饮食与营养素",
+            "title_en": "A balanced diet and nutrients",
+            "knowledge_id": "kp-biology-8Bp-1",
+            "lo_codes": [
+              "8Bp.01"
+            ]
+          },
+          {
+            "id": "biology-8Bp-2",
+            "code": "8Bp.02",
+            "title_zh": "能量储存与食物",
+            "title_en": "Energy stores and food",
+            "knowledge_id": "kp-biology-8Bp-2",
+            "lo_codes": [
+              "8Bp.02"
+            ]
+          },
+          {
+            "id": "biology-8Bp-3",
+            "code": "8Bp.03",
+            "title_zh": "生活方式与健康（饮食与吸烟）",
+            "title_en": "Lifestyle and health (diet and smoking)",
+            "knowledge_id": "kp-biology-8Bp-3",
+            "lo_codes": [
+              "8Bp.03"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "biology-8Bp-u2",
+        "code": "8Bp-2",
+        "order": 2,
+        "title_zh": "有氧呼吸",
+        "title_en": "Aerobic respiration",
+        "sections": [
+          {
+            "id": "biology-8Bp-4",
+            "code": "8Bp.04",
+            "title_zh": "有氧呼吸",
+            "title_en": "Aerobic respiration",
+            "knowledge_id": "kp-biology-8Bp-4",
+            "lo_codes": [
+              "8Bp.04"
+            ]
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "biology-8Bp-1",
+        "title_zh": "均衡饮食与营养素",
+        "title_en": "A balanced diet and nutrients"
+      },
+      {
+        "id": "biology-8Bp-2",
+        "title_zh": "能量储存与食物",
+        "title_en": "Energy stores and food"
+      },
+      {
+        "id": "biology-8Bp-3",
+        "title_zh": "生活方式与健康（饮食与吸烟）",
+        "title_en": "Lifestyle and health (diet and smoking)"
+      },
+      {
+        "id": "biology-8Bp-4",
+        "title_zh": "有氧呼吸",
+        "title_en": "Aerobic respiration"
+      }
+    ]
+  },
+  {
+    "id": "biology-8Be",
+    "subject_id": "biology",
+    "grade_id": "8",
+    "kind": "chapter",
+    "code": "8Be",
+    "order": 3,
+    "title_zh": "生态系统",
+    "title_en": "Ecosystems",
+    "developed": true,
+    "units": [
+      {
+        "id": "biology-8Be-u1",
+        "code": "8Be-1",
+        "order": 1,
+        "title_zh": "生态系统与栖息地",
+        "title_en": "Ecosystems and habitats",
+        "sections": [
+          {
+            "id": "biology-8Be-1",
+            "code": "8Be.01",
+            "title_zh": "生态系统与栖息地",
+            "title_en": "Ecosystems and habitats",
+            "knowledge_id": "kp-biology-8Be-1",
+            "lo_codes": [
+              "8Be.01"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "biology-8Be-u2",
+        "code": "8Be-2",
+        "order": 2,
+        "title_zh": "有毒物质与物种引入",
+        "title_en": "Toxins and introduced species",
+        "sections": [
+          {
+            "id": "biology-8Be-2",
+            "code": "8Be.02",
+            "title_zh": "有毒物质的生物累积",
+            "title_en": "Bioaccumulation of toxic substances",
+            "knowledge_id": "kp-biology-8Be-2",
+            "lo_codes": [
+              "8Be.02"
+            ]
+          },
+          {
+            "id": "biology-8Be-3",
+            "code": "8Be.03",
+            "title_zh": "新物种与入侵物种",
+            "title_en": "New and invasive species",
+            "knowledge_id": "kp-biology-8Be-3",
+            "lo_codes": [
+              "8Be.03"
+            ]
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "biology-8Be-1",
+        "title_zh": "生态系统与栖息地",
+        "title_en": "Ecosystems and habitats"
+      },
+      {
+        "id": "biology-8Be-2",
+        "title_zh": "有毒物质的生物累积",
+        "title_en": "Bioaccumulation of toxic substances"
+      },
+      {
+        "id": "biology-8Be-3",
+        "title_zh": "新物种与入侵物种",
+        "title_en": "New and invasive species"
+      }
+    ]
+  }
+]
