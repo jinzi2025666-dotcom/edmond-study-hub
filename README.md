@@ -8,6 +8,18 @@ The display name and subtitle live in one file: [`site.config.json`](site.config
 
 ---
 
+## 在线预览
+
+学生链接（浏览器直接打开，无需安装、无需本地文件）：
+
+[https://jinzi2025666-dotcom.github.io/edmond-study-hub/](https://jinzi2025666-dotcom.github.io/edmond-study-hub/)
+
+页面是 `docs/index.html`，与 `offline/edmond-study-hub.html` 内容相同（单文件、HashRouter，样式、脚本、字体、KaTeX 和课程全部内嵌）。八年级全部八个科目已写完；七年级和九年级仍是大纲。路由写在 `#` 后面（例如 `#/grades/8/subjects/mathematics`），因此挂在 `/edmond-study-hub/` 下也可以用。
+
+GitHub Pages **尚未启用**。请在仓库 Settings → Pages 把来源设为分支 `main`、文件夹 `/docs`。设置生效后，上面的链接才会打开。`docs/.nojekyll` 已放好，避免 Jekyll 把文件里的 KaTeX 宏当成模板语法。
+
+---
+
 ## How to start / 如何启动
 
 From the repository root (Node.js and Python 3 required):
@@ -35,9 +47,9 @@ To use another port: `PORT=9000 ./start.sh`.
 
 脚本会安装依赖、构建前端，并用 **uvicorn** 在 **8787** 端口同时提供网页和接口。用浏览器打开 [http://127.0.0.1:8787](http://127.0.0.1:8787) 即可。换端口：`PORT=9000 ./start.sh`。
 
-There is no login. This repository holds the source; it does not host the running site. Use `./start.sh` locally, or open the offline HTML below.
+There is no login. This repository holds the source. The student link is the GitHub Pages URL in 在线预览; it stays offline until Pages is set to branch `main` and folder `/docs`. On this computer, use `./start.sh`, or open the offline HTML below.
 
-本仓库是源码，不含登录，也不会把网站托管出来。请在本机运行 `./start.sh`，或打开下文的离线 HTML。
+本仓库是源码，不含登录。给学生的链接是「在线预览」里的 GitHub Pages 地址；在 Pages 来源设为分支 `main`、文件夹 `/docs` 之前，那个地址还打不开。本机请运行 `./start.sh`，或打开下文的离线 HTML。
 
 ---
 
