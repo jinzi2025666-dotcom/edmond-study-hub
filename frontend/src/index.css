@@ -303,7 +303,13 @@ h3 { font-size: 1.15rem; margin: 0 0 0.5rem; }
   flex: 0 0 auto;
   color: var(--accent);
 }
-.crumb { font-size: 0.88rem; color: var(--ink-faint); margin-bottom: 0.7rem; }
+.crumb {
+  font-size: 0.88rem;
+  color: var(--ink-faint);
+  margin-bottom: 0.7rem;
+  overflow-wrap: break-word;
+  line-height: 1.45;
+}
 .crumb a { color: inherit; }
 
 .tabs {
@@ -555,13 +561,80 @@ textarea.answer-input { min-height: 5.5rem; max-width: 100%; }
 }
 @media (max-width: 640px) {
   body { font-size: 1rem; }
-  .header-inner { padding: 0.75rem 0.9rem 0.65rem; }
   .main { padding: 1.2rem 0.9rem 2.5rem; }
   .subject-grid { grid-template-columns: 1fr; }
-  .header-tools .search-form { width: 100%; }
   .icon-btn, .text-btn, .btn { min-height: 2.4rem; padding: 0.45rem 0.8rem; }
   .tabs button, .option { min-height: 2.5rem; }
-  .brand-name { font-size: 1.25rem; }
+}
+/* Phone and narrow tablet: stack the sticky header so the search cluster
+   cannot crush the title into a one-character column. Desktop stays two-column. */
+@media (max-width: 920px) {
+  .header-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.35rem 0.5rem;
+    padding: 0.45rem 0.9rem 0.3rem;
+    align-items: stretch;
+  }
+  .brand {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .brand-name,
+  .brand-sub {
+    display: block;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+  .brand-name { font-size: 1.25rem; line-height: 1.2; }
+  .brand-sub { line-height: 1.35; }
+  .header-tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.35rem;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .header-tools .search-form {
+    flex: 1 1 10rem;
+    width: auto;
+    max-width: 100%;
+    min-width: min(100%, 9rem);
+  }
+  .header-tools .search-form input {
+    flex: 1 1 0%;
+    width: 0;
+    min-width: 0;
+  }
+  .header-tools .btn,
+  .header-tools .text-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+  .header-nav {
+    gap: 0.15rem 0.7rem;
+    padding-top: 0.12rem;
+    min-width: 0;
+  }
+  .header-nav a {
+    white-space: nowrap;
+    padding: 0.28rem 0;
+  }
+  .subject-hero { min-width: 0; }
+  .subject-hero > div { min-width: 0; flex: 1 1 auto; }
+  .subject-hero h1,
+  .masthead h1 { overflow-wrap: break-word; }
+  .course-continue .btn,
+  .status-bar .btn {
+    white-space: normal;
+    max-width: 100%;
+    height: auto;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
