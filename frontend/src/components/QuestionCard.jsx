@@ -32,6 +32,7 @@ export default function QuestionCard({
         {index != null ? `${index + 1}${total ? ` / ${total}` : ""} · ` : ""}
         {typeHint}
         {question.marks ? ` · ${t("marksCount", { n: question.marks })}` : ""}
+        {question.difficulty ? ` · ${t(`diff_${question.difficulty}`)}` : ""}
       </div>
       <MarkdownBody>{tField(question, "stem", lang)}</MarkdownBody>
 

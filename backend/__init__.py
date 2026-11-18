@@ -1,1 +1,1 @@
-# Edmond Study Hub backend
+# Singapore International Study Site backend

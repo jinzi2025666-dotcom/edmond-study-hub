@@ -9,7 +9,7 @@ from pathlib import Path
 
 from .config import CURRICULUM_DIR, DATA_DIR, USER_DB, load_json
 
-SEED_VERSION = "4"
+SEED_VERSION = "5"
 SHANGHAI = timezone(timedelta(hours=8))
 _local = threading.local()
 
@@ -194,6 +194,7 @@ def _ensure_columns(cur) -> None:
             ("section_id", "TEXT"),
             ("keywords", "TEXT"),
             ("keyword_min", "INTEGER"),
+            ("difficulty", "TEXT"),
         ],
         "question_sets": [
             ("grade_id", "TEXT"),
@@ -565,7 +566,7 @@ QUESTION_COLS = [
     "explanation_zh", "explanation_en", "marks", "published_at",
     "created_at", "updated_at", "origin",
     "grade_id", "chapter_id", "section_id",
-    "keywords", "keyword_min",
+    "keywords", "keyword_min", "difficulty",
 ]
 SET_COLS = [
     "id", "subject_id", "unit_id", "kind", "title_zh", "title_en",

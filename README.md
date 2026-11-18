@@ -1,4 +1,4 @@
-# Edmond Study Hub / Edmond 学习站
+# Singapore International Study Site / 新加坡国际学习网站
 
 A bilingual (中文 / English) study site. Content is organised **grade first, then by subject**.
 

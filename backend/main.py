@@ -13,7 +13,7 @@ from . import database as db
 from .config import FRONTEND_DIST, load_site_config
 from .grading import check_answer
 
-app = FastAPI(title="Edmond Study Hub", docs_url=None, redoc_url=None)
+app = FastAPI(title="Singapore International Study Site", docs_url=None, redoc_url=None)
 _ISO_TAIL = re.compile(r"Z$")
 
 

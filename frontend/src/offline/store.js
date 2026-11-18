@@ -426,7 +426,7 @@ export const api = {
   importData: wrap((json) => {
     const data = json && json.data ? json.data : json;
     if (!data || typeof data !== "object" || !("progress" in data || "knowledge" in data || "mistakes" in data)) {
-      throw new Error("Not an Edmond Study Hub backup file");
+      throw new Error("Not a Singapore International Study Site backup file");
     }
     saveUser({ ...empty(), ...data });
     return { ok: true };

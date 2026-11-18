@@ -9,6 +9,7 @@ from .economics import SPEC as ECONOMICS
 from .english import SPEC as ENGLISH
 from .mathematics import SPEC as MATHEMATICS
 from .physics import SPEC as PHYSICS
+from .deepen import deepen
 from .engine import build_subject
 
 SPECS = (
@@ -20,7 +21,7 @@ SPECS = (
 def collect():
     knowledge, questions, sets, units = [], [], [], []
     for spec in SPECS:
-        k, q, s, u = build_subject(spec)
+        k, q, s, u = build_subject(deepen(spec))
         knowledge.extend(k)
         questions.extend(q)
         sets.extend(s)

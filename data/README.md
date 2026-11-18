@@ -51,6 +51,10 @@ Open **内容更新 / Update content**. Set **grade** to `9`. Choose the chapter
 
 Give the item a publish date. Items from the last seven days appear under **本周更新** for the grade that is selected on the home page.
 
+## Learning path
+
+On each Grade 9 subject page the path is: learn the knowledge point, practise, take the topic test, take the unit test, then the comprehensive paper. Topic tests are `paper-topic-…`, unit tests are `paper-unit-…`, and the comprehensive paper id ends in `-comprehensive`.
+
 ## Question marking
 
 Short, numeric and multiple-choice answers are marked exactly (numbers accept equivalent fractions). Longer writing — an email, a PEEL paragraph, an empathic response, an 8-mark essay, a pseudocode algorithm — is marked by whether enough key phrases are present. The explanation still holds a model answer. Treat that score as a first check, then read the writing yourself.

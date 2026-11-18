@@ -10,7 +10,7 @@ def opts(*pairs):
 def Q(qid, subject, unit, typ, stem_zh, stem_en, answer, exp_zh, exp_en,
       options=None, knowledge_id=None, marks=1, published_at=None,
       accepted=None, tolerance=None, answer_zh=None, answer_en=None,
-      keywords=None, keyword_min=None):
+      keywords=None, keyword_min=None, difficulty=None):
     item = {
         "id": qid,
         "subject_id": subject,
@@ -39,6 +39,8 @@ def Q(qid, subject, unit, typ, stem_zh, stem_en, answer, exp_zh, exp_en,
         item["keywords"] = list(keywords)
     if keyword_min is not None:
         item["keyword_min"] = int(keyword_min)
+    if difficulty:
+        item["difficulty"] = difficulty
     return item
 
 

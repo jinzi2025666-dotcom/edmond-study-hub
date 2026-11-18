@@ -687,6 +687,25 @@ textarea.answer-input { min-height: 5.5rem; max-width: 100%; }
 .course-page { max-width: 52rem; }
 .course-page h1 .title-slash { color: var(--ink-faint); font-weight: 400; }
 .course-continue { margin: 0 0 1.6rem; }
+.learning-path {
+  border: 1px solid var(--rule);
+  background: var(--card);
+  padding: 1rem 1.15rem 1.15rem;
+  margin: 0 0 1.8rem;
+  border-radius: var(--radius);
+}
+.learning-path h2 { margin: 0.15rem 0 0.35rem; font-size: 1.35rem; }
+.path-list { margin: 0.6rem 0 0; padding-left: 1.2rem; }
+.path-list > li { margin: 0.85rem 0; }
+.path-list ol { list-style: none; margin: 0.35rem 0 0; padding: 0; }
+.path-list ol li { display: flex; flex-wrap: wrap; gap: 0.35rem 0.7rem; align-items: baseline; margin: 0.28rem 0; }
+.path-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--copper-dark);
+  min-width: 5.2rem;
+}
+.path-final { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin: 0.8rem 0 0; }
 .chapter-block {
   background: var(--card);
   border: 1px solid var(--rule);
@@ -729,6 +748,7 @@ textarea.answer-input { min-height: 5.5rem; max-width: 100%; }
 .section-list .is-mastered .tick { background: var(--copper); border-color: var(--copper); }
 .section-list .is-learning .tick { background: var(--copper-soft); border-color: var(--copper); }
 .sec-code { color: var(--ink-faint); font-size: 0.82rem; margin-right: 0.45rem; font-variant-numeric: tabular-nums; }
+.sec-test { margin-left: 0.65rem; font-size: 0.82rem; }
 .outline-tag { margin-left: 0.5rem; font-style: normal; color: var(--ink-faint); font-size: 0.82rem; }
 .course-paper-band { margin-top: 1.8rem; }
 
