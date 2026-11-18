@@ -1,8 +1,8 @@
 # Edmond Study Hub / Edmond 学习站
 
-A bilingual (中文 / English) personal study site for a Year 8 student at a Singapore international school. Content is organised **grade first, then by subject**, following **Cambridge Lower Secondary (Checkpoint)** and an **IGCSE Economics** foundation where Lower Secondary is not the right fit.
+A bilingual (中文 / English) study site. Content is organised **grade first, then by subject**.
 
-Year 8 of all eight subjects is written: Chinese, Mathematics (0862), English (0861), Computing (0860), Economics (0455 foundation), and Physics, Chemistry and Biology split from Science (0893). Years 7 and 9 are outlines only.
+**Grade 9 is the home page default.** It is IGCSE Year 1 (Sec 3 / S3), not Cambridge Lower Secondary Stage 9. All eight subjects have draft lessons, a question bank and a timed practice paper aligned to this term: Chinese (0523), Mathematics (0580 and 0606), English (0500 and World Literature 0408), Computer Science, Economics (0455), Physics, Chemistry and Biology (0610). The draft is marked for the owner in [`data/README.md`](data/README.md). Year 8 (Cambridge Lower Secondary, plus the Economics foundation) is still there. Year 7 is still an outline.
 
 The display name and subtitle live in one file: [`site.config.json`](site.config.json). Change `name_zh`, `name_en`, `subtitle_zh` and `subtitle_en` there; the header reads them on startup.
 
@@ -14,7 +14,7 @@ The display name and subtitle live in one file: [`site.config.json`](site.config
 
 [https://jinzi2025666-dotcom.github.io/edmond-study-hub/](https://jinzi2025666-dotcom.github.io/edmond-study-hub/)
 
-页面是 `docs/index.html`，与 `offline/edmond-study-hub.html` 内容相同（单文件、HashRouter，样式、脚本、字体、KaTeX 和课程全部内嵌）。八年级全部八个科目已写完；七年级和九年级仍是大纲。路由写在 `#` 后面（例如 `#/grades/8/subjects/mathematics`），因此挂在 `/edmond-study-hub/` 下也可以用。
+页面是 `docs/index.html`，与已经发布的离线文件对应（单文件、HashRouter，样式、脚本、字体、KaTeX 和课程全部内嵌）。**正在使用的 Pages 站点不会因为源码里有了九年级就自动更换**；只有把新的 `docs/index.html` 合并进 `main` 之后，学生链接才会变。本预览分支故意不覆盖 `docs/`。路由写在 `#` 后面（例如 `#/grades/9/subjects/economics`）。
 
 GitHub Pages 已启用，来源仍是分支 `main`、文件夹 `/docs`。学生链接就是上面的地址。`docs/.nojekyll` 已放好，避免 Jekyll 把文件里的 KaTeX 宏当成模板语法。
 
@@ -86,7 +86,7 @@ Built-in sample content is copied into the database on first start (`INSERT OR I
 ## Pages / 页面地图
 
 - `/` — home: choose a year, then a subject; continue learning, this week’s updates, overall progress
-- `/grades/:gradeId/subjects/:subjectId` — units, knowledge, practice sets, papers (Year 8 is written; Years 7 and 9 are outlines)
+- `/grades/:gradeId/subjects/:subjectId` — units, knowledge, practice sets, papers (Grade 9 IGCSE Year 1 and Year 8 are written; Year 7 is an outline)
 - `/subjects/:id` — redirects to that subject in the selected grade
 - `/knowledge/:id` — a knowledge point (Markdown + KaTeX), related questions, Learning / Mastered
 - `/practice/:id` — practice set with instant feedback
@@ -103,9 +103,21 @@ The header links are Home, Progress, Mistakes, and Update content. There is no s
 
 ---
 
+## Adding Grade 9 material / 如何补充九年级内容
+
+Grade 9 is one file per subject in `data/curriculum/grade9/`. Keep the lesson id when you replace a draft with your own notes, then run:
+
+```bash
+python3 data/curriculum/build_content.py
+```
+
+Or add a single knowledge point, question or paper in **内容更新**, with grade set to `9`. Details, including how extended writing is marked, are in [`data/README.md`](data/README.md).
+
+九年级按科目分文件放在 `data/curriculum/grade9/`。用你自己的笔记替换初稿时，请保留原来的课时 id，然后运行 `python3 data/curriculum/build_content.py`。只补一条时，可以在「内容更新」里把年级填成 `9`。替换步骤和长文怎么计分，写在 [`data/README.md`](data/README.md)。
+
 ## Curriculum sources and assumptions / 课程来源与说明
 
-Sample notes and questions are **original teaching material** written in the style of Checkpoint / early IGCSE. They are not copied from Cambridge past papers or from endorsed textbooks.
+Sample notes and questions are **original teaching material**. Year 8 follows Checkpoint-style courses. Grade 9 follows the IGCSE Year 1 topics in progress this term. They are not copied from Cambridge past papers, endorsed textbooks, or a set text such as the play used in World Literature.
 
 样例笔记与题目为原创教学内容，风格贴近 Checkpoint / 早期 IGCSE，并非摘录剑桥真题或官方教材正文。
 

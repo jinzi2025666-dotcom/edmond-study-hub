@@ -168,7 +168,7 @@ export const strings = {
     resetDone: "已重置，回到初始样例。",
 
     comingSoon: "即将开发",
-    comingSoonBody: "这个年级的课程还在筹备中。目前请先学习八年级的内容：语文、数学、英语、科学（物理、化学、生物）、计算机和经济都已经开放。",
+    comingSoonBody: "这个年级的课程还在筹备中。九年级 IGCSE 与八年级课程都已经开放。",
     outlineReady: "大纲已建，课程编写中",
     courseReady: "课程已开放",
     youWillLearn: "本节你将学会",
@@ -192,7 +192,7 @@ export const strings = {
     unitLabel: "单元",
     sectionLabel: "小节",
     officialNote: "课程说明",
-    physicsShortcut: "八年级物理",
+    physicsShortcut: "本年级物理",
     offlineBadge: "离线版",
   },
   en: {
@@ -364,7 +364,7 @@ export const strings = {
     resetDone: "Reset to the original samples.",
 
     comingSoon: "Coming soon",
-    comingSoonBody: "This year is still being prepared. For now, please use the Year 8 courses: Chinese, Mathematics, English, Science (Physics, Chemistry and Biology), Computing and Economics are all open.",
+    comingSoonBody: "This year is still being prepared. Grade 9 IGCSE and Year 8 courses are both open.",
     outlineReady: "Outline ready, lessons in progress",
     courseReady: "Course open",
     youWillLearn: "In this lesson you will",
@@ -387,7 +387,7 @@ export const strings = {
     unitLabel: "Unit",
     sectionLabel: "Section",
     officialNote: "About this chapter",
-    physicsShortcut: "Year 8 Physics",
+    physicsShortcut: "Physics for this year",
     offlineBadge: "Offline edition",
   },
 };

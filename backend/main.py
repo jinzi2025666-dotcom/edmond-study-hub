@@ -43,6 +43,16 @@ def within_days(value: str | None, days: int) -> bool:
     return dt >= now - timedelta(days=days)
 
 
+def present_subject(subject: dict, grade_id: str | None) -> dict:
+    """Overlay grade-specific syllabus labels without changing other years."""
+    item = dict(subject)
+    by = (subject.get("by_grade") or {}).get(str(grade_id or "8")) or {}
+    for key, val in by.items():
+        if val not in (None, ""):
+            item[key] = val
+    return item
+
+
 def subject_or_404(subject_id: str) -> dict:
     for s in db.load_subjects():
         if s["id"] == subject_id:
@@ -68,7 +78,7 @@ def counts_for_subject(subject_id: str, grade_id: str | None = None) -> dict:
         "knowledge": len(kps),
         "mastered": mastered,
         "learning": learning,
-        "questions": len(db.list_questions(subject_id)),
+        "questions": len(db.list_questions(subject_id, grade_id=grade_id)),
         "practice": len(db.list_sets(subject_id, "practice", grade_id=grade_id)),
         "papers": len(db.list_sets(subject_id, "paper", grade_id=grade_id)),
         "progress": (mastered / len(kps)) if kps else 0,
@@ -103,7 +113,7 @@ def api_subjects(grade: str | None = None):
     units = db.units_by_subject(grade)
     out = []
     for s in db.load_subjects():
-        item = dict(s)
+        item = present_subject(s, grade)
         item["units"] = units.get(s["id"], [])
         item["counts"] = counts_for_subject(s["id"], grade)
         dev = (s.get("development") or {})
@@ -114,7 +124,7 @@ def api_subjects(grade: str | None = None):
 
 @app.get("/api/subjects/{subject_id}")
 def api_subject(subject_id: str, grade: str | None = None):
-    subject = subject_or_404(subject_id)
+    subject = present_subject(subject_or_404(subject_id), grade)
     units = db.units_by_subject(grade).get(subject_id, [])
     knowledge = attach_progress(db.list_knowledge(subject_id, grade_id=grade))
     by_unit: dict[str, list] = {}
@@ -313,14 +323,14 @@ def api_master_mistake(question_id: str):
 
 
 @app.get("/api/progress")
-def api_progress():
+def api_progress(grade: str | None = None):
     subjects = []
     total_k = total_m = 0
     for s in db.load_subjects():
-        counts = counts_for_subject(s["id"])
+        counts = counts_for_subject(s["id"], grade)
         total_k += counts["knowledge"]
         total_m += counts["mastered"]
-        subjects.append({**s, "counts": counts})
+        subjects.append({**present_subject(s, grade), "counts": counts})
     return {
         "subjects": subjects,
         "overall": {
@@ -334,25 +344,30 @@ def api_progress():
 
 
 @app.get("/api/continue")
-def api_continue():
+def api_continue(grade: str | None = None):
     last = db.last_viewed_knowledge()
     pmap = db.progress_map()
     if last:
         last = dict(last)
-        last["status"] = pmap.get(last["id"], "not_started")
-        if last["status"] != "mastered":
-            return last
-    # first not-mastered knowledge, preferring recently published
-    for item in attach_progress(db.list_knowledge()):
+        if grade and str(last.get("grade_id") or "") not in ("", str(grade)):
+            last = None
+        else:
+            last["status"] = pmap.get(last["id"], "not_started")
+            if last["status"] == "mastered":
+                last = None
+            else:
+                return last
+    # first not-mastered knowledge in this grade, preferring recently published
+    for item in attach_progress(db.list_knowledge(grade_id=grade)):
         if item["status"] != "mastered":
             return item
     return last
 
 
 @app.get("/api/updates")
-def api_updates(days: int = 7):
+def api_updates(days: int = 7, grade: str | None = None):
     items = []
-    for k in db.list_knowledge():
+    for k in db.list_knowledge(grade_id=grade):
         if within_days(k.get("published_at") or k.get("updated_at"), days):
             items.append({
                 "type": "knowledge",
@@ -362,7 +377,7 @@ def api_updates(days: int = 7):
                 "title_en": k.get("title_en"),
                 "published_at": k.get("published_at") or k.get("updated_at"),
             })
-    for s in db.list_sets():
+    for s in db.list_sets(grade_id=grade):
         if within_days(s.get("published_at") or s.get("updated_at"), days):
             items.append({
                 "type": s.get("kind") or "set",
@@ -410,7 +425,7 @@ def api_search(q: str = Query("", min_length=1)):
             "unit",
             searchable,
             ["title_zh", "title_en", "code", "note_zh", "note_en", "_topics"],
-            f"/subjects/{unit['subject_id']}#{unit['id']}",
+            f"/grades/{unit.get('grade_id') or '8'}/subjects/{unit['subject_id']}#{unit['id']}",
             unit["subject_id"],
         )
 

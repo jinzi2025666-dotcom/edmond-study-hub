@@ -44,10 +44,43 @@ export function acceptedValues(q) {
   return [...new Set(vals)];
 }
 
+function keywordList(q) {
+  let raw = q.keywords || [];
+  if (typeof raw === "string") {
+    const text = raw.trim();
+    if (!text) return [];
+    try {
+      raw = JSON.parse(text);
+    } catch {
+      return [text];
+    }
+  }
+  if (!Array.isArray(raw)) return [];
+  return raw.map((k) => String(k)).filter((k) => k.trim());
+}
+
+function keywordsMatch(q, given) {
+  const keys = keywordList(q);
+  if (!keys.length) return null;
+  const text = normalizeText(given);
+  if (!text) return false;
+  const hits = keys.filter((key) => {
+    const nk = normalizeText(key);
+    return nk && text.includes(nk);
+  }).length;
+  let need = q.keyword_min;
+  if (need == null || need === "") need = Math.max(1, Math.ceil(keys.length / 2));
+  need = Number(need);
+  if (!Number.isFinite(need)) need = Math.max(1, Math.ceil(keys.length / 2));
+  return hits >= Math.max(1, need);
+}
+
 export function checkAnswer(q, given) {
   const typ = (q.type || "short").toLowerCase();
   const raw = given == null ? "" : String(given);
   if (typ === "mcq") return raw.trim().toLowerCase() === String(q.answer || "").trim().toLowerCase();
+  const kw = keywordsMatch(q, raw);
+  if (kw !== null) return kw;
   if (typ === "numeric") {
     const got = tryNumber(raw);
     if (got == null) {

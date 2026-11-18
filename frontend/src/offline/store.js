@@ -77,9 +77,9 @@ function listKnowledge(subject, unit, grade) {
     .filter((k) => (!subject || k.subject_id === subject) && (!unit || k.unit_id === unit || k.chapter_id === unit || k.section_id === unit) && (!grade || !k.grade_id || k.grade_id === grade))
     .sort(byPublishedDesc);
 }
-function listQuestions(subject, unit) {
+function listQuestions(subject, unit, grade) {
   return merged("questions")
-    .filter((q) => (!subject || q.subject_id === subject) && (!unit || q.unit_id === unit))
+    .filter((q) => (!subject || q.subject_id === subject) && (!unit || q.unit_id === unit) && (!grade || q.grade_id === grade))
     .sort(byPublishedDesc);
 }
 function listSets(subject, kind, grade) {
@@ -92,8 +92,17 @@ const getOne = (kind, id) => merged(kind).find((r) => r.id === id) || null;
 function publicQuestion(q, reveal) {
   const item = { ...q };
   if (!reveal) {
-    ["answer", "accepted", "answer_zh", "answer_en", "explanation_zh", "explanation_en", "tolerance"].forEach((k) => delete item[k]);
+    ["answer", "accepted", "answer_zh", "answer_en", "explanation_zh", "explanation_en", "tolerance", "keywords", "keyword_min"].forEach((k) => delete item[k]);
   }
+  return item;
+}
+
+function presentSubject(subject, grade) {
+  const item = { ...subject };
+  const by = (subject.by_grade || {})[String(grade || "8")] || {};
+  Object.entries(by).forEach(([key, val]) => {
+    if (val != null && String(val).trim() !== "") item[key] = val;
+  });
   return item;
 }
 
@@ -109,7 +118,7 @@ function countsFor(subjectId, grade) {
     knowledge: kps.length,
     mastered,
     learning: kps.filter((k) => k.status === "learning").length,
-    questions: listQuestions(subjectId).length,
+    questions: listQuestions(subjectId, undefined, grade).length,
     practice: listSets(subjectId, "practice", grade).length,
     papers: listSets(subjectId, "paper", grade).length,
     progress: kps.length ? mastered / kps.length : 0,
@@ -238,7 +247,7 @@ function search(q) {
   };
   units.forEach((u) =>
     hit("unit", u, [u.title_zh, u.title_en, u.code, u.note_zh, u.note_en, ...(u.topics || []).flatMap((t) => [t.title_zh, t.title_en])].map((x) => x || ""),
-      `/subjects/${u.subject_id}#${u.id}`, u.subject_id, u.title_zh, u.title_en)
+      `/grades/${u.grade_id || "8"}/subjects/${u.subject_id}#${u.id}`, u.subject_id, u.title_zh, u.title_en)
   );
   listKnowledge().forEach((k) =>
     hit("knowledge", k, ["title_zh", "title_en", "summary_zh", "summary_en", "body_zh", "body_en"].map((f) => k[f] || ""),
@@ -266,14 +275,15 @@ export const api = {
   subjects: wrap((grade) => {
     const g = unitsBySubject(grade);
     return subjects.map((s) => ({
-      ...s,
+      ...presentSubject(s, grade),
       units: g[s.id] || [],
       counts: countsFor(s.id, grade),
       development_status: (s.development || {})[String(grade || "8")] || "upcoming",
     }));
   }),
   subject: wrap((id, grade) => {
-    const subject = subjects.find((s) => s.id === id) || notFound("Subject");
+    const found = subjects.find((s) => s.id === id) || notFound("Subject");
+    const subject = presentSubject(found, grade);
     const knowledge = attachProgress(listKnowledge(id, undefined, grade));
     const unitRows = (unitsBySubject(grade)[id] || []).map((u) => {
       const ups = knowledge.filter((k) => k.unit_id === u.id || k.chapter_id === u.id);
@@ -361,14 +371,14 @@ export const api = {
     });
     return { ok: true };
   }),
-  progress: wrap(() => {
+  progress: wrap((grade) => {
     let tk = 0;
     let tm = 0;
     const rows = subjects.map((s) => {
-      const counts = countsFor(s.id);
+      const counts = countsFor(s.id, grade);
       tk += counts.knowledge;
       tm += counts.mastered;
-      return { ...s, counts };
+      return { ...presentSubject(s, grade), counts };
     });
     return {
       subjects: rows,
@@ -377,20 +387,21 @@ export const api = {
       open_mistakes: mistakesList(null, "open").length,
     };
   }),
-  continue: wrap(() => {
+  continue: wrap((grade) => {
     const user = loadUser();
     const last = user.activity.find((a) => a.kind === "view_knowledge" && getOne("knowledge", a.ref_id));
     if (last) {
       const k = getOne("knowledge", last.ref_id);
+      const sameGrade = !grade || !k.grade_id || k.grade_id === grade;
       const status = user.progress[k.id]?.status || "not_started";
-      if (status !== "mastered") return { ...k, status };
+      if (sameGrade && status !== "mastered") return { ...k, status };
     }
-    return attachProgress(listKnowledge()).find((k) => k.status !== "mastered") || null;
+    return attachProgress(listKnowledge(undefined, undefined, grade)).find((k) => k.status !== "mastered") || null;
   }),
-  updates: wrap(() => {
+  updates: wrap((grade) => {
     const items = [];
-    listKnowledge().forEach((k) => withinDays(k.published_at, 7) && items.push({ type: "knowledge", id: k.id, subject_id: k.subject_id, title_zh: k.title_zh, title_en: k.title_en, published_at: k.published_at }));
-    listSets().forEach((s) => withinDays(s.published_at, 7) && items.push({ type: s.kind || "set", id: s.id, subject_id: s.subject_id, title_zh: s.title_zh, title_en: s.title_en, published_at: s.published_at }));
+    listKnowledge(undefined, undefined, grade).forEach((k) => withinDays(k.published_at, 7) && items.push({ type: "knowledge", id: k.id, subject_id: k.subject_id, title_zh: k.title_zh, title_en: k.title_en, published_at: k.published_at }));
+    listSets(undefined, undefined, grade).forEach((s) => withinDays(s.published_at, 7) && items.push({ type: s.kind || "set", id: s.id, subject_id: s.subject_id, title_zh: s.title_zh, title_en: s.title_en, published_at: s.published_at }));
     return items.sort(byPublishedDesc);
   }),
   search: wrap(search),

@@ -18,7 +18,7 @@ import { useGrade } from "./context/GradeContext";
 function SubjectRedirect() {
   const { subjectId } = useParams();
   const { gradeId } = useGrade();
-  return <Navigate to={`/grades/${gradeId || "8"}/subjects/${subjectId}`} replace />;
+  return <Navigate to={`/grades/${gradeId || "9"}/subjects/${subjectId}`} replace />;
 }
 
 export default function App() {

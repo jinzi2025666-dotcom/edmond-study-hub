@@ -656,6 +656,17 @@ textarea.answer-input { min-height: 5.5rem; max-width: 100%; }
   border-radius: var(--radius);
 }
 .grade-pills button strong { display: block; font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; }
+.grade-pills button.is-featured { min-width: 12.5rem; border-color: var(--copper); }
+.grade-badge {
+  display: inline-block;
+  margin-left: 0.45rem;
+  font-style: normal;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  vertical-align: 0.15em;
+  color: var(--copper-dark);
+}
 .grade-pills button span { display: block; color: var(--ink-faint); font-size: 0.8rem; margin-top: 0.15rem; }
 .grade-pills button.is-active,
 .grade-pills button[aria-selected="true"] {

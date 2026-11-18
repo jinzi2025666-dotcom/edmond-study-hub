@@ -12,8 +12,8 @@ export default function ProgressPage() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    api.progress().then(setData);
-  }, []);
+    api.progress(gradeId).then(setData);
+  }, [gradeId]);
 
   if (!data) return <p>{t("loading")}</p>;
   const overall = data.overall;

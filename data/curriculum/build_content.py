@@ -17,18 +17,24 @@ from _content_biology import knowledge_bi, questions_bi, sets_bi
 from _content_physics import knowledge as knowledge_ph, questions as questions_ph, sets as sets_ph
 from _content_computing import knowledge_cs, questions_cs, sets_cs, coding_exercises
 from _content_economics import knowledge_ec, questions_ec, sets_ec
+from grade9 import collect as collect_grade9
+
+g9_knowledge, g9_questions, g9_sets, g9_units = collect_grade9()
 
 knowledge = (
     knowledge_cn + knowledge_en + knowledge_ma + knowledge_ph
     + knowledge_ch + knowledge_bi + knowledge_cs + knowledge_ec
+    + g9_knowledge
 )
 questions = (
     questions_cn + questions_en + questions_ma + questions_ph
     + questions_ch + questions_bi + questions_cs + questions_ec
+    + g9_questions
 )
 sets = (
     sets_cn + sets_en + sets_ma + sets_ph
     + sets_ch + sets_bi + sets_cs + sets_ec
+    + g9_sets
 )
 
 for row in knowledge + questions + sets:
@@ -64,6 +70,13 @@ payload = {
 out = HERE / "content.json"
 out.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
+units_path = HERE / "units.json"
+tree = json.loads(units_path.read_text(encoding="utf-8"))
+tree = [row for row in tree if str(row.get("grade_id") or "8") != "9"]
+tree.extend(g9_units)
+units_path.write_text(json.dumps(tree, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print(f"Wrote {units_path} ({len(tree)} chapters, grade 9: {len(g9_units)})")
+
 from collections import Counter
 print(f"Wrote {out}")
 print(f"  knowledge: {len(knowledge)}")
@@ -82,3 +95,27 @@ for sid in ("chinese","mathematics","english","computer-science","economics","ph
     qs = sum(1 for q in questions if q['subject_id']==sid)
     ss = [s['id'] for s in sets if s['subject_id']==sid]
     print(f"    {sid}: lessons={ks} questions={qs} sets={len(ss)}")
+
+print("  grade 9:")
+forbidden = ("kemmy", "satish", "adrian chan", "tony song", "kelvin", "choy", "alice tan", "张老师", "edmond")
+blob_parts = []
+for row in g9_knowledge + g9_questions + g9_sets + g9_units:
+    blob_parts.append(json.dumps(row, ensure_ascii=False))
+blob = "\n".join(blob_parts).lower()
+hits = [word for word in forbidden if word.lower() in blob]
+if hits:
+    raise SystemExit(f"Grade 9 content contains forbidden names: {hits}")
+for sid in ("chinese","mathematics","english","computer-science","economics","physics","chemistry","biology"):
+    ks = [k for k in g9_knowledge if k["subject_id"] == sid]
+    qs = [q for q in g9_questions if q["subject_id"] == sid]
+    papers = [s for s in g9_sets if s["subject_id"] == sid and s["kind"] == "paper"]
+    practices = [s for s in g9_sets if s["subject_id"] == sid and s["kind"] == "practice"]
+    if not ks or not qs or not papers:
+        raise SystemExit(f"Grade 9 {sid} is incomplete")
+    marks = 0
+    qby = {q["id"]: q for q in g9_questions}
+    for paper in papers:
+        if not paper.get("time_limit_minutes"):
+            raise SystemExit(f"{paper['id']} has no time limit")
+        marks = sum(int(qby[i].get("marks") or 1) for i in paper["question_ids"])
+        print(f"    {sid}: lessons={len(ks)} questions={len(qs)} practices={len(practices)} paper={paper['id']} ({paper['time_limit_minutes']} min, {marks} marks, {len(paper['question_ids'])} items)")

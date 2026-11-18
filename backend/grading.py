@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 from fractions import Fraction
 
@@ -71,11 +72,56 @@ def accepted_values(question: dict) -> list[str]:
     return out
 
 
+def keyword_list(question: dict) -> list[str]:
+    raw = question.get("keywords") or []
+    if isinstance(raw, str):
+        raw = raw.strip()
+        if not raw:
+            return []
+        try:
+            parsed = json.loads(raw)
+        except json.JSONDecodeError:
+            return [raw]
+        if parsed is None:
+            return []
+        raw = parsed
+    if not isinstance(raw, (list, tuple)):
+        return []
+    return [str(k) for k in raw if k is not None and str(k).strip()]
+
+
+def keywords_match(question: dict, given) -> bool | None:
+    """Extended answers: full marks when enough key phrases appear.
+
+    Returns None when the question has no keyword list, so short answers
+    keep exact matching.
+    """
+    keys = keyword_list(question)
+    if not keys:
+        return None
+    text = normalize_text(given)
+    if not text:
+        return False
+    hits = sum(1 for key in keys if normalize_text(key) and normalize_text(key) in text)
+    need = question.get("keyword_min")
+    if need is None or need == "":
+        need = max(1, (len(keys) + 1) // 2)
+    try:
+        need_n = int(need)
+    except (TypeError, ValueError):
+        need_n = max(1, (len(keys) + 1) // 2)
+    return hits >= max(1, need_n)
+
+
 def check_answer(question: dict, given) -> bool:
     typ = (question.get("type") or "short").lower()
     raw = "" if given is None else str(given)
     if typ == "mcq":
         return raw.strip().lower() == str(question.get("answer") or "").strip().lower()
+
+    kw = keywords_match(question, raw)
+    if kw is not None:
+        return kw
 
     if typ == "numeric":
         got = _try_number(raw)

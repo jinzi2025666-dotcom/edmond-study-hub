@@ -1,0 +1,263 @@
+"""Grade 9 Biology — IGCSE Biology 0610, in the order taught.
+
+Organisation, movement in and out of cells, biological molecules, enzymes,
+then characteristics and classification, then human nutrition (7.1–7.5).
+Topic 6 is not included. Practical-planning questions are emphasised.
+"""
+from __future__ import annotations
+
+
+def L(sid, code, title_zh, title_en, obj_zh, obj_en, points, ez, ee, xz, xe, traps, questions):
+    return dict(
+        id=sid, code=code, title_zh=title_zh, title_en=title_en,
+        obj_zh=obj_zh, obj_en=obj_en, points=points,
+        explain_zh=ez, explain_en=ee, example_zh=xz, example_en=xe,
+        traps=traps, questions=questions,
+    )
+
+
+def mcq(zh, en, answer, ez, ee, options, marks=1):
+    return dict(type="mcq", stem_zh=zh, stem_en=en, answer=answer, exp_zh=ez, exp_en=ee, options=options, marks=marks)
+
+
+def short(zh, en, answer, ez, ee, accepted, marks=1):
+    return dict(type="short", stem_zh=zh, stem_en=en, answer=answer, exp_zh=ez, exp_en=ee, accepted=accepted, marks=marks)
+
+
+def num(zh, en, answer, ez, ee, marks=1, tolerance=0, accepted=None):
+    q = dict(type="numeric", stem_zh=zh, stem_en=en, answer=str(answer), exp_zh=ez, exp_en=ee, marks=marks, tolerance=tolerance)
+    if accepted:
+        q["accepted"] = accepted
+    return q
+
+
+SPEC = {
+    "subject_id": "biology",
+    "tag": "g9bi",
+    "chapters": [
+        {
+            "id": "g9-bio-2",
+            "code": "2",
+            "order": 1,
+            "title_zh": "Topic 2 · 生物体的组织",
+            "title_en": "Topic 2 · Organisation of the organism",
+            "units": [{
+                "id": "g9-bio-2-u1", "code": "2", "order": 1,
+                "title_zh": "细胞与显微镜", "title_en": "Cells and the microscope",
+                "lessons": [L(
+                    "g9bi-2-1", "2", "细胞、比较与显微镜", "Cells, comparison and the microscope",
+                    "能比较动物细胞和植物细胞，并用放大倍数公式换算实际大小。",
+                    "Compare animal and plant cells, and convert sizes with the magnification formula.",
+                    [("动物细胞和植物细胞都有细胞核、细胞膜和细胞质。", "Animal and plant cells both have a nucleus, a cell membrane and cytoplasm."),
+                     ("植物细胞还有细胞壁、叶绿体（绿色部分）和通常存在的大液泡。", "Plant cells also have a cell wall, chloroplasts in the green parts, and usually a large vacuole."),
+                     ("放大倍数 = 图像大小 ÷ 实际大小，两个长度的单位必须相同。", "Magnification = image size ÷ actual size. The two lengths must use the same unit."),
+                     ("画生物图用清晰的铅笔线，标名称时引线不交叉。", "Biological drawings use clear pencil lines, and label lines do not cross.")],
+                    "比较细胞时写“都有”和“只有植物有”，不要只列一边。细菌没有真正的细胞核，那是另一类，不要画进植物细胞的清单。\n\n单位：1 mm = 1000 μm。图像量出来是 40 mm，实际细胞是 0.05 mm，放大倍数 = 40 / 0.05 = 800。若实际大小用 μm，40 mm 要先换成 40000 μm，再除以实际的 μm 数，结果应相同。",
+                    "When you compare cells, write both “both have” and “only plant cells have”. Do not list only one side. Bacteria have no true nucleus; do not add that to the plant-cell list.\n\nUnits: 1 mm = 1000 μm. An image of 40 mm and an actual cell of 0.05 mm give magnification 40 / 0.05 = 800. If the actual size is in μm, convert 40 mm to 40 000 μm first. The magnification should match.",
+                    "图像长 20 mm，放大倍数是 ×400。实际长度是多少？\n\n实际 = 图像 / 放大倍数 = 20 / 400 = 0.05 mm = 50 μm。",
+                    "The image is 20 mm long and the magnification is ×400. What is the actual length?\n\nActual = image / magnification = 20 / 400 = 0.05 mm = 50 μm.",
+                    [("放大倍数写成实际大小除以图像。", "Writing magnification as actual size divided by image size."),
+                     ("毫米和微米直接相除。", "Dividing millimetres by micrometres."),
+                     ("认为所有植物细胞都有叶绿体，包括根细胞。", "Thinking every plant cell has chloroplasts, including root cells.")],
+                    [mcq("根部的植物细胞通常没有哪一种结构？", "A plant cell in a root usually lacks which structure?", "c", "叶绿体。", "Chloroplasts.", [("细胞壁", "a cell wall"), ("细胞核", "a nucleus"), ("叶绿体", "chloroplasts"), ("细胞膜", "a cell membrane")]),
+                     num("图像 20 mm，放大 ×400。实际长度是多少 mm？", "Image 20 mm, magnification ×400. What is the actual length in mm?", "0.05", "20/400 = 0.05。", "20/400 = 0.05.", 2, 0.001),
+                     short("画细胞图时，引线应当避免什么？", "When labelling a cell drawing, what should the label lines avoid?", "crossing", "不要交叉。", "They should not cross.", ["crossing", "crossing each other", "交叉"], 1)],
+                )],
+            }],
+        },
+        {
+            "id": "g9-bio-3",
+            "code": "3",
+            "order": 2,
+            "title_zh": "Topic 3 · 物质进出细胞",
+            "title_en": "Topic 3 · Movement in and out of cells",
+            "units": [{
+                "id": "g9-bio-3-u1", "code": "3", "order": 1,
+                "title_zh": "扩散与渗透", "title_en": "Diffusion and osmosis",
+                "lessons": [L(
+                    "g9bi-3-1", "3", "扩散、渗透与实验设计", "Diffusion, osmosis and planning",
+                    "能区分扩散和渗透，并按变量写出一个渗透实验的计划。",
+                    "Tell diffusion from osmosis, and plan an osmosis experiment in terms of variables.",
+                    [("扩散是粒子从高浓度到低浓度的净移动，不需要膜。", "Diffusion is the net movement of particles from high to low concentration. It does not need a membrane."),
+                     ("渗透是水通过部分透膜，从高水势一侧到低水势一侧。", "Osmosis is the net movement of water through a partially permeable membrane, from higher to lower water potential."),
+                     ("植物细胞放进浓溶液会质壁分离：膜离开细胞壁。动物细胞没有壁，在纯水中可能胀破。", "A plant cell in a concentrated solution plasmolyses: the membrane pulls away from the wall. An animal cell has no wall and may burst in pure water."),
+                     ("计划题要写自变量、因变量、至少两个控制变量、重复和安全。", "A planning answer names the independent variable, the dependent variable, at least two controls, repeats and safety.")],
+                    "透析管（Visking）里装蔗糖溶液，放进清水。水进入管内，液面上升。蛋的渗透实验也是同一件事：蛋浸在糖浆里会变轻，因为水离开蛋；浸在清水里会变重。称质量比只看体积更可重复。\n\n计划“蔗糖浓度如何影响马铃薯条的质量变化”：自变量是蔗糖浓度，因变量是质量变化的百分数，控制变量是薯条的初质量和尺寸、溶液体积、时间和温度。每组至少重复三次。用镊子取薯条，护目镜按实验室要求戴。",
+                    "Visking tubing containing sucrose solution is placed in pure water. Water enters and the level rises. An egg osmometer is the same idea: an egg in syrup loses mass because water leaves; an egg in water gains mass. Mass is more repeatable than judging the volume by eye.\n\nPlan for “how sucrose concentration affects the change in mass of potato strips”: the independent variable is sucrose concentration, the dependent variable is the percentage change in mass, and the controls are the starting mass and size, the volume of solution, the time and the temperature. Repeat each concentration at least three times. Use forceps, and wear eye protection as the lab requires.",
+                    "马铃薯条初质量 5.0 g，在浓蔗糖溶液中取出后为 4.0 g。\n\n百分变化 = (4.0 − 5.0) / 5.0 × 100% = −20%。负号表示失水。",
+                    "A potato strip starts at 5.0 g and is 4.0 g after time in concentrated sucrose.\n\nPercentage change = (4.0 − 5.0) / 5.0 × 100% = −20%. The minus sign means water was lost.",
+                    [("把渗透说成任何粒子的移动。", "Describing osmosis as the movement of any particle."),
+                     ("计划里改变了浓度，又同时改变了温度。", "Changing concentration and temperature in the same plan."),
+                     ("动物细胞写成会发生质壁分离。", "Saying an animal cell plasmolyses.")],
+                    [mcq("渗透特指哪一种物质通过部分透膜？", "Osmosis specifically names the movement of which substance through a partially permeable membrane?", "a", "水。", "Water.", [("水", "water"), ("淀粉", "starch"), ("蛋白质", "protein"), ("任何溶质，且不需要膜", "any solute, and no membrane is needed")]),
+                     num("初质量 5.0 g，末质量 4.0 g。质量的百分变化是多少？用负数表示减少。", "Start mass 5.0 g, end mass 4.0 g. What is the percentage change in mass? Use a negative number for a loss.", "-20", "(4−5)/5 × 100 = −20。", "(4−5)/5 × 100 = −20.", 2, 0),
+                     short("研究浓度对薯条质量的影响时，自变量是什么？", "In an investigation of concentration and potato mass, what is the independent variable?", "sucrose concentration", "蔗糖浓度。", "The sucrose concentration.", ["sucrose concentration", "concentration", "蔗糖浓度", "sugar concentration"], 2)],
+                )],
+            }],
+        },
+        {
+            "id": "g9-bio-4",
+            "code": "4",
+            "order": 3,
+            "title_zh": "Topic 4 · 生物分子",
+            "title_en": "Topic 4 · Biological molecules",
+            "units": [{
+                "id": "g9-bio-4-u1", "code": "4", "order": 1,
+                "title_zh": "食物检验", "title_en": "Food tests",
+                "lessons": [L(
+                    "g9bi-4-1", "4", "生物分子与食物检验", "Biological molecules and food tests",
+                    "能配对四种食物检验的试剂和阳性结果，并知道如何把结果做成表或图。",
+                    "Match four food tests to their reagents and positive results, and record the results in a table or graph.",
+                    [("淀粉：碘液，阳性为蓝黑色。", "Starch: iodine solution, blue-black if positive."),
+                     ("还原糖：本尼迪特 试剂，加热，从蓝到绿、黄、砖红色。", "Reducing sugar: Benedict’s reagent, heated, from blue through green and yellow to brick-red."),
+                     ("蛋白质：双缩脲试剂，阳性为紫色。", "Protein: biuret reagent, purple if positive."),
+                     ("脂肪：乙醇溶解后再加水，出现乳白色乳浊液。", "Fat: dissolve in ethanol, then add water. A milky emulsion appears.")],
+                    "本尼迪特 必须加热，碘液不要加热。颜色要和对照一起看：没有还原糖时本尼迪特 保持蓝色。砖红色比绿色表示更多还原糖，但这是半定量，不是精确的克数。\n\n作图时自变量放横轴。若浓度是分类（0、低、高）而不是连续测量，用柱状图；若两个连续变量，才用折线或散点。表要有标题和单位。",
+                    "Benedict’s must be heated. Iodine is not heated. Read the colour against a control: with no reducing sugar, Benedict’s stays blue. Brick-red means more reducing sugar than green, but it is only semi-quantitative, not an exact mass.\n\nPut the independent variable on the horizontal axis. If the concentrations are categories (zero, low, high) rather than a continuous measurement, use a bar chart. Use a line or scatter graph only for two continuous variables. A table needs a title and units.",
+                    "一种饼干使碘液变蓝黑，本尼迪特 加热后仍是蓝色。\n\n**解：** 含淀粉，没有检出还原糖。不能由此说它完全不含能量。",
+                    "A biscuit turns iodine blue-black, and Benedict’s stays blue after heating.\n\n**Solution:** It contains starch and no reducing sugar was detected. That does not mean it contains no energy at all.",
+                    [("本尼迪特 不加热就记录阳性。", "Recording a positive Benedict’s test without heating."),
+                     ("把乳白色乳浊液说成蛋白质的阳性结果。", "Calling a milky emulsion a positive result for protein."),
+                     ("分类数据画成一条连续的折线。", "Drawing a continuous line through categorical data.")],
+                    [mcq("碘液变蓝黑色，说明样品中有？", "Iodine turning blue-black shows that the sample contains:", "b", "淀粉。", "Starch.", [("还原糖", "reducing sugar"), ("淀粉", "starch"), ("蛋白质", "protein"), ("脂肪", "fat")]),
+                     short("检验还原糖时，除了本尼迪特 试剂，还必须做什么？", "Besides Benedict’s reagent, what else must you do when testing for reducing sugar?", "heat it", "加热。", "Heat it.", ["heat it", "heat", "加热", "warm"], 1),
+                     mcq("脂肪的阳性结果是？", "A positive test for fat is:", "c", "加水后出现乳白色乳浊液。", "A milky emulsion after adding water.", [("紫色", "purple"), ("蓝黑色", "blue-black"), ("乳白色乳浊液", "a milky emulsion"), ("砖红色沉淀，且不需要乙醇", "a brick-red precipitate, with no ethanol")])],
+                )],
+            }],
+        },
+        {
+            "id": "g9-bio-5",
+            "code": "5",
+            "order": 4,
+            "title_zh": "Topic 5 · 酶",
+            "title_en": "Topic 5 · Enzymes",
+            "units": [{
+                "id": "g9-bio-5-u1", "code": "5", "order": 1,
+                "title_zh": "酶与实验", "title_en": "Enzymes and practicals",
+                "lessons": [L(
+                    "g9bi-5-1", "5", "酶、过氧化氢酶与果胶酶", "Enzymes, catalase and pectinase",
+                    "能说明酶的专一性和变性，并计划一个温度对过氧化氢酶影响的实验。",
+                    "Explain specificity and denaturation, and plan an investigation of temperature and catalase.",
+                    [("酶是生物催化剂，降低反应所需的能量，本身在反应后仍在。", "Enzymes are biological catalysts. They lower the energy needed and are still there afterwards."),
+                     ("活性部位只适合一种底物，所以酶有专一性。", "The active site fits one substrate, so enzymes are specific."),
+                     ("过高的温度或极端 pH 会改变活性部位的形状，酶变性，且通常不能恢复。", "A high temperature or an extreme pH changes the shape of the active site. The enzyme is denatured and usually does not recover."),
+                     ("过氧化氢酶把过氧化氢分解成水和氧。果胶酶用于分解果胶，帮助果汁变澄清、提高出汁量。", "Catalase breaks hydrogen peroxide into water and oxygen. Pectinase breaks down pectin so juice is clearer and more juice can be collected.")],
+                    "温度实验：自变量是温度，因变量可以是一定时间内收集到的氧气体积，或滤纸片上浮的时间。控制变量包括过氧化氢的体积和浓度、马铃薯（或酶）的质量、pH。先把酶和底物分别放到目标温度，再混合，否则反应在达到温度前就已经开始。\n\n低温只是粒子运动慢，酶没有变性，升温后可以恢复。高温变性后不能靠冷却恢复。最适温度不是“越高越快”的终点。",
+                    "Temperature plan: the independent variable is temperature. The dependent variable can be the volume of oxygen in a fixed time, or the time for a paper disc to rise. Controls include the volume and concentration of hydrogen peroxide, the mass of potato or enzyme, and the pH. Bring the enzyme and the substrate to the target temperature separately before mixing, or the reaction starts before the temperature is reached.\n\nAt a low temperature the particles are simply slow. The enzyme is not denatured and recovers when warmed. After a high temperature denatures it, cooling does not restore it. The optimum is not “the higher the faster”.",
+                    "为什么 80°C 处理后的过氧化氢酶，再冷却到 30°C，通常仍没有活性？\n\n**解：** 活性部位的形状已经改变。冷却不能把形状变回去。",
+                    "Why does catalase heated to 80°C usually stay inactive after it is cooled to 30°C?\n\n**Solution:** The active site has changed shape. Cooling does not restore that shape.",
+                    [("把低温和变性写成同一件事。", "Writing a low temperature and denaturation as the same thing."),
+                     ("果胶酶被说成用来检验淀粉。", "Saying pectinase is the test for starch."),
+                     ("底物和酶在室温混合后才放进水浴，却把那段时间也算进目标温度。", "Mixing at room temperature and only then moving the tube to the water bath, while still calling the whole time “the target temperature”.")],
+                    [mcq("酶在过高温度下失去活性，主要是因为？", "An enzyme loses activity at too high a temperature mainly because:", "b", "活性部位变形。", "The active site changes shape.", [("底物都变成了氧", "all the substrate has become oxygen"), ("活性部位的形状改变", "the active site changes shape"), ("它变成了淀粉", "it turns into starch"), ("pH 一定变成 7", "the pH must become 7")]),
+                     short("过氧化氢酶的底物是什么？", "What is the substrate of catalase?", "hydrogen peroxide", "过氧化氢。", "Hydrogen peroxide.", ["hydrogen peroxide", "H2O2", "过氧化氢"], 1),
+                     short("温度实验中，应保持不变的一个量是什么？", "Name one variable that should stay constant in the temperature experiment.", "pH", "例如 pH、底物体积或酶的质量。", "For example pH, substrate volume, or the mass of enzyme.", ["pH", "enzyme mass", "volume of peroxide", "过氧化氢的体积", "酶的质量"], 2)],
+                )],
+            }],
+        },
+        {
+            "id": "g9-bio-1",
+            "code": "1",
+            "order": 5,
+            "title_zh": "Topic 1 · 生物的特征与分类",
+            "title_en": "Topic 1 · Characteristics and classification",
+            "units": [{
+                "id": "g9-bio-1-u1", "code": "1", "order": 1,
+                "title_zh": "特征与类群", "title_en": "Characteristics and groups",
+                "lessons": [L(
+                    "g9bi-1-1", "1", "生命特征与主要类群", "Characteristics of life and the main groups",
+                    "能列出生命特征，并依据细胞和营养方式区分五界与几类脊椎动物。",
+                    "List the characteristics of life, and separate the five kingdoms and vertebrate classes by cells and nutrition.",
+                    [("生命特征：运动、呼吸、感应、生长、繁殖、排泄、营养。", "The characteristics are movement, respiration, sensitivity, growth, reproduction, excretion and nutrition."),
+                     ("动物界摄入食物；植物界光合自养；真菌体外消化后吸收。", "Animals ingest food. Plants photosynthesise. Fungi digest outside the body and then absorb."),
+                     ("原生生物界多为单细胞真核；原核生物界（细菌）没有真正的细胞核。", "Protoctists are mostly unicellular eukaryotes. Prokaryotes (bacteria) have no true nucleus."),
+                     ("哺乳类有毛和乳汁；鸟有羽毛；鱼有鳃和鳞；两栖类皮肤湿润且生命史经过水；爬行类有干燥的鳞片。", "Mammals have fur and milk. Birds have feathers. Fish have gills and scales. Amphibians have moist skin and a life stage in water. Reptiles have dry scales.")],
+                    "一个特征不够分类。会飞的不全是鸟，蝙蝠是哺乳类。要看羽毛、毛或乳汁，而不是只看运动方式。植物和真菌都可能不移动，但植物有叶绿素、真菌没有，而且真菌的营养方式不同。\n\n病毒不在这五界的细胞生物里：它们没有细胞结构，只能在宿主细胞内繁殖。答题时如果题目问的是生物的特征，不要把病毒当作典型例子。",
+                    "One feature is not a classification. Not everything that flies is a bird; a bat is a mammal. Look for feathers, fur or milk, not only for the way it moves. Plants and fungi may both stay in one place, but plants have chlorophyll and fungi do not, and their nutrition differs.\n\nViruses are not cellular members of the five kingdoms. They have no cell structure and reproduce only inside a host. If the question asks for the characteristics of living organisms, do not use a virus as the typical example.",
+                    "一种生物有湿润的皮肤，幼体在水中用鳃呼吸，成体在陆地用肺和皮肤呼吸。\n\n**解：** 这是两栖类，不是爬行类。爬行类皮肤干燥并有鳞片。",
+                    "An animal has moist skin. The young use gills in water, and the adult uses lungs and skin on land.\n\n**Solution:** It is an amphibian, not a reptile. Reptiles have dry, scaly skin.",
+                    [("把蝙蝠分到鸟类。", "Classifying a bat as a bird."),
+                     ("细菌被写成有真正的细胞核。", "Writing that bacteria have a true nucleus."),
+                     ("只背七个英文单词，不会对上中文含义。", "Memorising seven English words and not knowing what they mean.")],
+                    [mcq("没有真正细胞核的是？", "Which group has no true nucleus?", "d", "细菌（原核生物）。", "Bacteria (prokaryotes).", [("植物", "plants"), ("真菌", "fungi"), ("原生生物", "protoctists"), ("细菌", "bacteria")]),
+                     short("鸟类与其他脊椎动物区分时，体表最明显的特征是什么？", "What body covering most clearly separates birds from other vertebrates?", "feathers", "羽毛。", "Feathers.", ["feathers", "羽毛"], 1),
+                     mcq("真菌获得营养的方式是？", "Fungi obtain nutrients by:", "a", "体外消化后再吸收。", "Digesting food outside the body and then absorbing it.", [("体外消化后吸收", "digesting outside the body, then absorbing"), ("叶绿体光合", "photosynthesis in chloroplasts"), ("只靠乳汁", "milk alone"), ("过滤水中的氧气作为食物", "filtering oxygen from water as food")])],
+                )],
+            }],
+        },
+        {
+            "id": "g9-bio-7",
+            "code": "7",
+            "order": 6,
+            "title_zh": "Topic 7 · 人体营养",
+            "title_en": "Topic 7 · Human nutrition",
+            "note_zh": "当前内容：7.1–7.2 膳食，7.3 物理性消化，7.4 化学性消化，7.5 吸收。还没有 Topic 6。",
+            "note_en": "Current work: 7.1–7.2 diet, 7.3 physical digestion, 7.4 chemical digestion, 7.5 absorption. Topic 6 is not included yet.",
+            "units": [{
+                "id": "g9-bio-7-u1", "code": "7", "order": 1,
+                "title_zh": "膳食、消化与吸收", "title_en": "Diet, digestion and absorption",
+                "lessons": [
+                    L("g9bi-7-1", "7.1–7.2", "膳食与消化道", "Diet and the alimentary canal",
+                      "能说出主要营养素的作用和缺乏症，并沿消化道说出各段的工作。",
+                      "State the roles and deficiency diseases of the main nutrients, and the job of each part of the alimentary canal.",
+                      [("平衡膳食包含碳水化合物、脂肪、蛋白质、维生素、矿物质、水和膳食纤维，比例适合这个人。", "A balanced diet has carbohydrate, fat, protein, vitamins, minerals, water and fibre, in proportions that suit that person."),
+                       ("维生素 C 缺乏可致坏血病，维生素 D 缺乏可致佝偻病，铁缺乏可致贫血。", "Lack of vitamin C can cause scurvy, lack of vitamin D rickets, and lack of iron anaemia."),
+                       ("消化道：口腔、食管、胃、小肠、大肠。", "The canal: mouth, oesophagus, stomach, small intestine, large intestine."),
+                       ("小肠是化学性消化完成和吸收的主要场所。", "The small intestine is where chemical digestion is completed and where absorption mainly happens.")],
+                      "缺乏症要连上那种营养素的作用。铁用于血红蛋白，缺了就贫血，搬运氧的能力下降。维生素 D 帮助吸收钙，缺了骨骼变软。维生素 C 与结缔组织有关，缺了牙龈出血、伤口难愈。\n\n不要把“吃得多”写成平衡。能量过多而纤维、维生素不足，仍然不平衡。",
+                      "Tie a deficiency to the nutrient’s job. Iron is used in haemoglobin; without it, anaemia reduces the blood’s ability to carry oxygen. Vitamin D helps calcium absorption; without it, bones soften. Vitamin C is involved in connective tissue; without it, gums bleed and wounds heal poorly.\n\nDo not write “eating a lot” as balanced. Too much energy with too little fibre and too few vitamins is still unbalanced.",
+                      "一个人牙龈出血、伤口愈合很慢。更可能缺乏哪一种维生素？\n\n**解：** 维生素 C。维生素 D 的典型问题是骨骼，铁的典型问题是贫血。",
+                      "A person’s gums bleed and wounds heal very slowly. Which vitamin is more likely to be lacking?\n\n**Solution:** Vitamin C. Vitamin D is linked to bone, and iron to anaemia.",
+                      [("把佝偻病写成缺维生素 C。", "Writing rickets as a lack of vitamin C."),
+                       ("大肠被写成消化淀粉的主要场所。", "Writing the large intestine as the main site of starch digestion.")],
+                      [mcq("缺铁更可能导致？", "A lack of iron is more likely to cause:", "b", "贫血。", "Anaemia.", [("坏血病", "scurvy"), ("贫血", "anaemia"), ("只影响头发颜色的遗传病", "a genetic condition that only changes hair colour"), ("质壁分离", "plasmolysis")]),
+                     short("吸收营养的主要部位是消化道的哪一段？", "Which part of the alimentary canal is the main site of absorption?", "small intestine", "小肠。", "The small intestine.", ["small intestine", "小肠"], 1),
+                     mcq("维生素 D 缺乏与哪一种问题关系最直接？", "Lack of vitamin D is most directly linked to:", "a", "骨骼变软（佝偻病）。", "Soft bones (rickets).", [("佝偻病", "rickets"), ("坏血病", "scurvy"), ("淀粉遇碘不变色", "starch failing to react with iodine"), ("酶在低温下变性", "enzymes denaturing in the cold")])],
+                    ),
+                    L("g9bi-7-2", "7.3–7.5", "物理消化、化学消化与吸收", "Physical digestion, chemical digestion and absorption",
+                      "能区分物理性消化和化学性消化，并说明绒毛如何适应吸收。",
+                      "Separate physical and chemical digestion, and explain how a villus is adapted for absorption.",
+                      [("物理性消化把食物变小或把脂肪变成小滴，不产生新的小分子。咀嚼、蠕动和胆汁的乳化都属于这一类。", "Physical digestion makes pieces smaller or turns fat into droplets. It does not make a new small molecule. Chewing, peristalsis and the emulsification by bile belong here."),
+                       ("胆汁不是酶。它增大脂肪的表面积，方便脂肪酶作用。", "Bile is not an enzyme. It increases the surface area of fat so lipase can work."),
+                       ("淀粉酶把淀粉分解为麦芽糖，蛋白酶把蛋白质分解为氨基酸，脂肪酶把脂肪分解为脂肪酸和甘油。", "Amylase breaks starch into maltose, protease breaks protein into amino acids, and lipase breaks fat into fatty acids and glycerol."),
+                       ("绒毛有薄的上皮、丰富的毛细血管和乳糜管，微绒毛再增大表面积。", "A villus has a thin epithelium, many capillaries and a lacteal. Microvilli increase the surface area further.")],
+                      "化学性消化才把大分子变成能被吸收的小分子。淀粉不能直接穿过绒毛壁，要先变成小分子糖。氨基酸和葡萄糖进入毛细血管；脂肪酸和甘油进入乳糜管。\n\n写适应时用“结构 + 作用”。只写“绒毛很多”没有分。写“绒毛壁只有一层上皮细胞，所以扩散距离短”。",
+                      "Only chemical digestion turns large molecules into small ones that can be absorbed. Starch cannot cross a villus wall until it has become smaller sugars. Amino acids and glucose enter the capillaries. Fatty acids and glycerol enter the lacteal.\n\nAn adaptation answer is “structure + what it does”. “There are many villi” does not score on its own. Write “the wall is a single layer of epithelium, so the diffusion distance is short”.",
+                      "胆汁乳化脂肪之后，脂肪酶作用更快。这是物理变化帮助了化学变化，不是胆汁本身把脂肪变成脂肪酸。",
+                      "After bile emulsifies fat, lipase works faster. The physical change helps the chemical one. Bile itself does not turn fat into fatty acids.",
+                      [("把胆汁写成一种酶。", "Calling bile an enzyme."),
+                       ("脂肪酸被写成进入毛细血管而不是乳糜管。", "Writing that fatty acids enter the capillaries rather than the lacteal."),
+                       ("适应题只写结构名称。", "An adaptation answer that only names the structure.")],
+                      [mcq("胆汁的作用是？", "The role of bile is to:", "c", "乳化脂肪，它本身不是酶。", "Emulsify fat. It is not itself an enzyme.", [("把淀粉分解成麦芽糖", "break starch into maltose"), ("作为一种蛋白酶", "act as a protease"), ("乳化脂肪", "emulsify fat"), ("在大肠里吸收葡萄糖", "absorb glucose in the large intestine")]),
+                     short("脂肪酶的两种产物是什么？", "What are the two products of lipase?", "fatty acids and glycerol", "脂肪酸和甘油。", "Fatty acids and glycerol.", ["fatty acids and glycerol", "脂肪酸和甘油"], 2),
+                     short("绒毛壁很薄，对吸收有什么好处？", "The villus wall is very thin. What is the advantage for absorption?", "a short diffusion distance", "扩散距离短。", "A short diffusion distance.", ["a short diffusion distance", "short diffusion path", "扩散距离短"], 2)],
+                    ),
+                ],
+            }],
+        },
+    ],
+    "paper": {
+        "id": "paper-g9-bio",
+        "title_zh": "练习卷 · 实验设计与营养",
+        "title_en": "Practice paper · practical planning and nutrition",
+        "minutes": 45,
+        "published": "2026-11-18T17:00:00+08:00",
+        "items": [
+            ("g9bi-2-1", num("细胞图量得 30 mm，实际长度是 0.03 mm。放大倍数是多少？", "A cell drawing measures 30 mm and the actual length is 0.03 mm. What is the magnification?", "1000", "30/0.03 = 1000。", "30/0.03 = 1000.", 2, 0)),
+            ("g9bi-3-1", short("计划：蔗糖浓度对马铃薯条质量的影响。自变量是什么？", "Plan: the effect of sucrose concentration on potato mass. What is the independent variable?", "sucrose concentration", "你改变的是浓度。", "You change the concentration.", ["sucrose concentration", "concentration", "蔗糖浓度"], 2)),
+            ("g9bi-3-1", short("同一计划里，写出一个必须保持不变的变量。", "In the same plan, name one variable that must stay constant.", "temperature", "温度、时间、薯条大小或溶液体积都可以。", "Temperature, time, strip size or volume of solution all count.", ["temperature", "time", "size of the strip", "volume", "温度", "时间", "薯条大小"], 2)),
+            ("g9bi-3-1", short("怎样提高这组结果的可信度？", "How would you make this set of results more reliable?", "repeat and take a mean", "重复并取平均。", "Repeat and calculate a mean.", ["repeat and take a mean", "repeat", "重复", "repeats"], 2)),
+            ("g9bi-3-1", mcq("植物细胞在浓蔗糖溶液中，细胞膜离开细胞壁。这叫做？", "In concentrated sucrose the cell membrane pulls away from the wall. This is called:", "b", "质壁分离。", "Plasmolysis.", [("渗透平衡且细胞胀破", "osmotic balance and the cell bursting"), ("质壁分离", "plasmolysis"), ("乳化", "emulsification"), ("变性", "denaturation")], 1)),
+            ("g9bi-4-1", mcq("加热后的本尼迪特 试剂变成砖红色，说明有？", "Benedict’s reagent turns brick-red after heating. This shows:", "a", "还原糖。", "Reducing sugar.", [("还原糖", "reducing sugar"), ("淀粉", "starch"), ("蛋白质", "protein"), ("只有脂肪", "fat only")], 1)),
+            ("g9bi-4-1", short("检验脂肪时，先用哪一种溶剂？", "Which solvent is used first in the test for fat?", "ethanol", "乙醇。", "Ethanol.", ["ethanol", "乙醇", "alcohol"], 1)),
+            ("g9bi-5-1", short("研究温度对过氧化氢酶的影响时，因变量可以测量什么？", "When investigating temperature and catalase, what could the dependent variable be?", "volume of oxygen", "一定时间内的氧气体积，或上浮时间。", "Volume of oxygen in a fixed time, or the time to rise.", ["volume of oxygen", "oxygen volume", "time to rise", "氧气体积", "上浮时间"], 2)),
+            ("g9bi-5-1", mcq("酶在 80°C 变性后冷却到最适温度，活性通常？", "After an enzyme is denatured at 80°C and then cooled to its optimum, activity is usually:", "c", "不能恢复。", "Not restored.", [("立刻高于原来", "immediately higher than before"), ("恢复到最大", "restored to the maximum"), ("不能恢复", "not restored"), ("变成底物", "turned into the substrate")], 1)),
+            ("g9bi-5-1", short("果胶酶在食品工业中的一个用途是什么？", "Give one use of pectinase in food production.", "to clarify fruit juice", "使果汁更澄清或提高出汁量。", "To clarify juice, or to extract more of it.", ["to clarify fruit juice", "extract more juice", "果汁澄清", "提高出汁"], 2)),
+            ("g9bi-7-1", mcq("牙龈出血、伤口难愈合，更应考虑缺乏？", "Bleeding gums and slow healing suggest a lack of:", "b", "维生素 C。", "Vitamin C.", [("维生素 D", "vitamin D"), ("维生素 C", "vitamin C"), ("淀粉酶", "amylase"), ("胆汁", "bile")], 1)),
+            ("g9bi-7-2", mcq("胆汁乳化脂肪，正确的说法是？", "Which statement about bile emulsifying fat is correct?", "a", "胆汁不是酶，它增大脂肪的表面积。", "Bile is not an enzyme. It increases the surface area of the fat.", [("胆汁不是酶，只是把脂肪变成小滴", "bile is not an enzyme; it turns fat into droplets"), ("胆汁把脂肪变成氨基酸", "bile turns fat into amino acids"), ("胆汁在口腔里把淀粉变成麦芽糖", "bile turns starch into maltose in the mouth"), ("胆汁使绒毛变性", "bile denatures the villi")], 2)),
+            ("g9bi-7-2", short("淀粉酶作用后，淀粉首先变成哪一种糖？", "After amylase acts, starch is first changed into which sugar?", "maltose", "麦芽糖。", "Maltose.", ["maltose", "麦芽糖"], 1)),
+            ("g9bi-7-2", short("绒毛里，脂肪酸主要进入哪一种管？", "Inside a villus, fatty acids mainly enter which vessel?", "lacteal", "乳糜管。", "The lacteal.", ["lacteal", "乳糜管"], 2)),
+            ("g9bi-1-1", short("一种脊椎动物有羽毛。它属于哪一类？", "A vertebrate has feathers. Which class is it?", "bird", "鸟类。", "Birds.", ["bird", "birds", "鸟", "鸟类"], 1)),
+        ],
+    },
+}

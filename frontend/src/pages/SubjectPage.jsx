@@ -14,8 +14,8 @@ export default function SubjectPage() {
   useEffect(() => {
     if (gradeId) setGradeId(gradeId);
   }, [gradeId, setGradeId]);
-  if (ALIASES[raw]) return <Navigate to={subjectPath(gradeId || "8", ALIASES[raw])} replace />;
-  return <SubjectView subjectId={raw} gradeId={gradeId || "8"} />;
+  if (ALIASES[raw]) return <Navigate to={subjectPath(gradeId || "9", ALIASES[raw])} replace />;
+  return <SubjectView subjectId={raw} gradeId={gradeId || "9"} />;
 }
 
 function findKnowledge(knowledge, section) {

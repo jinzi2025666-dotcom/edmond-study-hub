@@ -55,9 +55,9 @@ export const api = {
   },
   masterMistake: (questionId) =>
     request(`/api/mistakes/${questionId}/master`, { method: "POST" }),
-  progress: () => request("/api/progress"),
-  continue: () => request("/api/continue"),
-  updates: () => request("/api/updates?days=7"),
+  progress: (grade) => request(grade ? `/api/progress?grade=${encodeURIComponent(grade)}` : "/api/progress"),
+  continue: (grade) => request(grade ? `/api/continue?grade=${encodeURIComponent(grade)}` : "/api/continue"),
+  updates: (grade) => request(`/api/updates?days=7${grade ? `&grade=${encodeURIComponent(grade)}` : ""}`),
   search: (q) => request(`/api/search?q=${encodeURIComponent(q)}`),
   question: (id) => request(`/api/questions/${id}`),
   coding: () => request("/api/coding/exercises"),

@@ -17,7 +17,7 @@ const emptyKp = () => ({
   body_en: "",
   related_question_ids: [],
   published_at: todayLocal(),
-  grade_id: "8",
+  grade_id: "9",
   chapter_id: "",
   section_id: "",
   objectives_zh: "",
@@ -44,6 +44,7 @@ const emptyQ = () => ({
   explanation_en: "",
   marks: 1,
   published_at: todayLocal(),
+  grade_id: "9",
 });
 
 const emptySet = () => ({
@@ -56,6 +57,7 @@ const emptySet = () => ({
   question_ids: [],
   time_limit_minutes: "",
   published_at: todayLocal(),
+  grade_id: "9",
 });
 
 function todayLocal() {
@@ -222,7 +224,7 @@ function KnowledgeAdmin({ items, subjects, units, lang, t, onSaved }) {
           <Field label={t("summaryEn")} value={form.summary_en} onChange={(v) => set("summary_en", v)} />
         </div>
         <div className="grid-2">
-          <Field label={t("gradeLabel")} value={form.grade_id || "8"} onChange={(v) => set("grade_id", v)} />
+          <Field label={t("gradeLabel")} value={form.grade_id || "9"} onChange={(v) => set("grade_id", v)} />
           <Field label="chapter_id" value={form.chapter_id || ""} onChange={(v) => set("chapter_id", v)} />
           <Field label="section_id" value={form.section_id || ""} onChange={(v) => set("section_id", v)} />
         </div>
@@ -332,6 +334,7 @@ function QuestionAdmin({ items, knowledge, subjects, units, lang, t, onSaved }) 
             </select>
           </div>
           <Field label={t("marks")} type="number" value={form.marks} onChange={(v) => set("marks", v)} />
+          <Field label={t("gradeLabel")} value={form.grade_id || "9"} onChange={(v) => set("grade_id", v)} />
         </div>
         <Field area label={t("stemZh")} value={form.stem_zh} onChange={(v) => set("stem_zh", v)} />
         <Field area label={t("stemEn")} value={form.stem_en} onChange={(v) => set("stem_en", v)} />
@@ -416,6 +419,7 @@ function SetAdmin({ items, questions, subjects, units, lang, t, onSaved }) {
             </select>
           </div>
           <Field label={t("timeMinutes")} type="number" value={form.time_limit_minutes} onChange={(v) => set("time_limit_minutes", v)} />
+          <Field label={t("gradeLabel")} value={form.grade_id || "9"} onChange={(v) => set("grade_id", v)} />
         </div>
         <div className="grid-2">
           <Field label={t("titleZh")} value={form.title_zh} onChange={(v) => set("title_zh", v)} />
@@ -485,10 +489,19 @@ function SubjectUnitFields({ form, set, subjects, unitList, topics, lang, t, hid
       </div>
       <div className="field">
         <label>{t("unit")}</label>
-        <select value={form.unit_id || ""} onChange={(e) => set("unit_id", e.target.value)}>
+        <select
+          value={form.unit_id || ""}
+          onChange={(e) => {
+            const id = e.target.value;
+            set("unit_id", id);
+            const unit = unitList.find((u) => u.id === id);
+            if (unit && unit.grade_id) set("grade_id", String(unit.grade_id));
+          }}
+        >
           <option value="">{t("none")}</option>
           {unitList.map((u) => (
             <option key={u.id} value={u.id}>
+              {u.grade_id ? `G${u.grade_id} · ` : ""}
               {u.code} {tField(u, "title", lang)}
             </option>
           ))}

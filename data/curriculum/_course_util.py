@@ -28,12 +28,13 @@ class Course:
     """Accumulate lessons, questions and sets for one subject."""
 
     def __init__(self, subject_id: str, unit_of: dict[str, str], chapter_of: dict[str, str] | None = None,
-                 recent: dict[str, str] | None = None, tag: str = ""):
+                 recent: dict[str, str] | None = None, tag: str = "", grade_id: str = "8"):
         self.subject_id = subject_id
         self.unit_of = unit_of
         self.chapter_of = chapter_of or {}
         self.recent = recent or {}
         self.tag = tag or subject_id[:2]
+        self.grade_id = str(grade_id or "8")
         self.knowledge: list[dict] = []
         self.questions: list[dict] = []
         self.sets: list[dict] = []
@@ -62,7 +63,7 @@ class Course:
             stem_zh, stem_en, answer, exp_zh, exp_en,
             knowledge_id="kp-" + section_id, published_at=pub, **kw,
         )
-        item["grade_id"] = "8"
+        item["grade_id"] = self.grade_id
         item["chapter_id"] = chapter
         item["unit_id"] = self.unit_of[section_id]
         item["section_id"] = section_id
@@ -90,7 +91,7 @@ class Course:
             summary_zh=summary_zh or obj_zh, summary_en=summary_en or obj_en,
         )
         item.update({
-            "grade_id": "8",
+            "grade_id": self.grade_id,
             "chapter_id": chapter,
             "unit_id": self.unit_of[section_id],
             "section_id": section_id,
@@ -112,7 +113,7 @@ class Course:
     def pset(self, sid, chapter, kind, title_zh, title_en, qids, minutes=None, published=None):
         item = SET(sid, self.subject_id, chapter, kind, title_zh, title_en, qids,
                    time_limit=minutes, published_at=published or PUB)
-        item["grade_id"] = "8"
+        item["grade_id"] = self.grade_id
         item["chapter_id"] = chapter if chapter else None
         item["scope"] = "course" if (chapter is None or "comprehensive" in sid) else "chapter"
         self.sets.append(item)
