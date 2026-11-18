@@ -7,8 +7,18 @@ import units from "../../../data/curriculum/units.json";
 import grades from "../../../data/curriculum/grades.json";
 import content from "../../../data/curriculum/content.json";
 import { checkAnswer } from "./grading";
+import {
+  pickDiagnosticQuestions,
+  reasoningOk,
+  statusOf,
+  buildPlacementResult,
+  coachPayload,
+  spiralDue,
+  pickSpiralQuestions,
+} from "../learning/coach";
 
 export const STORE_KEY = "esh-offline-data-v1";
+const LEARN_KEY = "esh-learning-v1";
 
 const empty = () => ({
   version: 1,
@@ -146,6 +156,67 @@ function recordActivity(kind, ref) {
     d.activity.unshift({ kind, ref_id: ref, at: nowIso() });
     d.activity = d.activity.slice(0, 50);
   });
+}
+
+function loadLearn() {
+  try {
+    const raw = localStorage.getItem(LEARN_KEY);
+    if (!raw) return { placements: {}, spirals: {}, checkpoints: {} };
+    return { placements: {}, spirals: {}, checkpoints: {}, ...JSON.parse(raw) };
+  } catch {
+    return { placements: {}, spirals: {}, checkpoints: {} };
+  }
+}
+
+function saveLearn(data) {
+  try {
+    localStorage.setItem(LEARN_KEY, JSON.stringify(data));
+  } catch (e) {
+    console.warn("Could not save learning state", e);
+  }
+}
+
+function learnKey(grade, subject) {
+  return `${grade || "9"}:${subject}`;
+}
+
+function chaptersFor(subject, grade) {
+  return unitsBySubject(grade)[subject] || [];
+}
+
+function withSectionTitle(q) {
+  if (!q || (q.title_zh && q.title_en)) return q;
+  for (const chapter of units) {
+    for (const unit of chapter.units || []) {
+      for (const section of unit.sections || []) {
+        if (section.id === q.section_id) {
+          return { ...q, title_zh: q.title_zh || section.title_zh, title_en: q.title_en || section.title_en };
+        }
+      }
+    }
+  }
+  return q;
+}
+
+function checkBody(q, answer, reveal) {
+  const titled = withSectionTitle(q);
+  const correct = checkAnswer(q, answer);
+  const marks = Number(q.marks) || 1;
+  const body = {
+    correct,
+    marks,
+    awarded: correct ? marks : 0,
+    ...coachPayload(titled, answer),
+  };
+  if (correct || reveal) {
+    body.explanation_zh = q.explanation_zh;
+    body.explanation_en = q.explanation_en;
+    body.answer = q.answer;
+    body.answer_zh = q.answer_zh;
+    body.answer_en = q.answer_en;
+    body.accepted = q.accepted || [];
+  }
+  return body;
 }
 
 function recordMistake(q, given) {
@@ -330,20 +401,107 @@ export const api = {
     const q = getOne("questions", qid) || notFound("Question");
     const correct = checkAnswer(q, answer);
     if (!correct) recordMistake(q, answer);
-    const marks = Number(q.marks) || 1;
-    return {
-      correct,
-      marks,
-      awarded: correct ? marks : 0,
-      explanation_zh: q.explanation_zh,
-      explanation_en: q.explanation_en,
-      answer: q.answer,
-      accepted: q.accepted || [],
+    return checkBody(q, answer, false);
+  }),
+  reveal: wrap((qid) => {
+    const q = getOne("questions", qid) || notFound("Question");
+    return checkBody(q, q.answer, true);
+  }),
+  placement: wrap((subject, grade = "9") => {
+    const saved = loadLearn().placements[learnKey(grade, subject)] || null;
+    if (saved) return { done: true, result: saved, quiz: null };
+    const picked = pickDiagnosticQuestions(listQuestions(subject, undefined, grade), chaptersFor(subject, grade), 8);
+    const quiz = picked.map((q) => ({
+      ...publicQuestion(q, false),
+      section_title_zh: q.title_zh,
+      section_title_en: q.title_en,
+      chapter_title_zh: q.chapter_title_zh,
+      chapter_title_en: q.chapter_title_en,
+      knowledge_id: q.knowledge_id,
+    }));
+    return { done: false, result: null, quiz };
+  }),
+  submitPlacement: wrap((subject, grade, answers) => {
+    const items = [];
+    Object.entries(answers || {}).forEach(([qid, payload]) => {
+      const q = getOne("questions", qid);
+      if (!q || q.subject_id !== subject) return;
+      const given = payload && typeof payload === "object" ? payload.answer : payload;
+      const reasoning = payload && typeof payload === "object" ? payload.reasoning : "";
+      const correct = checkAnswer(q, given);
+      const understood = correct ? reasoningOk(q, reasoning) : false;
+      if (!correct && given != null && String(given) !== "") recordMistake(q, given);
+      items.push({
+        question_id: qid,
+        section_id: q.section_id,
+        chapter_id: q.chapter_id,
+        correct,
+        reasoning_ok: understood,
+        status: statusOf(correct, understood),
+      });
+    });
+    const result = {
+      subject_id: subject,
+      grade_id: String(grade || "9"),
+      at: nowIso(),
+      items,
+      ...buildPlacementResult(items, chaptersFor(subject, grade)),
     };
+    const learn = loadLearn();
+    learn.placements[learnKey(grade, subject)] = result;
+    saveLearn(learn);
+    return result;
+  }),
+  resetPlacement: wrap((subject, grade = "9") => {
+    const learn = loadLearn();
+    delete learn.placements[learnKey(grade, subject)];
+    saveLearn(learn);
+    return { ok: true };
+  }),
+  spiral: wrap((subject, grade = "9") => {
+    const learn = loadLearn();
+    const key = learnKey(grade, subject);
+    const placement = learn.placements[key];
+    const mistakes = mistakesList(subject, "open");
+    const due = spiralDue({
+      placement,
+      mistakes: mistakes.length,
+      checkpointAt: learn.checkpoints[key]?.at,
+      lastReviewAt: learn.spirals[key]?.at,
+    });
+    const pool = listQuestions(subject, undefined, grade).map(withSectionTitle);
+    const questions = pickSpiralQuestions(pool, placement, mistakes.map((m) => m.question_id)).map((q) => publicQuestion(q, false));
+    const weakSections = (placement?.sections || []).filter((s) => s.status === "gap" || s.status === "shaky").length;
+    return {
+      ...due,
+      subject_id: subject,
+      grade_id: String(grade),
+      weak_count: mistakes.length + weakSections,
+      questions,
+    };
+  }),
+  completeSpiral: wrap((subject, grade = "9") => {
+    const learn = loadLearn();
+    const payload = { at: nowIso(), subject_id: subject, grade_id: String(grade || "9") };
+    learn.spirals[learnKey(grade, subject)] = payload;
+    saveLearn(learn);
+    return payload;
+  }),
+  checkpoint: wrap((subject, grade, scope) => {
+    if (scope !== "unit" && scope !== "course") return { ok: true };
+    const learn = loadLearn();
+    learn.checkpoints[learnKey(grade, subject)] = { at: nowIso(), scope };
+    saveLearn(learn);
+    return { ok: true };
   }),
   submitSet: wrap((id, answers, startedAt) => {
     const item = getOne("sets", id) || notFound("Set");
     const { details, score, max } = gradeAnswers(item.question_ids || [], answers || {});
+    if (item.scope === "unit" || item.scope === "course") {
+      const learn = loadLearn();
+      learn.checkpoints[learnKey(item.grade_id || "9", item.subject_id)] = { at: nowIso(), scope: item.scope };
+      saveLearn(learn);
+    }
     const attempt = {
       id: newId("att-"),
       set_id: id,
@@ -434,6 +592,7 @@ export const api = {
   resetData: wrap(() => {
     try {
       localStorage.removeItem(STORE_KEY);
+      localStorage.removeItem(LEARN_KEY);
     } catch {
       /* ignore */
     }

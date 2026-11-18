@@ -12,6 +12,8 @@ import ProgressPage from "./pages/ProgressPage";
 import AttemptPage from "./pages/AttemptPage";
 import SearchPage from "./pages/SearchPage";
 import AdminPage from "./pages/AdminPage";
+import PlacementPage from "./pages/PlacementPage";
+import ReviewPage from "./pages/ReviewPage";
 import NotFound from "./pages/NotFound";
 import { useGrade } from "./context/GradeContext";
 
@@ -29,6 +31,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/grades/:gradeId/subjects/:subjectId" element={<SubjectPage />} />
+          <Route path="/grades/:gradeId/subjects/:subjectId/placement" element={<PlacementPage />} />
+          <Route path="/grades/:gradeId/subjects/:subjectId/review" element={<ReviewPage />} />
           <Route path="/subjects/:subjectId" element={<SubjectRedirect />} />
           <Route path="/knowledge/:id" element={<KnowledgePage />} />
           <Route path="/practice/:id" element={<PracticePage />} />

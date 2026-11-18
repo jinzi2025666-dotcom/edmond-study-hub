@@ -27,14 +27,22 @@ function SubjectView({ subjectId, gradeId }) {
   const { lang, t } = useLang();
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
+  const [placement, setPlacement] = useState(null);
+  const [spiral, setSpiral] = useState(null);
 
   useEffect(() => {
     setData(null);
     setError("");
+    setPlacement(null);
+    setSpiral(null);
     api
       .subject(subjectId, gradeId)
       .then(setData)
       .catch((e) => setError(e.message));
+    if (gradeId === "9") {
+      api.placement(subjectId, gradeId).then(setPlacement).catch(() => setPlacement(null));
+      api.spiral(subjectId, gradeId).then(setSpiral).catch(() => setSpiral(null));
+    }
   }, [subjectId, gradeId]);
 
   const chapters = data?.units || [];
@@ -115,10 +123,54 @@ function SubjectView({ subjectId, gradeId }) {
         </p>
       )}
 
+      {ready && gradeId === "9" && (
+        <section className="placement-banner">
+          {placement?.done && placement.result?.start ? (
+            <>
+              <p className="kicker">{t("placementRecommend")}</p>
+              <p>
+                <Link to={`/knowledge/${placement.result.start.knowledge_id}`}>
+                  {tField(placement.result.start, "title", lang)}
+                </Link>
+              </p>
+              <p className="muted">{t("placementSyllabus")}</p>
+            </>
+          ) : placement?.done ? (
+            <>
+              <p className="kicker">{t("placementReady")}</p>
+              <p className="muted">{t("placementReadyBody")}</p>
+            </>
+          ) : (
+            <>
+              <p className="kicker">{t("placementTitle")}</p>
+              <p>{t("placementPrompt")}</p>
+              <Link className="btn btn-primary" to={`${subjectPath(gradeId, subjectId)}/placement`}>{t("placementTitle")}</Link>
+            </>
+          )}
+          {placement?.done && (
+            <p style={{ marginTop: "0.6rem" }}>
+              <Link to={`${subjectPath(gradeId, subjectId)}/placement`}>{t("placementMap")}</Link>
+            </p>
+          )}
+        </section>
+      )}
+
       {ready && chapters.length > 0 && (
         <section className="learning-path" aria-label={t("learningPath")}>
           <p className="kicker">{t("learningPath")}</p>
           <h2>{t("learningPath")}</h2>
+          {gradeId === "9" && (
+            <p className="spiral-entry">
+              <span className="path-label">{spiral?.due ? t("reviewToday") : t("spiralTitle")}</span>
+              <Link to={`${subjectPath(gradeId, subjectId)}/review`}>
+                {spiral?.due
+                  ? t("spiralEntryDue")
+                  : spiral?.reason === "waiting"
+                    ? t("spiralEntryWait", { n: spiral.days || 1 })
+                    : t("spiralSteady")}
+              </Link>
+            </p>
+          )}
           <p className="muted">{lang === "zh"
             ? "按顺序走：先学知识点，再做练习，然后专题测验、单元测验，最后做综合测试卷。"
             : "Follow the order: learn the points, practise, take the topic test, then the unit test, and finish with the comprehensive paper."}</p>

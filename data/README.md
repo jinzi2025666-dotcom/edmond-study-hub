@@ -55,6 +55,12 @@ Give the item a publish date. Items from the last seven days appear under **本�
 
 On each Grade 9 subject page the path is: learn the knowledge point, practise, take the topic test, take the unit test, then the comprehensive paper. Topic tests are `paper-topic-…`, unit tests are `paper-unit-…`, and the comprehensive paper id ends in `-comprehensive`.
 
+Grade 9 also has three local-progress tools. They do not need a login, and they work in the offline file as well as on the site.
+
+- **Placement.** Opening a subject offers a short untimed diagnostic (one item from each chapter, then earlier topics, up to eight). Each item asks for a brief reason. A right answer with a thin reason is marked shaky. The result recommends a starting section and a short path that fills gaps first. The full syllabus and every paper stay available.
+- **Stepwise hints.** A wrong answer in practice, on a knowledge page, in the mistake book, or in the review after a topic test, unit test or comprehensive paper shows a likely breakdown and one hint. A second hint comes only if the student is still stuck. The mark scheme and model answer stay behind that second hint.
+- **Spiral review.** The subject path shows “today’s review” when there is an open mistake or a placement gap, about every two weeks after a completed review, or after a unit test or comprehensive paper. The set mixes those weak items with a recent topic. It is stored in the browser (`esh-learning-v1`), separate from the mistake book key.
+
 ## Question marking
 
 Short, numeric and multiple-choice answers are marked exactly (numbers accept equivalent fractions). Longer writing — an email, a PEEL paragraph, an empathic response, an 8-mark essay, a pseudocode algorithm — is marked by whether enough key phrases are present. The explanation still holds a model answer. Treat that score as a first check, then read the writing yourself.

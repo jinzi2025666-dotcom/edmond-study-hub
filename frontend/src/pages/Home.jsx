@@ -15,6 +15,19 @@ export default function Home() {
   const [updates, setUpdates] = useState([]);
   const [cont, setCont] = useState(null);
   const [progress, setProgress] = useState(null);
+  const [promptOn, setPromptOn] = useState(false);
+
+  useEffect(() => {
+    if (gradeId !== "9") {
+      setPromptOn(false);
+      return;
+    }
+    try {
+      setPromptOn(localStorage.getItem("esh-placement-prompt-9") !== "off");
+    } catch {
+      setPromptOn(true);
+    }
+  }, [gradeId]);
 
   const gradeList = grades.length ? grades : [
     { id: "9", name_zh: "九年级", name_en: "Year 9", status: "active", stage_zh: "IGCSE 第一年", stage_en: "IGCSE Year 1" },
@@ -47,6 +60,25 @@ export default function Home() {
             : "Choose a year, then a subject. Grade 9 IGCSE courses follow this term’s topics and are open for revision and self-testing. Year 8 is still here."}
         </p>
       </header>
+
+      {promptOn && gradeId === "9" && (
+        <section className="home-prompt">
+          <p>{t("placementPrompt")}</p>
+          <div className="btn-row">
+            <Link className="btn btn-primary" to="/grades/9/subjects/mathematics/placement">{t("placementPromptGo")}</Link>
+            <button
+              type="button"
+              className="btn"
+              onClick={() => {
+                try { localStorage.setItem("esh-placement-prompt-9", "off"); } catch { /* ignore */ }
+                setPromptOn(false);
+              }}
+            >
+              {t("placementDismiss")}
+            </button>
+          </div>
+        </section>
+      )}
 
       <section className="grade-switch" aria-label={t("selectGrade")}>
         <p className="kicker">{t("selectGrade")}</p>

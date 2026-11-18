@@ -160,6 +160,11 @@ def init_db() -> None:
             CREATE INDEX IF NOT EXISTS idx_questions_subject ON questions(subject_id);
             CREATE INDEX IF NOT EXISTS idx_sets_subject ON question_sets(subject_id, kind);
             CREATE INDEX IF NOT EXISTS idx_mistakes_status ON mistakes(status, subject_id);
+            CREATE TABLE IF NOT EXISTS learning_state (
+              key TEXT PRIMARY KEY,
+              value TEXT NOT NULL,
+              updated_at TEXT
+            );
             """
         )
         _ensure_columns(cur)
@@ -544,6 +549,32 @@ def upsert_row(table: str, item: dict, columns: list[str], json_fields: set[str]
             f"INSERT INTO {table} ({cols}) VALUES ({placeholders}) ON CONFLICT(id) DO UPDATE SET {updates}",
             values,
         )
+
+
+def get_learning(key: str) -> dict | None:
+    row = connect().execute("SELECT value FROM learning_state WHERE key = ?", (key,)).fetchone()
+    if not row:
+        return None
+    try:
+        return json.loads(row["value"])
+    except json.JSONDecodeError:
+        return None
+
+
+def set_learning(key: str, value: dict) -> None:
+    with cursor() as cur:
+        cur.execute(
+            """
+            INSERT INTO learning_state(key, value, updated_at) VALUES (?, ?, ?)
+            ON CONFLICT(key) DO UPDATE SET value=excluded.value, updated_at=excluded.updated_at
+            """,
+            (key, json.dumps(value, ensure_ascii=False), now_iso()),
+        )
+
+
+def delete_learning(key: str) -> None:
+    with cursor() as cur:
+        cur.execute("DELETE FROM learning_state WHERE key = ?", (key,))
 
 
 def delete_row(table: str, item_id: str) -> bool:

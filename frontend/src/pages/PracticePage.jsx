@@ -5,6 +5,7 @@ import { useLang } from "../context/LanguageContext";
 import { useSite } from "../context/SiteContext";
 import QuestionCard from "../components/QuestionCard";
 import { tField } from "../utils";
+import { coachPayload } from "../learning/coach";
 
 export default function PracticePage() {
   const { id } = useParams();
@@ -109,6 +110,7 @@ export function AttemptReview({ attempt, title, back }) {
           initialAnswer={row.given ?? ""}
           result={{
             correct: row.correct,
+            ...(row.correct ? {} : coachPayload(row.question || {}, row.given)),
             answer: row.question?.answer,
             explanation_zh: row.question?.explanation_zh,
             explanation_en: row.question?.explanation_en,

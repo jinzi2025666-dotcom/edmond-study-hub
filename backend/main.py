@@ -12,6 +12,8 @@ from fastapi.staticfiles import StaticFiles
 from . import database as db
 from .config import FRONTEND_DIST, load_site_config
 from .grading import check_answer
+from .coach import coach_payload, reasoning_ok
+from . import learning as learning_api
 
 app = FastAPI(title="Singapore International Study Site", docs_url=None, redoc_url=None)
 _ISO_TAIL = re.compile(r"Z$")
@@ -208,6 +210,29 @@ def api_set(sid: str, reveal: bool = False):
     return item
 
 
+def _check_payload(q: dict, given, reasoning=None, reveal: bool = False) -> dict:
+    correct = check_answer(q, given)
+    marks = int(q.get("marks") or 1)
+    understood = reasoning_ok(q, reasoning) if reasoning else False
+    body = {
+        "correct": correct,
+        "reasoning_ok": understood,
+        "marks": marks,
+        "awarded": marks if correct else 0,
+        **coach_payload(q, given),
+    }
+    if correct or reveal:
+        body.update({
+            "explanation_zh": q.get("explanation_zh"),
+            "explanation_en": q.get("explanation_en"),
+            "answer": q.get("answer"),
+            "answer_zh": q.get("answer_zh"),
+            "answer_en": q.get("answer_en"),
+            "accepted": q.get("accepted") or [],
+        })
+    return body
+
+
 @app.post("/api/check")
 def api_check(payload: dict):
     qid = (payload or {}).get("question_id")
@@ -218,15 +243,62 @@ def api_check(payload: dict):
     correct = check_answer(q, given)
     if not correct:
         db.record_mistake(q, given)
+    return _check_payload(q, given, (payload or {}).get("reasoning"))
+
+
+@app.post("/api/reveal")
+def api_reveal(payload: dict):
+    qid = (payload or {}).get("question_id")
+    q = db.get_question(qid) if qid else None
+    if not q:
+        raise HTTPException(404, "Question not found")
+    return _check_payload(q, q.get("answer"), reveal=True)
+
+
+@app.get("/api/learning/placement")
+def api_placement_get(subject: str, grade: str = "9"):
+    saved = learning_api.get_placement(subject, grade)
     return {
-        "correct": correct,
-        "marks": int(q.get("marks") or 1),
-        "awarded": int(q.get("marks") or 1) if correct else 0,
-        "explanation_zh": q.get("explanation_zh"),
-        "explanation_en": q.get("explanation_en"),
-        "answer": q.get("answer"),
-        "accepted": q.get("accepted") or [],
+        "done": bool(saved),
+        "result": saved,
+        "quiz": None if saved else learning_api.diagnostic_questions(subject, grade),
     }
+
+
+@app.post("/api/learning/placement")
+def api_placement_post(payload: dict):
+    subject = (payload or {}).get("subject_id")
+    grade = str((payload or {}).get("grade_id") or "9")
+    if not subject:
+        raise HTTPException(400, "subject_id is required")
+    if (payload or {}).get("reset"):
+        db.delete_learning(f"placement:{grade}:{subject}")
+        return {"done": False, "quiz": learning_api.diagnostic_questions(subject, grade)}
+    return learning_api.grade_placement(subject, grade, (payload or {}).get("answers") or {})
+
+
+@app.get("/api/learning/spiral")
+def api_spiral(subject: str, grade: str = "9"):
+    return learning_api.spiral_status(subject, grade)
+
+
+@app.post("/api/learning/spiral/complete")
+def api_spiral_done(payload: dict):
+    subject = (payload or {}).get("subject_id")
+    grade = str((payload or {}).get("grade_id") or "9")
+    if not subject:
+        raise HTTPException(400, "subject_id is required")
+    return learning_api.complete_spiral(subject, grade)
+
+
+@app.post("/api/learning/checkpoint")
+def api_checkpoint(payload: dict):
+    subject = (payload or {}).get("subject_id")
+    grade = str((payload or {}).get("grade_id") or "9")
+    scope = (payload or {}).get("scope") or ""
+    if subject:
+        learning_api.note_checkpoint(subject, grade, scope)
+    return {"ok": True}
 
 
 def _grade_answers(question_ids: list[str], answers: dict) -> tuple[list[dict], int, int]:
@@ -279,6 +351,7 @@ def api_submit(sid: str, payload: dict):
         "answers": details,
     }
     db.save_attempt(attempt)
+    learning_api.note_checkpoint(item.get("subject_id"), str(item.get("grade_id") or "9"), item.get("scope") or "")
     return attempt
 
 
