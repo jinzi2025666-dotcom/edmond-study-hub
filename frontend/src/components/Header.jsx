@@ -25,7 +25,7 @@ export default function Header() {
       </a>
       <div className="header-inner">
         <NavLink to="/" className="brand">
-          <span className="brand-name">{tField(config || {}, "name", lang) || "Edmond Study Hub"}</span>
+          <span className="brand-name">{tField(config || {}, "name", lang) || "新加坡国际学习网站"}</span>
           <span className="brand-sub">{tField(config || {}, "subtitle", lang)}</span>
         </NavLink>
         <div className="header-tools">

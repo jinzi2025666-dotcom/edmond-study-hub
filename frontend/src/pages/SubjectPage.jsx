@@ -14,8 +14,8 @@ export default function SubjectPage() {
   useEffect(() => {
     if (gradeId) setGradeId(gradeId);
   }, [gradeId, setGradeId]);
-  if (ALIASES[raw]) return <Navigate to={subjectPath(gradeId || "8", ALIASES[raw])} replace />;
-  return <SubjectView subjectId={raw} gradeId={gradeId || "8"} />;
+  if (ALIASES[raw]) return <Navigate to={subjectPath(gradeId || "9", ALIASES[raw])} replace />;
+  return <SubjectView subjectId={raw} gradeId={gradeId || "9"} />;
 }
 
 function findKnowledge(knowledge, section) {
@@ -27,14 +27,22 @@ function SubjectView({ subjectId, gradeId }) {
   const { lang, t } = useLang();
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
+  const [placement, setPlacement] = useState(null);
+  const [spiral, setSpiral] = useState(null);
 
   useEffect(() => {
     setData(null);
     setError("");
+    setPlacement(null);
+    setSpiral(null);
     api
       .subject(subjectId, gradeId)
       .then(setData)
       .catch((e) => setError(e.message));
+    if (gradeId === "9") {
+      api.placement(subjectId, gradeId).then(setPlacement).catch(() => setPlacement(null));
+      api.spiral(subjectId, gradeId).then(setSpiral).catch(() => setSpiral(null));
+    }
   }, [subjectId, gradeId]);
 
   const chapters = data?.units || [];
@@ -76,8 +84,9 @@ function SubjectView({ subjectId, gradeId }) {
 
   const ready = status === "ready";
   const practiceByChapter = (id) => (data.practice || []).filter((p) => p.chapter_id === id || p.unit_id === id);
-  const papersByChapter = (id) => (data.papers || []).filter((p) => p.chapter_id === id || p.unit_id === id);
-  const coursePapers = (data.papers || []).filter((p) => p.scope === "course" || p.id.includes("comprehensive"));
+  const unitTestByChapter = (id) => (data.papers || []).filter((p) => (p.chapter_id === id || p.unit_id === id) && p.scope === "unit");
+  const topicTestFor = (sectionId) => (data.papers || []).find((p) => p.scope === "topic" && p.id === `paper-topic-${sectionId}`);
+  const coursePapers = (data.papers || []).filter((p) => p.scope === "course" || (p.id || "").includes("comprehensive"));
 
   return (
     <div className="course-page" style={{ "--accent": accent }}>
@@ -114,6 +123,109 @@ function SubjectView({ subjectId, gradeId }) {
         </p>
       )}
 
+      {ready && gradeId === "9" && (
+        <section className="placement-banner">
+          {placement?.done && placement.result?.start ? (
+            <>
+              <p className="kicker">{t("placementRecommend")}</p>
+              <p>
+                <Link to={`/knowledge/${placement.result.start.knowledge_id}`}>
+                  {tField(placement.result.start, "title", lang)}
+                </Link>
+              </p>
+              <p className="muted">{t("placementSyllabus")}</p>
+            </>
+          ) : placement?.done ? (
+            <>
+              <p className="kicker">{t("placementReady")}</p>
+              <p className="muted">{t("placementReadyBody")}</p>
+            </>
+          ) : (
+            <>
+              <p className="kicker">{t("placementTitle")}</p>
+              <p>{t("placementPrompt")}</p>
+              <Link className="btn btn-primary" to={`${subjectPath(gradeId, subjectId)}/placement`}>{t("placementTitle")}</Link>
+            </>
+          )}
+          {placement?.done && (
+            <p style={{ marginTop: "0.6rem" }}>
+              <Link to={`${subjectPath(gradeId, subjectId)}/placement`}>{t("placementMap")}</Link>
+            </p>
+          )}
+        </section>
+      )}
+
+      {ready && chapters.length > 0 && (
+        <section className="learning-path" aria-label={t("learningPath")}>
+          <p className="kicker">{t("learningPath")}</p>
+          <h2>{t("learningPath")}</h2>
+          {gradeId === "9" && (
+            <p className="spiral-entry">
+              <span className="path-label">{spiral?.due ? t("reviewToday") : t("spiralTitle")}</span>
+              <Link to={`${subjectPath(gradeId, subjectId)}/review`}>
+                {spiral?.due
+                  ? t("spiralEntryDue")
+                  : spiral?.reason === "waiting"
+                    ? t("spiralEntryWait", { n: spiral.days || 1 })
+                    : t("spiralSteady")}
+              </Link>
+            </p>
+          )}
+          <p className="muted">{lang === "zh"
+            ? "按顺序走：先学知识点，再做练习，然后专题测验、单元测验，最后做综合测试卷。"
+            : "Follow the order: learn the points, practise, take the topic test, then the unit test, and finish with the comprehensive paper."}</p>
+          <ol className="path-list">
+            {chapters.map((ch, index) => (
+              <li key={ch.id}>
+                <strong>{t("chapterLabel")} {index + 1} · {tField(ch, "title", lang)}</strong>
+                <ol>
+                  <li>
+                    <span className="path-label">{t("pathLearn")}</span>
+                    {(ch.units || []).flatMap((u) => u.sections || []).map((sec) => {
+                      const k = findKnowledge(knowledge, sec);
+                      return k ? (
+                        <Link key={sec.id} to={`/knowledge/${k.id}`}>{tField(sec, "title", lang)}</Link>
+                      ) : (
+                        <span key={sec.id}>{tField(sec, "title", lang)}</span>
+                      );
+                    })}
+                  </li>
+                  <li>
+                    <span className="path-label">{t("pathPractice")}</span>
+                    {practiceByChapter(ch.id).map((p) => (
+                      <Link key={p.id} to={`/practice/${p.id}`}>{tField(p, "title", lang)}</Link>
+                    ))}
+                  </li>
+                  <li>
+                    <span className="path-label">{t("pathTopic")}</span>
+                    {(ch.units || []).flatMap((u) => u.sections || []).map((sec) => {
+                      const paper = topicTestFor(sec.id);
+                      return paper ? (
+                        <Link key={paper.id} to={`/papers/${paper.id}`}>{tField(sec, "title", lang)}</Link>
+                      ) : null;
+                    })}
+                  </li>
+                  <li>
+                    <span className="path-label">{t("pathUnit")}</span>
+                    {unitTestByChapter(ch.id).map((p) => (
+                      <Link key={p.id} to={`/papers/${p.id}`}>{tField(p, "title", lang)}</Link>
+                    ))}
+                  </li>
+                </ol>
+              </li>
+            ))}
+          </ol>
+          {coursePapers.length > 0 && (
+            <p className="path-final">
+              <span className="path-label">{t("pathComprehensive")}</span>
+              {coursePapers.map((p) => (
+                <Link key={p.id} className="btn btn-primary" to={`/papers/${p.id}`}>{tField(p, "title", lang)}</Link>
+              ))}
+            </p>
+          )}
+        </section>
+      )}
+
       <div className="course-outline">
         {chapters.map((ch, index) => {
           const chSections = flattenSections([ch]);
@@ -137,7 +249,7 @@ function SubjectView({ subjectId, gradeId }) {
                       {t("chapterPractice")}
                     </Link>
                   ))}
-                  {papersByChapter(ch.id).map((p) => (
+                  {unitTestByChapter(ch.id).map((p) => (
                     <Link key={p.id} className="btn" to={`/papers/${p.id}`}>
                       {t("chapterPaper")}
                     </Link>
@@ -159,6 +271,7 @@ function SubjectView({ subjectId, gradeId }) {
                     {(unit.sections || []).map((sec) => {
                       const k = findKnowledge(knowledge, sec);
                       const label = tField(sec, "title", lang);
+                      const topicPaper = topicTestFor(sec.id);
                       const tick = k?.status === "mastered" ? "is-mastered" : k?.status === "learning" ? "is-learning" : "is-todo";
                       return (
                         <li key={sec.id} className={tick}>
@@ -175,6 +288,9 @@ function SubjectView({ subjectId, gradeId }) {
                               {!ready && <em className="outline-tag">{t("outlineReady")}</em>}
                             </span>
                           )}
+                          {topicPaper ? (
+                            <Link className="sec-test" to={`/papers/${topicPaper.id}`}>{t("topicPaper")}</Link>
+                          ) : null}
                         </li>
                       );
                     })}

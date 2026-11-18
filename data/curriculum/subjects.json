@@ -13,7 +13,25 @@
     "development": {
       "7": "upcoming",
       "8": "ready",
-      "9": "upcoming"
+      "9": "ready"
+    },
+    "by_grade": {
+      "8": {
+        "framework_zh": "八年级实用结构（第一语言／第二语言取向）",
+        "framework_en": "Practical Year 8 structure (first / second language orientation)",
+        "framework_code": null,
+        "level": "Year 8",
+        "blurb_zh": "现代文阅读、写作、语文知识、口语交际、文学文化与古诗文。",
+        "blurb_en": "Modern reading, writing, language knowledge, speaking, literature and classical texts."
+      },
+      "9": {
+        "framework_zh": "剑桥 IGCSE 华文（第一语言）0523 · 第一年",
+        "framework_en": "Cambridge IGCSE First Language Chinese (0523) · Year 1",
+        "framework_code": "0523",
+        "level": "IGCSE Year 1",
+        "blurb_zh": "青少年与教育：阅读（填表、简答、选择）、PEEL 段落与电邮。",
+        "blurb_en": "Youth and education: reading (tables, short answers, multiple choice), PEEL paragraphs and email."
+      }
     }
   },
   {
@@ -30,7 +48,25 @@
     "development": {
       "7": "upcoming",
       "8": "ready",
-      "9": "upcoming"
+      "9": "ready"
+    },
+    "by_grade": {
+      "8": {
+        "framework_zh": "剑桥中学初级阶段数学（0862）第 8 阶段",
+        "framework_en": "Cambridge Lower Secondary Mathematics (0862) Stage 8",
+        "framework_code": "0862",
+        "level": "Stage 8",
+        "blurb_zh": "数与运算、代数、几何与度量、统计与概率。",
+        "blurb_en": "Number, algebra, geometry and measure, statistics and probability."
+      },
+      "9": {
+        "framework_zh": "剑桥 IGCSE 数学 0580 与附加数学 0606 · 第一年",
+        "framework_en": "Cambridge IGCSE Mathematics 0580 and Additional Mathematics 0606 · Year 1",
+        "framework_code": "0580 / 0606",
+        "level": "IGCSE Year 1",
+        "blurb_zh": "精度与循环小数、指数与根式、二次、集合、函数图像、多项式、函数与坐标几何。",
+        "blurb_en": "Accuracy and recurring decimals, indices and surds, quadratics, sets, graphs, polynomials, functions and coordinate geometry."
+      }
     }
   },
   {
@@ -47,7 +83,25 @@
     "development": {
       "7": "upcoming",
       "8": "ready",
-      "9": "upcoming"
+      "9": "ready"
+    },
+    "by_grade": {
+      "8": {
+        "framework_zh": "剑桥中学初级阶段英语（0861）第 8 阶段",
+        "framework_en": "Cambridge Lower Secondary English (0861) Stage 8",
+        "framework_code": "0861",
+        "level": "Stage 8",
+        "blurb_zh": "阅读、写作、听说：官方方案中的六个主题单元。",
+        "blurb_en": "Reading, writing, speaking and listening across the official six thematic units."
+      },
+      "9": {
+        "framework_zh": "剑桥 IGCSE 英语第一语言 0500 与世界文学 0408 · 第一年",
+        "framework_en": "Cambridge IGCSE First Language English 0500 and World Literature 0408 · Year 1",
+        "framework_code": "0500 / 0408",
+        "level": "IGCSE Year 1",
+        "blurb_zh": "Paper 1 的 Q3 与 Q4（访谈、日记、书信、演讲），以及戏剧 Anowa 的移情写作和 PEEL。",
+        "blurb_en": "Paper 1 Q3 and Q4 (interview, journal, letter, speech), plus Anowa: empathic writing and PEEL."
+      }
     }
   },
   {
@@ -64,7 +118,25 @@
     "development": {
       "7": "upcoming",
       "8": "ready",
-      "9": "upcoming"
+      "9": "ready"
+    },
+    "by_grade": {
+      "8": {
+        "framework_zh": "剑桥中学初级阶段计算（0860）第 8 阶段",
+        "framework_en": "Cambridge Lower Secondary Computing (0860) Stage 8",
+        "framework_code": "0860",
+        "level": "Stage 8",
+        "blurb_zh": "网络、算法与伪代码、计算机系统、编程与数据。",
+        "blurb_en": "Networks, algorithms and pseudocode, computer systems, programming and data."
+      },
+      "9": {
+        "framework_zh": "剑桥 IGCSE 计算机科学 0478 · 算法、伪代码与一维数组",
+        "framework_en": "Cambridge IGCSE Computer Science (0478) · algorithms, pseudocode and 1D arrays",
+        "framework_code": "0478",
+        "level": "IGCSE Year 1",
+        "blurb_zh": "算法设计、求和、计数、最值与平均、校验与追踪，以及子程序和一维数组。",
+        "blurb_en": "Algorithm design, totals, counts, min, max and average, checks and traces, plus sub-routines and 1D arrays."
+      }
     }
   },
   {
@@ -81,7 +153,25 @@
     "development": {
       "7": "upcoming",
       "8": "ready",
-      "9": "upcoming"
+      "9": "ready"
+    },
+    "by_grade": {
+      "8": {
+        "framework_zh": "剑桥 IGCSE 经济（0455）入门基础",
+        "framework_en": "Cambridge IGCSE Economics (0455) foundation",
+        "framework_code": "0455",
+        "level": "IGCSE foundation",
+        "blurb_zh": "基本经济问题、资源配置、微观与宏观入门。",
+        "blurb_en": "The basic economic problem, resource allocation, and an introduction to micro and macro."
+      },
+      "9": {
+        "framework_zh": "剑桥 IGCSE 经济 0455 · 第一年（第 1–9 章）",
+        "framework_en": "Cambridge IGCSE Economics (0455) · Year 1 (Chapters 1–9)",
+        "framework_code": "0455",
+        "level": "IGCSE Year 1",
+        "blurb_zh": "基本经济问题与市场配置：选择题、结构化小题（2/4/6/6）和 8 分论述。",
+        "blurb_en": "The basic economic problem and markets: multiple choice, structured parts (2/4/6/6) and 8-mark essays."
+      }
     }
   },
   {
@@ -98,7 +188,25 @@
     "development": {
       "7": "upcoming",
       "8": "ready",
-      "9": "upcoming"
+      "9": "ready"
+    },
+    "by_grade": {
+      "8": {
+        "framework_zh": "剑桥中学初级阶段科学（0893）第 8 阶段 · 物理（含部分地球与太空）",
+        "framework_en": "Cambridge Lower Secondary Science (0893) Stage 8 · Physics (plus selected Earth and Space)",
+        "framework_code": "0893",
+        "level": "Stage 8",
+        "blurb_zh": "力与能量、光与声、电与磁，以及地球磁场与太空。",
+        "blurb_en": "Forces and energy, light and sound, electricity and magnetism, plus Earth's magnetism and space."
+      },
+      "9": {
+        "framework_zh": "剑桥 IGCSE 物理 0625 · 第一年",
+        "framework_en": "Cambridge IGCSE Physics (0625) · Year 1",
+        "framework_code": "0625",
+        "level": "IGCSE Year 1",
+        "blurb_zh": "测量、运动、质量、重量与密度、力；实验练习涵盖密度、单摆与弹簧。",
+        "blurb_en": "Measurement, motion, mass, weight and density, forces; the practical covers density, pendulums and springs."
+      }
     }
   },
   {
@@ -115,7 +223,25 @@
     "development": {
       "7": "upcoming",
       "8": "ready",
-      "9": "upcoming"
+      "9": "ready"
+    },
+    "by_grade": {
+      "8": {
+        "framework_zh": "剑桥中学初级阶段科学（0893）第 8 阶段 · 化学（含地球循环与资源）",
+        "framework_en": "Cambridge Lower Secondary Science (0893) Stage 8 · Chemistry (plus Earth cycles and resources)",
+        "framework_code": "0893",
+        "level": "Stage 8",
+        "blurb_zh": "原子结构、溶液与层析、化学反应，以及气候循环与资源。",
+        "blurb_en": "Atomic structure, solutions and chromatography, chemical change, plus climate cycles and resources."
+      },
+      "9": {
+        "framework_zh": "剑桥 IGCSE 化学 0620 · 第一年",
+        "framework_en": "Cambridge IGCSE Chemistry (0620) · Year 1",
+        "framework_code": "0620",
+        "level": "IGCSE Year 1",
+        "blurb_zh": "物态、实验技术、原子与化学键、化学式与相对质量。",
+        "blurb_en": "States of matter, experimental techniques, atoms and bonding, formulae and relative masses."
+      }
     }
   },
   {
@@ -132,7 +258,25 @@
     "development": {
       "7": "upcoming",
       "8": "ready",
-      "9": "upcoming"
+      "9": "ready"
+    },
+    "by_grade": {
+      "8": {
+        "framework_zh": "剑桥中学初级阶段科学（0893）第 8 阶段 · 生物",
+        "framework_en": "Cambridge Lower Secondary Science (0893) Stage 8 · Biology",
+        "framework_code": "0893",
+        "level": "Stage 8",
+        "blurb_zh": "结构与功能、生命过程与生态系统。",
+        "blurb_en": "Structure and function, life processes and ecosystems."
+      },
+      "9": {
+        "framework_zh": "剑桥 IGCSE 生物 0610 · 第一年",
+        "framework_en": "Cambridge IGCSE Biology (0610) · Year 1",
+        "framework_code": "0610",
+        "level": "IGCSE Year 1",
+        "blurb_zh": "细胞、跨膜运输、生物分子、酶、分类与人体营养，侧重实验设计。",
+        "blurb_en": "Cells, movement across membranes, biological molecules, enzymes, classification and human nutrition, with practical planning."
+      }
     }
   }
 ]

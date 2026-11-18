@@ -3245,5 +3245,1533 @@
         "title_en": "New and invasive species"
       }
     ]
+  },
+  {
+    "id": "g9-chinese-1",
+    "subject_id": "chinese",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "0523 · 1",
+    "order": 1,
+    "title_zh": "第一单元 · 青少年与教育",
+    "title_en": "Unit 1 · Young people and education",
+    "developed": true,
+    "note_zh": "本单元按已学顺序：应试与素质、访谈类阅读、PEEL、填表／简答／选择，以及电邮。",
+    "note_en": "In the order already taught: exam pressure and broader education, interview reading, PEEL, table / short-answer / multiple-choice reading, then email.",
+    "units": [
+      {
+        "id": "g9-chinese-1-u1",
+        "code": "1",
+        "order": 1,
+        "title_zh": "阅读与思维",
+        "title_en": "Reading and thinking",
+        "sections": [
+          {
+            "id": "g9cn-1-1",
+            "code": "1.1",
+            "title_zh": "应试教育与素质教育",
+            "title_en": "Exam-focused schooling and a broader education",
+            "knowledge_id": "kp-g9cn-1-1"
+          },
+          {
+            "id": "g9cn-1-2",
+            "code": "1.2",
+            "title_zh": "访谈阅读与思维导图",
+            "title_en": "Interview reading and a mind map",
+            "knowledge_id": "kp-g9cn-1-2"
+          },
+          {
+            "id": "g9cn-1-3",
+            "code": "1.3",
+            "title_zh": "PEEL 段落",
+            "title_en": "A PEEL paragraph",
+            "knowledge_id": "kp-g9cn-1-3"
+          },
+          {
+            "id": "g9cn-1-4",
+            "code": "1.4",
+            "title_zh": "填表、简答与选择",
+            "title_en": "Tables, short answers and multiple choice",
+            "knowledge_id": "kp-g9cn-1-4"
+          },
+          {
+            "id": "g9cn-1-5",
+            "code": "1.5",
+            "title_zh": "词语：慎重、丰足与日常表达",
+            "title_en": "Words: care, plenty, and everyday expressions",
+            "knowledge_id": "kp-g9cn-1-5"
+          }
+        ]
+      },
+      {
+        "id": "g9-chinese-1-u2",
+        "code": "2",
+        "order": 2,
+        "title_zh": "电邮",
+        "title_en": "Email",
+        "sections": [
+          {
+            "id": "g9cn-2-1",
+            "code": "2.1",
+            "title_zh": "短电邮：称呼、事由与祝颂",
+            "title_en": "A short email: greeting, purpose and close",
+            "knowledge_id": "kp-g9cn-2-1"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9cn-1-1",
+        "title_zh": "应试教育与素质教育",
+        "title_en": "Exam-focused schooling and a broader education"
+      },
+      {
+        "id": "g9cn-1-2",
+        "title_zh": "访谈阅读与思维导图",
+        "title_en": "Interview reading and a mind map"
+      },
+      {
+        "id": "g9cn-1-3",
+        "title_zh": "PEEL 段落",
+        "title_en": "A PEEL paragraph"
+      },
+      {
+        "id": "g9cn-1-4",
+        "title_zh": "填表、简答与选择",
+        "title_en": "Tables, short answers and multiple choice"
+      },
+      {
+        "id": "g9cn-1-5",
+        "title_zh": "词语：慎重、丰足与日常表达",
+        "title_en": "Words: care, plenty, and everyday expressions"
+      },
+      {
+        "id": "g9cn-2-1",
+        "title_zh": "短电邮：称呼、事由与祝颂",
+        "title_en": "A short email: greeting, purpose and close"
+      }
+    ]
+  },
+  {
+    "id": "g9-maths-1",
+    "subject_id": "mathematics",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "0580 · 1",
+    "order": 1,
+    "title_zh": "数、精确度与循环小数",
+    "title_en": "Numbers, accuracy and recurring decimals",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-maths-1-u1",
+        "code": "1",
+        "order": 1,
+        "title_zh": "数、精确度与循环小数",
+        "title_en": "Numbers, accuracy and recurring decimals",
+        "sections": [
+          {
+            "id": "g9ma-1",
+            "code": "1",
+            "title_zh": "上下界与循环小数",
+            "title_en": "Bounds and recurring decimals",
+            "knowledge_id": "kp-g9ma-1"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ma-1",
+        "title_zh": "上下界与循环小数",
+        "title_en": "Bounds and recurring decimals"
+      }
+    ]
+  },
+  {
+    "id": "g9-maths-2",
+    "subject_id": "mathematics",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "0580 · 2",
+    "order": 2,
+    "title_zh": "指数与根式",
+    "title_en": "Indices and surds",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-maths-2-u1",
+        "code": "2",
+        "order": 1,
+        "title_zh": "指数与根式",
+        "title_en": "Indices and surds",
+        "sections": [
+          {
+            "id": "g9ma-2",
+            "code": "2",
+            "title_zh": "指数定律与根式化简",
+            "title_en": "Index laws and simplifying surds",
+            "knowledge_id": "kp-g9ma-2"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ma-2",
+        "title_zh": "指数定律与根式化简",
+        "title_en": "Index laws and simplifying surds"
+      }
+    ]
+  },
+  {
+    "id": "g9-maths-3",
+    "subject_id": "mathematics",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "0580/0606 · 3",
+    "order": 3,
+    "title_zh": "二次方程与不等式",
+    "title_en": "Quadratic equations and inequalities",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-maths-3-u1",
+        "code": "3",
+        "order": 1,
+        "title_zh": "二次方程与不等式",
+        "title_en": "Quadratic equations and inequalities",
+        "sections": [
+          {
+            "id": "g9ma-3",
+            "code": "3",
+            "title_zh": "配方、判别式、不等式与非线性方程组",
+            "title_en": "Completing the square, the discriminant, inequalities and non-linear pairs",
+            "knowledge_id": "kp-g9ma-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ma-3",
+        "title_zh": "配方、判别式、不等式与非线性方程组",
+        "title_en": "Completing the square, the discriminant, inequalities and non-linear pairs"
+      }
+    ]
+  },
+  {
+    "id": "g9-maths-4",
+    "subject_id": "mathematics",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "0580 · 4",
+    "order": 4,
+    "title_zh": "集合与韦恩图",
+    "title_en": "Sets and Venn diagrams",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-maths-4-u1",
+        "code": "4",
+        "order": 1,
+        "title_zh": "集合与韦恩图",
+        "title_en": "Sets and Venn diagrams",
+        "sections": [
+          {
+            "id": "g9ma-4",
+            "code": "4",
+            "title_zh": "集合记号与韦恩图计数",
+            "title_en": "Set notation and counting on a Venn diagram",
+            "knowledge_id": "kp-g9ma-4"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ma-4",
+        "title_zh": "集合记号与韦恩图计数",
+        "title_en": "Set notation and counting on a Venn diagram"
+      }
+    ]
+  },
+  {
+    "id": "g9-maths-5",
+    "subject_id": "mathematics",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "0580 · 5",
+    "order": 5,
+    "title_zh": "函数图像",
+    "title_en": "Graphs of functions",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-maths-5-u1",
+        "code": "5",
+        "order": 1,
+        "title_zh": "函数图像",
+        "title_en": "Graphs of functions",
+        "sections": [
+          {
+            "id": "g9ma-5",
+            "code": "5",
+            "title_zh": "识别一次、二次、三次、反比与指数图像",
+            "title_en": "Recognising linear, quadratic, cubic, reciprocal and exponential graphs",
+            "knowledge_id": "kp-g9ma-5"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ma-5",
+        "title_zh": "识别一次、二次、三次、反比与指数图像",
+        "title_en": "Recognising linear, quadratic, cubic, reciprocal and exponential graphs"
+      }
+    ]
+  },
+  {
+    "id": "g9-maths-6",
+    "subject_id": "mathematics",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "0606 · 6",
+    "order": 6,
+    "title_zh": "多项式因式与三次图像",
+    "title_en": "Polynomial factors and cubic graphs",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-maths-6-u1",
+        "code": "6",
+        "order": 1,
+        "title_zh": "多项式因式与三次图像",
+        "title_en": "Polynomial factors and cubic graphs",
+        "sections": [
+          {
+            "id": "g9ma-6",
+            "code": "6",
+            "title_zh": "余式定理、因式定理与比较系数",
+            "title_en": "Remainder theorem, factor theorem and comparing coefficients",
+            "knowledge_id": "kp-g9ma-6"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ma-6",
+        "title_zh": "余式定理、因式定理与比较系数",
+        "title_en": "Remainder theorem, factor theorem and comparing coefficients"
+      }
+    ]
+  },
+  {
+    "id": "g9-maths-7",
+    "subject_id": "mathematics",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "0580/0606 · 7",
+    "order": 7,
+    "title_zh": "函数",
+    "title_en": "Functions",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-maths-7-u1",
+        "code": "7",
+        "order": 1,
+        "title_zh": "函数",
+        "title_en": "Functions",
+        "sections": [
+          {
+            "id": "g9ma-7",
+            "code": "7",
+            "title_zh": "定义域、值域、复合函数与反函数",
+            "title_en": "Domain, range, composite functions and inverses",
+            "knowledge_id": "kp-g9ma-7"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ma-7",
+        "title_zh": "定义域、值域、复合函数与反函数",
+        "title_en": "Domain, range, composite functions and inverses"
+      }
+    ]
+  },
+  {
+    "id": "g9-maths-8",
+    "subject_id": "mathematics",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "0580/0606 · 8",
+    "order": 8,
+    "title_zh": "坐标几何",
+    "title_en": "Coordinate geometry",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-maths-8-u1",
+        "code": "8",
+        "order": 1,
+        "title_zh": "坐标几何",
+        "title_en": "Coordinate geometry",
+        "sections": [
+          {
+            "id": "g9ma-8",
+            "code": "8",
+            "title_zh": "直线方程、平行与垂直",
+            "title_en": "Equations of straight lines, parallel and perpendicular",
+            "knowledge_id": "kp-g9ma-8"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ma-8",
+        "title_zh": "直线方程、平行与垂直",
+        "title_en": "Equations of straight lines, parallel and perpendicular"
+      }
+    ]
+  },
+  {
+    "id": "g9-english-1",
+    "subject_id": "english",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "0500",
+    "order": 1,
+    "title_zh": "英语第一语言 · Paper 1",
+    "title_en": "First Language English · Paper 1",
+    "developed": true,
+    "note_zh": "Q3 是根据阅读材料的定向写作；Q4 是扩展写作，课上练过访谈、日记、书信和演讲。",
+    "note_en": "Q3 is directed writing from a reading text. Q4 is the extended response: interview, journal, letter and speech have all been practised.",
+    "units": [
+      {
+        "id": "g9-english-1-u1",
+        "code": "1",
+        "order": 1,
+        "title_zh": "阅读与定向写作",
+        "title_en": "Reading and directed writing",
+        "sections": [
+          {
+            "id": "g9en-1-1",
+            "code": "1.1",
+            "title_zh": "Q3：根据材料定向写作",
+            "title_en": "Q3: directed writing from a text",
+            "knowledge_id": "kp-g9en-1-1"
+          },
+          {
+            "id": "g9en-1-2",
+            "code": "1.2",
+            "title_zh": "Q4：访谈、日记、书信、演讲",
+            "title_en": "Q4: interview, journal, letter and speech",
+            "knowledge_id": "kp-g9en-1-2"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9en-1-1",
+        "title_zh": "Q3：根据材料定向写作",
+        "title_en": "Q3: directed writing from a text"
+      },
+      {
+        "id": "g9en-1-2",
+        "title_zh": "Q4：访谈、日记、书信、演讲",
+        "title_en": "Q4: interview, journal, letter and speech"
+      }
+    ]
+  },
+  {
+    "id": "g9-english-2",
+    "subject_id": "english",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "0408",
+    "order": 2,
+    "title_zh": "世界文学 · Anowa",
+    "title_en": "World Literature · Anowa",
+    "developed": true,
+    "note_zh": "剧本 Anowa（Ama Ata Aidoo）。下面是课堂用的情节与手法说明，不是剧本正文。评论和移情写作请用你自己书上的短引文。",
+    "note_en": "The play Anowa, by Ama Ata Aidoo. These are class notes on plot and method, not the text of the play. In a critical or empathic answer, use short quotations from your own copy.",
+    "units": [
+      {
+        "id": "g9-english-2-u1",
+        "code": "2",
+        "order": 1,
+        "title_zh": "戏剧与评论",
+        "title_en": "Drama and criticism",
+        "sections": [
+          {
+            "id": "g9en-2-1",
+            "code": "2.1",
+            "title_zh": "背景、序幕与戏剧形式",
+            "title_en": "Context, the prologue and dramatic form",
+            "knowledge_id": "kp-g9en-2-1"
+          },
+          {
+            "id": "g9en-2-2",
+            "code": "2.2",
+            "title_zh": "Anowa、三个阶段与她和 Kofi 的关系",
+            "title_en": "Anowa, the three phases, and Kofi",
+            "knowledge_id": "kp-g9en-2-2"
+          },
+          {
+            "id": "g9en-2-3",
+            "code": "2.3",
+            "title_zh": "语言、悲剧与主题",
+            "title_en": "Language, tragedy and themes",
+            "knowledge_id": "kp-g9en-2-3"
+          },
+          {
+            "id": "g9en-2-4",
+            "code": "2.4",
+            "title_zh": "移情写作",
+            "title_en": "Empathic writing",
+            "knowledge_id": "kp-g9en-2-4"
+          },
+          {
+            "id": "g9en-2-5",
+            "code": "2.5",
+            "title_zh": "评论段：PEEL 与短引文",
+            "title_en": "A critical paragraph: PEEL and a short quotation",
+            "knowledge_id": "kp-g9en-2-5"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9en-2-1",
+        "title_zh": "背景、序幕与戏剧形式",
+        "title_en": "Context, the prologue and dramatic form"
+      },
+      {
+        "id": "g9en-2-2",
+        "title_zh": "Anowa、三个阶段与她和 Kofi 的关系",
+        "title_en": "Anowa, the three phases, and Kofi"
+      },
+      {
+        "id": "g9en-2-3",
+        "title_zh": "语言、悲剧与主题",
+        "title_en": "Language, tragedy and themes"
+      },
+      {
+        "id": "g9en-2-4",
+        "title_zh": "移情写作",
+        "title_en": "Empathic writing"
+      },
+      {
+        "id": "g9en-2-5",
+        "title_zh": "评论段：PEEL 与短引文",
+        "title_en": "A critical paragraph: PEEL and a short quotation"
+      }
+    ]
+  },
+  {
+    "id": "g9-cs-7",
+    "subject_id": "computer-science",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "7",
+    "order": 1,
+    "title_zh": "第 7 章 · 算法设计与问题求解",
+    "title_en": "Chapter 7 · Algorithm design and problem-solving",
+    "developed": true,
+    "note_zh": "本阶段范围是 7.1–7.3、7.4 里的求和、计数、最小、最大与平均，以及 7.5–7.9。查找和排序不在这份练习卷里。",
+    "note_en": "This stage covers 7.1–7.3, the total, count, minimum, maximum and average parts of 7.4, and 7.5–7.9. Searching and sorting are not on this paper.",
+    "units": [
+      {
+        "id": "g9-cs-7-u1",
+        "code": "7.1–7.3",
+        "order": 1,
+        "title_zh": "生命周期、流程图与伪代码",
+        "title_en": "Life cycle, flowcharts and pseudocode",
+        "sections": [
+          {
+            "id": "g9cs-7-1",
+            "code": "7.1",
+            "title_zh": "程序开发的生命周期",
+            "title_en": "The program development life cycle",
+            "knowledge_id": "kp-g9cs-7-1"
+          },
+          {
+            "id": "g9cs-7-2",
+            "code": "7.2",
+            "title_zh": "流程图",
+            "title_en": "Flowcharts",
+            "knowledge_id": "kp-g9cs-7-2"
+          },
+          {
+            "id": "g9cs-7-3",
+            "code": "7.3",
+            "title_zh": "伪代码与 Python",
+            "title_en": "Pseudocode and Python",
+            "knowledge_id": "kp-g9cs-7-3"
+          }
+        ]
+      },
+      {
+        "id": "g9-cs-7-u2",
+        "code": "7.4–7.9",
+        "order": 2,
+        "title_zh": "求和、检验、追踪与写算法",
+        "title_en": "Totals, checks, traces and writing algorithms",
+        "sections": [
+          {
+            "id": "g9cs-7-4",
+            "code": "7.4.1–7.4.3",
+            "title_zh": "求和、计数、最小、最大与平均",
+            "title_en": "Totalling, counting, minimum, maximum and average",
+            "knowledge_id": "kp-g9cs-7-4"
+          },
+          {
+            "id": "g9cs-7-5",
+            "code": "7.5–7.7",
+            "title_zh": "验证、校验与测试数据",
+            "title_en": "Validation, verification and test data",
+            "knowledge_id": "kp-g9cs-7-5"
+          },
+          {
+            "id": "g9cs-7-8",
+            "code": "7.8",
+            "title_zh": "追踪表",
+            "title_en": "Trace tables",
+            "knowledge_id": "kp-g9cs-7-8"
+          },
+          {
+            "id": "g9cs-7-9",
+            "code": "7.9",
+            "title_zh": "把解法写成算法",
+            "title_en": "Writing an algorithm",
+            "knowledge_id": "kp-g9cs-7-9"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9cs-7-1",
+        "title_zh": "程序开发的生命周期",
+        "title_en": "The program development life cycle"
+      },
+      {
+        "id": "g9cs-7-2",
+        "title_zh": "流程图",
+        "title_en": "Flowcharts"
+      },
+      {
+        "id": "g9cs-7-3",
+        "title_zh": "伪代码与 Python",
+        "title_en": "Pseudocode and Python"
+      },
+      {
+        "id": "g9cs-7-4",
+        "title_zh": "求和、计数、最小、最大与平均",
+        "title_en": "Totalling, counting, minimum, maximum and average"
+      },
+      {
+        "id": "g9cs-7-5",
+        "title_zh": "验证、校验与测试数据",
+        "title_en": "Validation, verification and test data"
+      },
+      {
+        "id": "g9cs-7-8",
+        "title_zh": "追踪表",
+        "title_en": "Trace tables"
+      },
+      {
+        "id": "g9cs-7-9",
+        "title_zh": "把解法写成算法",
+        "title_en": "Writing an algorithm"
+      }
+    ]
+  },
+  {
+    "id": "g9-cs-8",
+    "subject_id": "computer-science",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "8",
+    "order": 2,
+    "title_zh": "第 8 章 · 编程：子程序与一维数组",
+    "title_en": "Chapter 8 · Programming: sub-routines and 1D arrays",
+    "developed": true,
+    "note_zh": "8.1 子程序，以及 8.2.1 一维数组。二维数组不在本阶段。",
+    "note_en": "8.1 sub-routines, and 8.2.1 one-dimensional arrays. Two-dimensional arrays are not in this stage.",
+    "units": [
+      {
+        "id": "g9-cs-8-u1",
+        "code": "8.1–8.2.1",
+        "order": 1,
+        "title_zh": "子程序与一维数组",
+        "title_en": "Sub-routines and one-dimensional arrays",
+        "sections": [
+          {
+            "id": "g9cs-8-1",
+            "code": "8.1",
+            "title_zh": "子程序：过程与函数",
+            "title_en": "Sub-routines: procedures and functions",
+            "knowledge_id": "kp-g9cs-8-1"
+          },
+          {
+            "id": "g9cs-8-2",
+            "code": "8.2.1",
+            "title_zh": "一维数组",
+            "title_en": "One-dimensional arrays",
+            "knowledge_id": "kp-g9cs-8-2"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9cs-8-1",
+        "title_zh": "子程序：过程与函数",
+        "title_en": "Sub-routines: procedures and functions"
+      },
+      {
+        "id": "g9cs-8-2",
+        "title_zh": "一维数组",
+        "title_en": "One-dimensional arrays"
+      }
+    ]
+  },
+  {
+    "id": "g9-econ-1",
+    "subject_id": "economics",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "0455 · 1–4",
+    "order": 1,
+    "title_zh": "第 1–4 章 · 基本经济问题",
+    "title_en": "Chapters 1–4 · The basic economic problem",
+    "developed": true,
+    "note_zh": "稀缺、生产要素、机会成本、生产可能性曲线。",
+    "note_en": "Scarcity, factors of production, opportunity cost, and the production possibility curve.",
+    "units": [
+      {
+        "id": "g9-econ-1-u1",
+        "code": "1–4",
+        "order": 1,
+        "title_zh": "稀缺与选择",
+        "title_en": "Scarcity and choice",
+        "sections": [
+          {
+            "id": "g9ec-1",
+            "code": "1",
+            "title_zh": "经济问题的性质",
+            "title_en": "The nature of the economic problem",
+            "knowledge_id": "kp-g9ec-1"
+          },
+          {
+            "id": "g9ec-2",
+            "code": "2",
+            "title_zh": "生产要素",
+            "title_en": "The factors of production",
+            "knowledge_id": "kp-g9ec-2"
+          },
+          {
+            "id": "g9ec-3",
+            "code": "3",
+            "title_zh": "机会成本",
+            "title_en": "Opportunity cost",
+            "knowledge_id": "kp-g9ec-3"
+          },
+          {
+            "id": "g9ec-4",
+            "code": "4",
+            "title_zh": "生产可能性曲线",
+            "title_en": "Production possibility curves",
+            "knowledge_id": "kp-g9ec-4"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ec-1",
+        "title_zh": "经济问题的性质",
+        "title_en": "The nature of the economic problem"
+      },
+      {
+        "id": "g9ec-2",
+        "title_zh": "生产要素",
+        "title_en": "The factors of production"
+      },
+      {
+        "id": "g9ec-3",
+        "title_zh": "机会成本",
+        "title_en": "Opportunity cost"
+      },
+      {
+        "id": "g9ec-4",
+        "title_zh": "生产可能性曲线",
+        "title_en": "Production possibility curves"
+      }
+    ]
+  },
+  {
+    "id": "g9-econ-2",
+    "subject_id": "economics",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "0455 · 5–9",
+    "order": 2,
+    "title_zh": "第 5–9 章 · 市场如何配置资源",
+    "title_en": "Chapters 5–9 · How markets allocate resources",
+    "developed": true,
+    "note_zh": "微观与宏观的区别、市场的角色、需求、供给、价格决定。8 分论述要有分析和判断。",
+    "note_en": "Micro and macro, the role of markets, demand, supply and price. An 8-mark essay needs analysis and a judgement.",
+    "units": [
+      {
+        "id": "g9-econ-2-u1",
+        "code": "5–9",
+        "order": 1,
+        "title_zh": "需求、供给与价格",
+        "title_en": "Demand, supply and price",
+        "sections": [
+          {
+            "id": "g9ec-5",
+            "code": "5",
+            "title_zh": "微观经济与宏观经济",
+            "title_en": "Microeconomics and macroeconomics",
+            "knowledge_id": "kp-g9ec-5"
+          },
+          {
+            "id": "g9ec-6",
+            "code": "6",
+            "title_zh": "市场在配置资源中的作用",
+            "title_en": "The role of markets in allocating resources",
+            "knowledge_id": "kp-g9ec-6"
+          },
+          {
+            "id": "g9ec-7",
+            "code": "7",
+            "title_zh": "需求",
+            "title_en": "Demand",
+            "knowledge_id": "kp-g9ec-7"
+          },
+          {
+            "id": "g9ec-8",
+            "code": "8",
+            "title_zh": "供给",
+            "title_en": "Supply",
+            "knowledge_id": "kp-g9ec-8"
+          },
+          {
+            "id": "g9ec-9",
+            "code": "9",
+            "title_zh": "价格的决定与变动",
+            "title_en": "Price determination and price changes",
+            "knowledge_id": "kp-g9ec-9"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ec-5",
+        "title_zh": "微观经济与宏观经济",
+        "title_en": "Microeconomics and macroeconomics"
+      },
+      {
+        "id": "g9ec-6",
+        "title_zh": "市场在配置资源中的作用",
+        "title_en": "The role of markets in allocating resources"
+      },
+      {
+        "id": "g9ec-7",
+        "title_zh": "需求",
+        "title_en": "Demand"
+      },
+      {
+        "id": "g9ec-8",
+        "title_zh": "供给",
+        "title_en": "Supply"
+      },
+      {
+        "id": "g9ec-9",
+        "title_zh": "价格的决定与变动",
+        "title_en": "Price determination and price changes"
+      }
+    ]
+  },
+  {
+    "id": "g9-phys-1",
+    "subject_id": "physics",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "1",
+    "order": 1,
+    "title_zh": "第 1 章 · 物理量的测量",
+    "title_en": "Chapter 1 · Measurement of physical quantities",
+    "developed": true,
+    "note_zh": "单位、图像、反应时间和密度实验的读数。",
+    "note_en": "Units, graphs, reaction time, and readings in a density experiment.",
+    "units": [
+      {
+        "id": "g9-phys-1-u1",
+        "code": "1",
+        "order": 1,
+        "title_zh": "测量与图像",
+        "title_en": "Measurement and graphs",
+        "sections": [
+          {
+            "id": "g9ph-1",
+            "code": "1.1",
+            "title_zh": "测量、图像与反应时间",
+            "title_en": "Measurement, graphs and reaction time",
+            "knowledge_id": "kp-g9ph-1"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ph-1",
+        "title_zh": "测量、图像与反应时间",
+        "title_en": "Measurement, graphs and reaction time"
+      }
+    ]
+  },
+  {
+    "id": "g9-phys-2",
+    "subject_id": "physics",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "2",
+    "order": 2,
+    "title_zh": "第 2 章 · 运动",
+    "title_en": "Chapter 2 · Motion",
+    "developed": true,
+    "note_zh": "位移–时间、速度–时间、加速度–时间图像，以及自由落体。",
+    "note_en": "Displacement–time, velocity–time and acceleration–time graphs, and free fall.",
+    "units": [
+      {
+        "id": "g9-phys-2-u1",
+        "code": "2",
+        "order": 1,
+        "title_zh": "图像与自由落体",
+        "title_en": "Graphs and free fall",
+        "sections": [
+          {
+            "id": "g9ph-2",
+            "code": "2.1",
+            "title_zh": "运动图像",
+            "title_en": "Motion graphs",
+            "knowledge_id": "kp-g9ph-2"
+          },
+          {
+            "id": "g9ph-3",
+            "code": "2.2",
+            "title_zh": "自由落体与 g",
+            "title_en": "Free fall and g",
+            "knowledge_id": "kp-g9ph-3"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ph-2",
+        "title_zh": "运动图像",
+        "title_en": "Motion graphs"
+      },
+      {
+        "id": "g9ph-3",
+        "title_zh": "自由落体与 g",
+        "title_en": "Free fall and g"
+      }
+    ]
+  },
+  {
+    "id": "g9-phys-3",
+    "subject_id": "physics",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "3",
+    "order": 3,
+    "title_zh": "第 3 章 · 质量、重量与密度",
+    "title_en": "Chapter 3 · Mass, weight and density",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-phys-3-u1",
+        "code": "3",
+        "order": 1,
+        "title_zh": "质量、重量、密度",
+        "title_en": "Mass, weight and density",
+        "sections": [
+          {
+            "id": "g9ph-4",
+            "code": "3.1",
+            "title_zh": "质量、重量与密度",
+            "title_en": "Mass, weight and density",
+            "knowledge_id": "kp-g9ph-4"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ph-4",
+        "title_zh": "质量、重量与密度",
+        "title_en": "Mass, weight and density"
+      }
+    ]
+  },
+  {
+    "id": "g9-phys-4",
+    "subject_id": "physics",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "4",
+    "order": 4,
+    "title_zh": "第 4 章 · 力",
+    "title_en": "Chapter 4 · Forces",
+    "developed": true,
+    "note_zh": "当前内容：胡克定律、牛顿第二定律、摩擦力、受力图、空气阻力和终端速度。",
+    "note_en": "Current work: Hooke's law, Newton's second law, friction, free-body diagrams, air resistance and terminal velocity.",
+    "units": [
+      {
+        "id": "g9-phys-4-u1",
+        "code": "4",
+        "order": 1,
+        "title_zh": "弹力、合力与阻力",
+        "title_en": "Springs, resultant force and resistance",
+        "sections": [
+          {
+            "id": "g9ph-5",
+            "code": "4.1",
+            "title_zh": "胡克定律与弹簧",
+            "title_en": "Hooke's law and springs",
+            "knowledge_id": "kp-g9ph-5"
+          },
+          {
+            "id": "g9ph-6",
+            "code": "4.2",
+            "title_zh": "牛顿第二定律、摩擦力与受力图",
+            "title_en": "Newton's second law, friction and free-body diagrams",
+            "knowledge_id": "kp-g9ph-6"
+          },
+          {
+            "id": "g9ph-7",
+            "code": "4.3",
+            "title_zh": "空气阻力与终端速度",
+            "title_en": "Air resistance and terminal velocity",
+            "knowledge_id": "kp-g9ph-7"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ph-5",
+        "title_zh": "胡克定律与弹簧",
+        "title_en": "Hooke's law and springs"
+      },
+      {
+        "id": "g9ph-6",
+        "title_zh": "牛顿第二定律、摩擦力与受力图",
+        "title_en": "Newton's second law, friction and free-body diagrams"
+      },
+      {
+        "id": "g9ph-7",
+        "title_zh": "空气阻力与终端速度",
+        "title_en": "Air resistance and terminal velocity"
+      }
+    ]
+  },
+  {
+    "id": "g9-chem-1",
+    "subject_id": "chemistry",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "1",
+    "order": 1,
+    "title_zh": "Topic 1 · 物态",
+    "title_en": "Topic 1 · States of matter",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-chem-1-u1",
+        "code": "1",
+        "order": 1,
+        "title_zh": "粒子模型",
+        "title_en": "The particle model",
+        "sections": [
+          {
+            "id": "g9ch-1-1",
+            "code": "1.1",
+            "title_zh": "固体、液体与气体",
+            "title_en": "Solids, liquids and gases",
+            "knowledge_id": "kp-g9ch-1-1"
+          },
+          {
+            "id": "g9ch-1-2",
+            "code": "1.2",
+            "title_zh": "扩散与加热、冷却曲线",
+            "title_en": "Diffusion and heating and cooling curves",
+            "knowledge_id": "kp-g9ch-1-2"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ch-1-1",
+        "title_zh": "固体、液体与气体",
+        "title_en": "Solids, liquids and gases"
+      },
+      {
+        "id": "g9ch-1-2",
+        "title_zh": "扩散与加热、冷却曲线",
+        "title_en": "Diffusion and heating and cooling curves"
+      }
+    ]
+  },
+  {
+    "id": "g9-chem-12",
+    "subject_id": "chemistry",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "12",
+    "order": 2,
+    "title_zh": "Topic 12 · 实验技术（12.1、12.3、12.4）",
+    "title_en": "Topic 12 · Experimental techniques (12.1, 12.3, 12.4)",
+    "developed": true,
+    "note_zh": "实验设计、仪器、层析、分离与提纯。滴定留到后面。",
+    "note_en": "Experimental design, apparatus, chromatography, separation and purification. Titration comes later.",
+    "units": [
+      {
+        "id": "g9-chem-12-u1",
+        "code": "12",
+        "order": 1,
+        "title_zh": "分离与层析",
+        "title_en": "Separation and chromatography",
+        "sections": [
+          {
+            "id": "g9ch-12-1",
+            "code": "12.1",
+            "title_zh": "实验设计与常用仪器",
+            "title_en": "Experimental design and common apparatus",
+            "knowledge_id": "kp-g9ch-12-1"
+          },
+          {
+            "id": "g9ch-12-2",
+            "code": "12.3–12.4",
+            "title_zh": "层析、分离与提纯",
+            "title_en": "Chromatography, separation and purification",
+            "knowledge_id": "kp-g9ch-12-2"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ch-12-1",
+        "title_zh": "实验设计与常用仪器",
+        "title_en": "Experimental design and common apparatus"
+      },
+      {
+        "id": "g9ch-12-2",
+        "title_zh": "层析、分离与提纯",
+        "title_en": "Chromatography, separation and purification"
+      }
+    ]
+  },
+  {
+    "id": "g9-chem-2",
+    "subject_id": "chemistry",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "2",
+    "order": 3,
+    "title_zh": "Topic 2 · 原子、元素与化合物",
+    "title_en": "Topic 2 · Atoms, elements and compounds",
+    "developed": true,
+    "note_zh": "下一份测验的范围：原子结构、同位素、离子键、共价键、巨型结构和金属键。",
+    "note_en": "The next test covers atomic structure, isotopes, ionic and covalent bonding, giant structures and metallic bonding.",
+    "units": [
+      {
+        "id": "g9-chem-2-u1",
+        "code": "2",
+        "order": 1,
+        "title_zh": "结构与成键",
+        "title_en": "Structure and bonding",
+        "sections": [
+          {
+            "id": "g9ch-2-1",
+            "code": "2.1–2.2",
+            "title_zh": "原子结构与电子排布",
+            "title_en": "Atomic structure and electronic configuration",
+            "knowledge_id": "kp-g9ch-2-1"
+          },
+          {
+            "id": "g9ch-2-2",
+            "code": "2.3",
+            "title_zh": "同位素与相对原子质量",
+            "title_en": "Isotopes and relative atomic mass",
+            "knowledge_id": "kp-g9ch-2-2"
+          },
+          {
+            "id": "g9ch-2-3",
+            "code": "2.4",
+            "title_zh": "离子与离子键",
+            "title_en": "Ions and ionic bonding",
+            "knowledge_id": "kp-g9ch-2-3"
+          },
+          {
+            "id": "g9ch-2-4",
+            "code": "2.5",
+            "title_zh": "简单分子与共价键",
+            "title_en": "Simple molecules and covalent bonds",
+            "knowledge_id": "kp-g9ch-2-4"
+          },
+          {
+            "id": "g9ch-2-5",
+            "code": "2.6–2.7",
+            "title_zh": "巨型共价、金属键与结构比较",
+            "title_en": "Giant covalent and metallic structures",
+            "knowledge_id": "kp-g9ch-2-5"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ch-2-1",
+        "title_zh": "原子结构与电子排布",
+        "title_en": "Atomic structure and electronic configuration"
+      },
+      {
+        "id": "g9ch-2-2",
+        "title_zh": "同位素与相对原子质量",
+        "title_en": "Isotopes and relative atomic mass"
+      },
+      {
+        "id": "g9ch-2-3",
+        "title_zh": "离子与离子键",
+        "title_en": "Ions and ionic bonding"
+      },
+      {
+        "id": "g9ch-2-4",
+        "title_zh": "简单分子与共价键",
+        "title_en": "Simple molecules and covalent bonds"
+      },
+      {
+        "id": "g9ch-2-5",
+        "title_zh": "巨型共价、金属键与结构比较",
+        "title_en": "Giant covalent and metallic structures"
+      }
+    ]
+  },
+  {
+    "id": "g9-chem-3",
+    "subject_id": "chemistry",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "3",
+    "order": 4,
+    "title_zh": "Topic 3 · 化学计量（3.1–3.2）",
+    "title_en": "Topic 3 · Stoichiometry (3.1–3.2)",
+    "developed": true,
+    "note_zh": "当前进度：化学式与相对质量。摩尔和化学方程式计算是下一步。",
+    "note_en": "Current work: formulae and relative masses. The mole and equation calculations come next.",
+    "units": [
+      {
+        "id": "g9-chem-3-u1",
+        "code": "3.1–3.2",
+        "order": 1,
+        "title_zh": "化学式与相对质量",
+        "title_en": "Formulae and relative masses",
+        "sections": [
+          {
+            "id": "g9ch-3-1",
+            "code": "3.1–3.2",
+            "title_zh": "化学式与相对质量",
+            "title_en": "Formulae and relative masses",
+            "knowledge_id": "kp-g9ch-3-1"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9ch-3-1",
+        "title_zh": "化学式与相对质量",
+        "title_en": "Formulae and relative masses"
+      }
+    ]
+  },
+  {
+    "id": "g9-bio-2",
+    "subject_id": "biology",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "2",
+    "order": 1,
+    "title_zh": "Topic 2 · 生物体的组织",
+    "title_en": "Topic 2 · Organisation of the organism",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-bio-2-u1",
+        "code": "2",
+        "order": 1,
+        "title_zh": "细胞与显微镜",
+        "title_en": "Cells and the microscope",
+        "sections": [
+          {
+            "id": "g9bi-2-1",
+            "code": "2",
+            "title_zh": "细胞、比较与显微镜",
+            "title_en": "Cells, comparison and the microscope",
+            "knowledge_id": "kp-g9bi-2-1"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9bi-2-1",
+        "title_zh": "细胞、比较与显微镜",
+        "title_en": "Cells, comparison and the microscope"
+      }
+    ]
+  },
+  {
+    "id": "g9-bio-3",
+    "subject_id": "biology",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "3",
+    "order": 2,
+    "title_zh": "Topic 3 · 物质进出细胞",
+    "title_en": "Topic 3 · Movement in and out of cells",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-bio-3-u1",
+        "code": "3",
+        "order": 1,
+        "title_zh": "扩散与渗透",
+        "title_en": "Diffusion and osmosis",
+        "sections": [
+          {
+            "id": "g9bi-3-1",
+            "code": "3",
+            "title_zh": "扩散、渗透与实验设计",
+            "title_en": "Diffusion, osmosis and planning",
+            "knowledge_id": "kp-g9bi-3-1"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9bi-3-1",
+        "title_zh": "扩散、渗透与实验设计",
+        "title_en": "Diffusion, osmosis and planning"
+      }
+    ]
+  },
+  {
+    "id": "g9-bio-4",
+    "subject_id": "biology",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "4",
+    "order": 3,
+    "title_zh": "Topic 4 · 生物分子",
+    "title_en": "Topic 4 · Biological molecules",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-bio-4-u1",
+        "code": "4",
+        "order": 1,
+        "title_zh": "食物检验",
+        "title_en": "Food tests",
+        "sections": [
+          {
+            "id": "g9bi-4-1",
+            "code": "4",
+            "title_zh": "生物分子与食物检验",
+            "title_en": "Biological molecules and food tests",
+            "knowledge_id": "kp-g9bi-4-1"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9bi-4-1",
+        "title_zh": "生物分子与食物检验",
+        "title_en": "Biological molecules and food tests"
+      }
+    ]
+  },
+  {
+    "id": "g9-bio-5",
+    "subject_id": "biology",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "5",
+    "order": 4,
+    "title_zh": "Topic 5 · 酶",
+    "title_en": "Topic 5 · Enzymes",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-bio-5-u1",
+        "code": "5",
+        "order": 1,
+        "title_zh": "酶与实验",
+        "title_en": "Enzymes and practicals",
+        "sections": [
+          {
+            "id": "g9bi-5-1",
+            "code": "5",
+            "title_zh": "酶、过氧化氢酶与果胶酶",
+            "title_en": "Enzymes, catalase and pectinase",
+            "knowledge_id": "kp-g9bi-5-1"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9bi-5-1",
+        "title_zh": "酶、过氧化氢酶与果胶酶",
+        "title_en": "Enzymes, catalase and pectinase"
+      }
+    ]
+  },
+  {
+    "id": "g9-bio-1",
+    "subject_id": "biology",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "1",
+    "order": 5,
+    "title_zh": "Topic 1 · 生物的特征与分类",
+    "title_en": "Topic 1 · Characteristics and classification",
+    "developed": true,
+    "note_zh": "",
+    "note_en": "",
+    "units": [
+      {
+        "id": "g9-bio-1-u1",
+        "code": "1",
+        "order": 1,
+        "title_zh": "特征与类群",
+        "title_en": "Characteristics and groups",
+        "sections": [
+          {
+            "id": "g9bi-1-1",
+            "code": "1",
+            "title_zh": "生命特征与主要类群",
+            "title_en": "Characteristics of life and the main groups",
+            "knowledge_id": "kp-g9bi-1-1"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9bi-1-1",
+        "title_zh": "生命特征与主要类群",
+        "title_en": "Characteristics of life and the main groups"
+      }
+    ]
+  },
+  {
+    "id": "g9-bio-7",
+    "subject_id": "biology",
+    "grade_id": "9",
+    "kind": "chapter",
+    "code": "7",
+    "order": 6,
+    "title_zh": "Topic 7 · 人体营养",
+    "title_en": "Topic 7 · Human nutrition",
+    "developed": true,
+    "note_zh": "当前内容：7.1–7.2 膳食，7.3 物理性消化，7.4 化学性消化，7.5 吸收。还没有 Topic 6。",
+    "note_en": "Current work: 7.1–7.2 diet, 7.3 physical digestion, 7.4 chemical digestion, 7.5 absorption. Topic 6 is not included yet.",
+    "units": [
+      {
+        "id": "g9-bio-7-u1",
+        "code": "7",
+        "order": 1,
+        "title_zh": "膳食、消化与吸收",
+        "title_en": "Diet, digestion and absorption",
+        "sections": [
+          {
+            "id": "g9bi-7-1",
+            "code": "7.1–7.2",
+            "title_zh": "膳食与消化道",
+            "title_en": "Diet and the alimentary canal",
+            "knowledge_id": "kp-g9bi-7-1"
+          },
+          {
+            "id": "g9bi-7-2",
+            "code": "7.3–7.5",
+            "title_zh": "物理消化、化学消化与吸收",
+            "title_en": "Physical digestion, chemical digestion and absorption",
+            "knowledge_id": "kp-g9bi-7-2"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "g9bi-7-1",
+        "title_zh": "膳食与消化道",
+        "title_en": "Diet and the alimentary canal"
+      },
+      {
+        "id": "g9bi-7-2",
+        "title_zh": "物理消化、化学消化与吸收",
+        "title_en": "Physical digestion, chemical digestion and absorption"
+      }
+    ]
   }
 ]

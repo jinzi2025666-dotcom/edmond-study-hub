@@ -12,8 +12,10 @@ from fastapi.staticfiles import StaticFiles
 from . import database as db
 from .config import FRONTEND_DIST, load_site_config
 from .grading import check_answer
+from .coach import coach_payload, reasoning_ok
+from . import learning as learning_api
 
-app = FastAPI(title="Edmond Study Hub", docs_url=None, redoc_url=None)
+app = FastAPI(title="Singapore International Study Site", docs_url=None, redoc_url=None)
 _ISO_TAIL = re.compile(r"Z$")
 
 
@@ -43,6 +45,16 @@ def within_days(value: str | None, days: int) -> bool:
     return dt >= now - timedelta(days=days)
 
 
+def present_subject(subject: dict, grade_id: str | None) -> dict:
+    """Overlay grade-specific syllabus labels without changing other years."""
+    item = dict(subject)
+    by = (subject.get("by_grade") or {}).get(str(grade_id or "8")) or {}
+    for key, val in by.items():
+        if val not in (None, ""):
+            item[key] = val
+    return item
+
+
 def subject_or_404(subject_id: str) -> dict:
     for s in db.load_subjects():
         if s["id"] == subject_id:
@@ -68,7 +80,7 @@ def counts_for_subject(subject_id: str, grade_id: str | None = None) -> dict:
         "knowledge": len(kps),
         "mastered": mastered,
         "learning": learning,
-        "questions": len(db.list_questions(subject_id)),
+        "questions": len(db.list_questions(subject_id, grade_id=grade_id)),
         "practice": len(db.list_sets(subject_id, "practice", grade_id=grade_id)),
         "papers": len(db.list_sets(subject_id, "paper", grade_id=grade_id)),
         "progress": (mastered / len(kps)) if kps else 0,
@@ -103,7 +115,7 @@ def api_subjects(grade: str | None = None):
     units = db.units_by_subject(grade)
     out = []
     for s in db.load_subjects():
-        item = dict(s)
+        item = present_subject(s, grade)
         item["units"] = units.get(s["id"], [])
         item["counts"] = counts_for_subject(s["id"], grade)
         dev = (s.get("development") or {})
@@ -114,7 +126,7 @@ def api_subjects(grade: str | None = None):
 
 @app.get("/api/subjects/{subject_id}")
 def api_subject(subject_id: str, grade: str | None = None):
-    subject = subject_or_404(subject_id)
+    subject = present_subject(subject_or_404(subject_id), grade)
     units = db.units_by_subject(grade).get(subject_id, [])
     knowledge = attach_progress(db.list_knowledge(subject_id, grade_id=grade))
     by_unit: dict[str, list] = {}
@@ -198,6 +210,29 @@ def api_set(sid: str, reveal: bool = False):
     return item
 
 
+def _check_payload(q: dict, given, reasoning=None, reveal: bool = False) -> dict:
+    correct = check_answer(q, given)
+    marks = int(q.get("marks") or 1)
+    understood = reasoning_ok(q, reasoning) if reasoning else False
+    body = {
+        "correct": correct,
+        "reasoning_ok": understood,
+        "marks": marks,
+        "awarded": marks if correct else 0,
+        **coach_payload(q, given),
+    }
+    if correct or reveal:
+        body.update({
+            "explanation_zh": q.get("explanation_zh"),
+            "explanation_en": q.get("explanation_en"),
+            "answer": q.get("answer"),
+            "answer_zh": q.get("answer_zh"),
+            "answer_en": q.get("answer_en"),
+            "accepted": q.get("accepted") or [],
+        })
+    return body
+
+
 @app.post("/api/check")
 def api_check(payload: dict):
     qid = (payload or {}).get("question_id")
@@ -208,15 +243,62 @@ def api_check(payload: dict):
     correct = check_answer(q, given)
     if not correct:
         db.record_mistake(q, given)
+    return _check_payload(q, given, (payload or {}).get("reasoning"))
+
+
+@app.post("/api/reveal")
+def api_reveal(payload: dict):
+    qid = (payload or {}).get("question_id")
+    q = db.get_question(qid) if qid else None
+    if not q:
+        raise HTTPException(404, "Question not found")
+    return _check_payload(q, q.get("answer"), reveal=True)
+
+
+@app.get("/api/learning/placement")
+def api_placement_get(subject: str, grade: str = "9"):
+    saved = learning_api.get_placement(subject, grade)
     return {
-        "correct": correct,
-        "marks": int(q.get("marks") or 1),
-        "awarded": int(q.get("marks") or 1) if correct else 0,
-        "explanation_zh": q.get("explanation_zh"),
-        "explanation_en": q.get("explanation_en"),
-        "answer": q.get("answer"),
-        "accepted": q.get("accepted") or [],
+        "done": bool(saved),
+        "result": saved,
+        "quiz": None if saved else learning_api.diagnostic_questions(subject, grade),
     }
+
+
+@app.post("/api/learning/placement")
+def api_placement_post(payload: dict):
+    subject = (payload or {}).get("subject_id")
+    grade = str((payload or {}).get("grade_id") or "9")
+    if not subject:
+        raise HTTPException(400, "subject_id is required")
+    if (payload or {}).get("reset"):
+        db.delete_learning(f"placement:{grade}:{subject}")
+        return {"done": False, "quiz": learning_api.diagnostic_questions(subject, grade)}
+    return learning_api.grade_placement(subject, grade, (payload or {}).get("answers") or {})
+
+
+@app.get("/api/learning/spiral")
+def api_spiral(subject: str, grade: str = "9"):
+    return learning_api.spiral_status(subject, grade)
+
+
+@app.post("/api/learning/spiral/complete")
+def api_spiral_done(payload: dict):
+    subject = (payload or {}).get("subject_id")
+    grade = str((payload or {}).get("grade_id") or "9")
+    if not subject:
+        raise HTTPException(400, "subject_id is required")
+    return learning_api.complete_spiral(subject, grade)
+
+
+@app.post("/api/learning/checkpoint")
+def api_checkpoint(payload: dict):
+    subject = (payload or {}).get("subject_id")
+    grade = str((payload or {}).get("grade_id") or "9")
+    scope = (payload or {}).get("scope") or ""
+    if subject:
+        learning_api.note_checkpoint(subject, grade, scope)
+    return {"ok": True}
 
 
 def _grade_answers(question_ids: list[str], answers: dict) -> tuple[list[dict], int, int]:
@@ -269,6 +351,7 @@ def api_submit(sid: str, payload: dict):
         "answers": details,
     }
     db.save_attempt(attempt)
+    learning_api.note_checkpoint(item.get("subject_id"), str(item.get("grade_id") or "9"), item.get("scope") or "")
     return attempt
 
 
@@ -313,14 +396,14 @@ def api_master_mistake(question_id: str):
 
 
 @app.get("/api/progress")
-def api_progress():
+def api_progress(grade: str | None = None):
     subjects = []
     total_k = total_m = 0
     for s in db.load_subjects():
-        counts = counts_for_subject(s["id"])
+        counts = counts_for_subject(s["id"], grade)
         total_k += counts["knowledge"]
         total_m += counts["mastered"]
-        subjects.append({**s, "counts": counts})
+        subjects.append({**present_subject(s, grade), "counts": counts})
     return {
         "subjects": subjects,
         "overall": {
@@ -334,25 +417,30 @@ def api_progress():
 
 
 @app.get("/api/continue")
-def api_continue():
+def api_continue(grade: str | None = None):
     last = db.last_viewed_knowledge()
     pmap = db.progress_map()
     if last:
         last = dict(last)
-        last["status"] = pmap.get(last["id"], "not_started")
-        if last["status"] != "mastered":
-            return last
-    # first not-mastered knowledge, preferring recently published
-    for item in attach_progress(db.list_knowledge()):
+        if grade and str(last.get("grade_id") or "") not in ("", str(grade)):
+            last = None
+        else:
+            last["status"] = pmap.get(last["id"], "not_started")
+            if last["status"] == "mastered":
+                last = None
+            else:
+                return last
+    # first not-mastered knowledge in this grade, preferring recently published
+    for item in attach_progress(db.list_knowledge(grade_id=grade)):
         if item["status"] != "mastered":
             return item
     return last
 
 
 @app.get("/api/updates")
-def api_updates(days: int = 7):
+def api_updates(days: int = 7, grade: str | None = None):
     items = []
-    for k in db.list_knowledge():
+    for k in db.list_knowledge(grade_id=grade):
         if within_days(k.get("published_at") or k.get("updated_at"), days):
             items.append({
                 "type": "knowledge",
@@ -362,7 +450,7 @@ def api_updates(days: int = 7):
                 "title_en": k.get("title_en"),
                 "published_at": k.get("published_at") or k.get("updated_at"),
             })
-    for s in db.list_sets():
+    for s in db.list_sets(grade_id=grade):
         if within_days(s.get("published_at") or s.get("updated_at"), days):
             items.append({
                 "type": s.get("kind") or "set",
@@ -410,7 +498,7 @@ def api_search(q: str = Query("", min_length=1)):
             "unit",
             searchable,
             ["title_zh", "title_en", "code", "note_zh", "note_en", "_topics"],
-            f"/subjects/{unit['subject_id']}#{unit['id']}",
+            f"/grades/{unit.get('grade_id') or '8'}/subjects/{unit['subject_id']}#{unit['id']}",
             unit["subject_id"],
         )
 

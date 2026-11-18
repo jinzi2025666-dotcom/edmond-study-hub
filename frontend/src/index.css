@@ -656,6 +656,17 @@ textarea.answer-input { min-height: 5.5rem; max-width: 100%; }
   border-radius: var(--radius);
 }
 .grade-pills button strong { display: block; font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; }
+.grade-pills button.is-featured { min-width: 12.5rem; border-color: var(--copper); }
+.grade-badge {
+  display: inline-block;
+  margin-left: 0.45rem;
+  font-style: normal;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  vertical-align: 0.15em;
+  color: var(--copper-dark);
+}
 .grade-pills button span { display: block; color: var(--ink-faint); font-size: 0.8rem; margin-top: 0.15rem; }
 .grade-pills button.is-active,
 .grade-pills button[aria-selected="true"] {
@@ -676,6 +687,60 @@ textarea.answer-input { min-height: 5.5rem; max-width: 100%; }
 .course-page { max-width: 52rem; }
 .course-page h1 .title-slash { color: var(--ink-faint); font-weight: 400; }
 .course-continue { margin: 0 0 1.6rem; }
+.learning-path {
+  border: 1px solid var(--rule);
+  background: var(--card);
+  padding: 1rem 1.15rem 1.15rem;
+  margin: 0 0 1.8rem;
+  border-radius: var(--radius);
+}
+.learning-path h2 { margin: 0.15rem 0 0.35rem; font-size: 1.35rem; }
+.path-list { margin: 0.6rem 0 0; padding-left: 1.2rem; }
+.path-list > li { margin: 0.85rem 0; }
+.path-list ol { list-style: none; margin: 0.35rem 0 0; padding: 0; }
+.path-list ol li { display: flex; flex-wrap: wrap; gap: 0.35rem 0.7rem; align-items: baseline; margin: 0.28rem 0; }
+.path-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--copper-dark);
+  min-width: 5.2rem;
+}
+.path-final { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin: 0.8rem 0 0; }
+.spiral-entry {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.8rem;
+  align-items: baseline;
+  margin: 0.7rem 0 0.2rem;
+  padding: 0.55rem 0.7rem;
+  background: color-mix(in srgb, var(--copper) 12%, var(--card));
+  border-radius: var(--radius);
+}
+.placement-banner, .home-prompt {
+  border: 1px solid var(--rule);
+  background: var(--card);
+  padding: 1rem 1.15rem;
+  margin: 0 0 1.2rem;
+  border-radius: var(--radius);
+}
+.home-prompt { margin-top: 1rem; }
+.placement-item { margin: 1.2rem 0 1.6rem; }
+.reason-box { display: block; margin: 0.4rem 0 0; }
+.reason-box span { display: block; margin-bottom: 0.3rem; color: var(--ink-soft); }
+.reason-box textarea { width: 100%; min-height: 4.2rem; }
+.personal-path, .mastery-map { list-style: none; padding: 0; margin: 0.4rem 0 1rem; }
+.personal-path li, .mastery-map li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.status-gap em, .status-gap span:last-child { color: #8a3b2a; }
+.status-shaky em, .status-shaky span:last-child { color: #8a5a12; }
+.status-solid em, .status-solid span:last-child { color: #2d6a4f; }
+.hint-flow p { margin: 0.35rem 0; }
+.recommend-start { margin: 0.6rem 0 1rem; }
 .chapter-block {
   background: var(--card);
   border: 1px solid var(--rule);
@@ -718,6 +783,7 @@ textarea.answer-input { min-height: 5.5rem; max-width: 100%; }
 .section-list .is-mastered .tick { background: var(--copper); border-color: var(--copper); }
 .section-list .is-learning .tick { background: var(--copper-soft); border-color: var(--copper); }
 .sec-code { color: var(--ink-faint); font-size: 0.82rem; margin-right: 0.45rem; font-variant-numeric: tabular-nums; }
+.sec-test { margin-left: 0.65rem; font-size: 0.82rem; }
 .outline-tag { margin-left: 0.5rem; font-style: normal; color: var(--ink-faint); font-size: 0.82rem; }
 .course-paper-band { margin-top: 1.8rem; }
 

@@ -11,8 +11,8 @@ SITE_CONFIG_PATH = ROOT / "site.config.json"
 FRONTEND_DIST = ROOT / "frontend" / "dist"
 
 _DEFAULTS = {
-    "name_en": "Edmond Study Hub",
-    "name_zh": "Edmond 学习站",
+    "name_en": "Singapore International Study Site",
+    "name_zh": "新加坡国际学习网站",
     "subtitle_en": "Cambridge Lower Secondary & IGCSE · Year 8",
     "subtitle_zh": "剑桥中学初级阶段与 IGCSE · 八年级",
     "port": 8787,

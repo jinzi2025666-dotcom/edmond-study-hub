@@ -9,7 +9,7 @@ from pathlib import Path
 
 from .config import CURRICULUM_DIR, DATA_DIR, USER_DB, load_json
 
-SEED_VERSION = "3"
+SEED_VERSION = "5"
 SHANGHAI = timezone(timedelta(hours=8))
 _local = threading.local()
 
@@ -160,6 +160,11 @@ def init_db() -> None:
             CREATE INDEX IF NOT EXISTS idx_questions_subject ON questions(subject_id);
             CREATE INDEX IF NOT EXISTS idx_sets_subject ON question_sets(subject_id, kind);
             CREATE INDEX IF NOT EXISTS idx_mistakes_status ON mistakes(status, subject_id);
+            CREATE TABLE IF NOT EXISTS learning_state (
+              key TEXT PRIMARY KEY,
+              value TEXT NOT NULL,
+              updated_at TEXT
+            );
             """
         )
         _ensure_columns(cur)
@@ -192,6 +197,9 @@ def _ensure_columns(cur) -> None:
             ("grade_id", "TEXT"),
             ("chapter_id", "TEXT"),
             ("section_id", "TEXT"),
+            ("keywords", "TEXT"),
+            ("keyword_min", "INTEGER"),
+            ("difficulty", "TEXT"),
         ],
         "question_sets": [
             ("grade_id", "TEXT"),
@@ -270,7 +278,7 @@ def seed_if_needed() -> None:
             "questions",
             qrows,
             QUESTION_COLS,
-            {"options", "accepted"},
+            {"options", "accepted", "keywords"},
         )
         insert_many(
             "question_sets",
@@ -344,10 +352,10 @@ def list_knowledge(subject_id: str | None = None, unit_id: str | None = None, gr
 
 def get_question(qid: str) -> dict | None:
     cur = connect().execute("SELECT * FROM questions WHERE id = ?", (qid,))
-    return decode_json_fields(row_to_dict(cur.fetchone()), ("options", "accepted"))
+    return decode_json_fields(row_to_dict(cur.fetchone()), ("options", "accepted", "keywords"))
 
 
-def list_questions(subject_id: str | None = None, unit_id: str | None = None) -> list[dict]:
+def list_questions(subject_id: str | None = None, unit_id: str | None = None, grade_id: str | None = None) -> list[dict]:
     sql = "SELECT * FROM questions"
     args: list = []
     clauses = []
@@ -357,11 +365,14 @@ def list_questions(subject_id: str | None = None, unit_id: str | None = None) ->
     if unit_id:
         clauses.append("unit_id = ?")
         args.append(unit_id)
+    if grade_id:
+        clauses.append("grade_id = ?")
+        args.append(grade_id)
     if clauses:
         sql += " WHERE " + " AND ".join(clauses)
     sql += " ORDER BY published_at DESC"
     rows = connect().execute(sql, args).fetchall()
-    return [decode_json_fields(row_to_dict(r), ("options", "accepted")) for r in rows]
+    return [decode_json_fields(row_to_dict(r), ("options", "accepted", "keywords")) for r in rows]
 
 
 def get_set(sid: str) -> dict | None:
@@ -392,7 +403,7 @@ def list_sets(subject_id: str | None = None, kind: str | None = None, grade_id: 
 def public_question(q: dict, reveal: bool = False) -> dict:
     item = dict(q)
     if not reveal:
-        for key in ("answer", "accepted", "answer_zh", "answer_en", "explanation_zh", "explanation_en"):
+        for key in ("answer", "accepted", "answer_zh", "answer_en", "explanation_zh", "explanation_en", "keywords", "keyword_min"):
             item.pop(key, None)
         item.pop("tolerance", None)
     return item
@@ -540,6 +551,32 @@ def upsert_row(table: str, item: dict, columns: list[str], json_fields: set[str]
         )
 
 
+def get_learning(key: str) -> dict | None:
+    row = connect().execute("SELECT value FROM learning_state WHERE key = ?", (key,)).fetchone()
+    if not row:
+        return None
+    try:
+        return json.loads(row["value"])
+    except json.JSONDecodeError:
+        return None
+
+
+def set_learning(key: str, value: dict) -> None:
+    with cursor() as cur:
+        cur.execute(
+            """
+            INSERT INTO learning_state(key, value, updated_at) VALUES (?, ?, ?)
+            ON CONFLICT(key) DO UPDATE SET value=excluded.value, updated_at=excluded.updated_at
+            """,
+            (key, json.dumps(value, ensure_ascii=False), now_iso()),
+        )
+
+
+def delete_learning(key: str) -> None:
+    with cursor() as cur:
+        cur.execute("DELETE FROM learning_state WHERE key = ?", (key,))
+
+
 def delete_row(table: str, item_id: str) -> bool:
     with cursor() as cur:
         cur.execute(f"DELETE FROM {table} WHERE id=?", (item_id,))
@@ -560,6 +597,7 @@ QUESTION_COLS = [
     "explanation_zh", "explanation_en", "marks", "published_at",
     "created_at", "updated_at", "origin",
     "grade_id", "chapter_id", "section_id",
+    "keywords", "keyword_min", "difficulty",
 ]
 SET_COLS = [
     "id", "subject_id", "unit_id", "kind", "title_zh", "title_en",

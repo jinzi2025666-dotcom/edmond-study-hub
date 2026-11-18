@@ -15,20 +15,33 @@ export default function Home() {
   const [updates, setUpdates] = useState([]);
   const [cont, setCont] = useState(null);
   const [progress, setProgress] = useState(null);
+  const [promptOn, setPromptOn] = useState(false);
+
+  useEffect(() => {
+    if (gradeId !== "9") {
+      setPromptOn(false);
+      return;
+    }
+    try {
+      setPromptOn(localStorage.getItem("esh-placement-prompt-9") !== "off");
+    } catch {
+      setPromptOn(true);
+    }
+  }, [gradeId]);
 
   const gradeList = grades.length ? grades : [
-    { id: "7", name_zh: "七年级", name_en: "Year 7", status: "upcoming" },
+    { id: "9", name_zh: "九年级", name_en: "Year 9", status: "active", stage_zh: "IGCSE 第一年", stage_en: "IGCSE Year 1" },
     { id: "8", name_zh: "八年级", name_en: "Year 8", status: "active" },
-    { id: "9", name_zh: "九年级", name_en: "Year 9", status: "upcoming" },
+    { id: "7", name_zh: "七年级", name_en: "Year 7", status: "upcoming" },
   ];
-  const currentGrade = gradeList.find((g) => g.id === gradeId) || gradeList.find((g) => g.id === "8");
+  const currentGrade = gradeList.find((g) => g.id === gradeId) || gradeList.find((g) => g.id === "9") || gradeList[0];
   const gradeReady = (currentGrade?.status || "upcoming") === "active";
 
   useEffect(() => {
     api.subjects(gradeId).then(setRows).catch(() => setRows([]));
-    api.updates().then(setUpdates).catch(() => setUpdates([]));
-    api.continue().then(setCont).catch(() => setCont(null));
-    api.progress().then(setProgress).catch(() => setProgress(null));
+    api.updates(gradeId).then(setUpdates).catch(() => setUpdates([]));
+    api.continue(gradeId).then(setCont).catch(() => setCont(null));
+    api.progress(gradeId).then(setProgress).catch(() => setProgress(null));
   }, [gradeId]);
 
   const overall = progress?.overall || { knowledge: 0, mastered: 0, progress: 0 };
@@ -43,10 +56,29 @@ export default function Home() {
         <h1>{name}</h1>
         <p className="lede">
           {lang === "zh"
-            ? "先选年级，再按科目进入课程。八年级物理已按章、单元、小节写完，可直接开课。"
-            : "Choose a year first, then open a subject. Year 8 Physics is written chapter by chapter, ready to study."}
+            ? "先选年级，再按科目进入课程。九年级八门 IGCSE 课程已按本学期进度开放，可日常复习和自测；八年级内容仍保留。"
+            : "Choose a year, then a subject. Grade 9 IGCSE courses follow this term’s topics and are open for revision and self-testing. Year 8 is still here."}
         </p>
       </header>
+
+      {promptOn && gradeId === "9" && (
+        <section className="home-prompt">
+          <p>{t("placementPrompt")}</p>
+          <div className="btn-row">
+            <Link className="btn btn-primary" to="/grades/9/subjects/mathematics/placement">{t("placementPromptGo")}</Link>
+            <button
+              type="button"
+              className="btn"
+              onClick={() => {
+                try { localStorage.setItem("esh-placement-prompt-9", "off"); } catch { /* ignore */ }
+                setPromptOn(false);
+              }}
+            >
+              {t("placementDismiss")}
+            </button>
+          </div>
+        </section>
+      )}
 
       <section className="grade-switch" aria-label={t("selectGrade")}>
         <p className="kicker">{t("selectGrade")}</p>
@@ -57,10 +89,13 @@ export default function Home() {
               type="button"
               role="tab"
               aria-selected={g.id === gradeId}
-              className={g.id === gradeId ? "is-active" : ""}
+              className={`${g.id === gradeId ? "is-active" : ""} ${g.featured ? "is-featured" : ""}`}
               onClick={() => setGradeId(g.id)}
             >
-              <strong>{tField(g, "name", lang)}</strong>
+              <strong>
+                {tField(g, "name", lang)}
+                {tField(g, "badge", lang) ? <em className="grade-badge">{tField(g, "badge", lang)}</em> : null}
+              </strong>
               <span>{tField(g, "stage", lang)}</span>
             </button>
           ))}
@@ -88,7 +123,7 @@ export default function Home() {
               <>
                 <p>{t("continueEmpty")}</p>
                 <Link className="btn btn-primary" to={subjectPath(gradeId, "physics")} style={{ display: "inline-block", marginTop: "0.4rem" }}>
-                  {t("physicsShortcut")}
+                  {tField(currentGrade, "name", lang)} · {lang === "zh" ? "物理" : "Physics"}
                 </Link>
               </>
             )}

@@ -7,8 +7,18 @@ import units from "../../../data/curriculum/units.json";
 import grades from "../../../data/curriculum/grades.json";
 import content from "../../../data/curriculum/content.json";
 import { checkAnswer } from "./grading";
+import {
+  pickDiagnosticQuestions,
+  reasoningOk,
+  statusOf,
+  buildPlacementResult,
+  coachPayload,
+  spiralDue,
+  pickSpiralQuestions,
+} from "../learning/coach";
 
 export const STORE_KEY = "esh-offline-data-v1";
+const LEARN_KEY = "esh-learning-v1";
 
 const empty = () => ({
   version: 1,
@@ -77,9 +87,9 @@ function listKnowledge(subject, unit, grade) {
     .filter((k) => (!subject || k.subject_id === subject) && (!unit || k.unit_id === unit || k.chapter_id === unit || k.section_id === unit) && (!grade || !k.grade_id || k.grade_id === grade))
     .sort(byPublishedDesc);
 }
-function listQuestions(subject, unit) {
+function listQuestions(subject, unit, grade) {
   return merged("questions")
-    .filter((q) => (!subject || q.subject_id === subject) && (!unit || q.unit_id === unit))
+    .filter((q) => (!subject || q.subject_id === subject) && (!unit || q.unit_id === unit) && (!grade || q.grade_id === grade))
     .sort(byPublishedDesc);
 }
 function listSets(subject, kind, grade) {
@@ -92,8 +102,17 @@ const getOne = (kind, id) => merged(kind).find((r) => r.id === id) || null;
 function publicQuestion(q, reveal) {
   const item = { ...q };
   if (!reveal) {
-    ["answer", "accepted", "answer_zh", "answer_en", "explanation_zh", "explanation_en", "tolerance"].forEach((k) => delete item[k]);
+    ["answer", "accepted", "answer_zh", "answer_en", "explanation_zh", "explanation_en", "tolerance", "keywords", "keyword_min"].forEach((k) => delete item[k]);
   }
+  return item;
+}
+
+function presentSubject(subject, grade) {
+  const item = { ...subject };
+  const by = (subject.by_grade || {})[String(grade || "8")] || {};
+  Object.entries(by).forEach(([key, val]) => {
+    if (val != null && String(val).trim() !== "") item[key] = val;
+  });
   return item;
 }
 
@@ -109,7 +128,7 @@ function countsFor(subjectId, grade) {
     knowledge: kps.length,
     mastered,
     learning: kps.filter((k) => k.status === "learning").length,
-    questions: listQuestions(subjectId).length,
+    questions: listQuestions(subjectId, undefined, grade).length,
     practice: listSets(subjectId, "practice", grade).length,
     papers: listSets(subjectId, "paper", grade).length,
     progress: kps.length ? mastered / kps.length : 0,
@@ -137,6 +156,67 @@ function recordActivity(kind, ref) {
     d.activity.unshift({ kind, ref_id: ref, at: nowIso() });
     d.activity = d.activity.slice(0, 50);
   });
+}
+
+function loadLearn() {
+  try {
+    const raw = localStorage.getItem(LEARN_KEY);
+    if (!raw) return { placements: {}, spirals: {}, checkpoints: {} };
+    return { placements: {}, spirals: {}, checkpoints: {}, ...JSON.parse(raw) };
+  } catch {
+    return { placements: {}, spirals: {}, checkpoints: {} };
+  }
+}
+
+function saveLearn(data) {
+  try {
+    localStorage.setItem(LEARN_KEY, JSON.stringify(data));
+  } catch (e) {
+    console.warn("Could not save learning state", e);
+  }
+}
+
+function learnKey(grade, subject) {
+  return `${grade || "9"}:${subject}`;
+}
+
+function chaptersFor(subject, grade) {
+  return unitsBySubject(grade)[subject] || [];
+}
+
+function withSectionTitle(q) {
+  if (!q || (q.title_zh && q.title_en)) return q;
+  for (const chapter of units) {
+    for (const unit of chapter.units || []) {
+      for (const section of unit.sections || []) {
+        if (section.id === q.section_id) {
+          return { ...q, title_zh: q.title_zh || section.title_zh, title_en: q.title_en || section.title_en };
+        }
+      }
+    }
+  }
+  return q;
+}
+
+function checkBody(q, answer, reveal) {
+  const titled = withSectionTitle(q);
+  const correct = checkAnswer(q, answer);
+  const marks = Number(q.marks) || 1;
+  const body = {
+    correct,
+    marks,
+    awarded: correct ? marks : 0,
+    ...coachPayload(titled, answer),
+  };
+  if (correct || reveal) {
+    body.explanation_zh = q.explanation_zh;
+    body.explanation_en = q.explanation_en;
+    body.answer = q.answer;
+    body.answer_zh = q.answer_zh;
+    body.answer_en = q.answer_en;
+    body.accepted = q.accepted || [];
+  }
+  return body;
 }
 
 function recordMistake(q, given) {
@@ -238,7 +318,7 @@ function search(q) {
   };
   units.forEach((u) =>
     hit("unit", u, [u.title_zh, u.title_en, u.code, u.note_zh, u.note_en, ...(u.topics || []).flatMap((t) => [t.title_zh, t.title_en])].map((x) => x || ""),
-      `/subjects/${u.subject_id}#${u.id}`, u.subject_id, u.title_zh, u.title_en)
+      `/grades/${u.grade_id || "8"}/subjects/${u.subject_id}#${u.id}`, u.subject_id, u.title_zh, u.title_en)
   );
   listKnowledge().forEach((k) =>
     hit("knowledge", k, ["title_zh", "title_en", "summary_zh", "summary_en", "body_zh", "body_en"].map((f) => k[f] || ""),
@@ -266,14 +346,15 @@ export const api = {
   subjects: wrap((grade) => {
     const g = unitsBySubject(grade);
     return subjects.map((s) => ({
-      ...s,
+      ...presentSubject(s, grade),
       units: g[s.id] || [],
       counts: countsFor(s.id, grade),
       development_status: (s.development || {})[String(grade || "8")] || "upcoming",
     }));
   }),
   subject: wrap((id, grade) => {
-    const subject = subjects.find((s) => s.id === id) || notFound("Subject");
+    const found = subjects.find((s) => s.id === id) || notFound("Subject");
+    const subject = presentSubject(found, grade);
     const knowledge = attachProgress(listKnowledge(id, undefined, grade));
     const unitRows = (unitsBySubject(grade)[id] || []).map((u) => {
       const ups = knowledge.filter((k) => k.unit_id === u.id || k.chapter_id === u.id);
@@ -320,20 +401,107 @@ export const api = {
     const q = getOne("questions", qid) || notFound("Question");
     const correct = checkAnswer(q, answer);
     if (!correct) recordMistake(q, answer);
-    const marks = Number(q.marks) || 1;
-    return {
-      correct,
-      marks,
-      awarded: correct ? marks : 0,
-      explanation_zh: q.explanation_zh,
-      explanation_en: q.explanation_en,
-      answer: q.answer,
-      accepted: q.accepted || [],
+    return checkBody(q, answer, false);
+  }),
+  reveal: wrap((qid) => {
+    const q = getOne("questions", qid) || notFound("Question");
+    return checkBody(q, q.answer, true);
+  }),
+  placement: wrap((subject, grade = "9") => {
+    const saved = loadLearn().placements[learnKey(grade, subject)] || null;
+    if (saved) return { done: true, result: saved, quiz: null };
+    const picked = pickDiagnosticQuestions(listQuestions(subject, undefined, grade), chaptersFor(subject, grade), 8);
+    const quiz = picked.map((q) => ({
+      ...publicQuestion(q, false),
+      section_title_zh: q.title_zh,
+      section_title_en: q.title_en,
+      chapter_title_zh: q.chapter_title_zh,
+      chapter_title_en: q.chapter_title_en,
+      knowledge_id: q.knowledge_id,
+    }));
+    return { done: false, result: null, quiz };
+  }),
+  submitPlacement: wrap((subject, grade, answers) => {
+    const items = [];
+    Object.entries(answers || {}).forEach(([qid, payload]) => {
+      const q = getOne("questions", qid);
+      if (!q || q.subject_id !== subject) return;
+      const given = payload && typeof payload === "object" ? payload.answer : payload;
+      const reasoning = payload && typeof payload === "object" ? payload.reasoning : "";
+      const correct = checkAnswer(q, given);
+      const understood = correct ? reasoningOk(q, reasoning) : false;
+      if (!correct && given != null && String(given) !== "") recordMistake(q, given);
+      items.push({
+        question_id: qid,
+        section_id: q.section_id,
+        chapter_id: q.chapter_id,
+        correct,
+        reasoning_ok: understood,
+        status: statusOf(correct, understood),
+      });
+    });
+    const result = {
+      subject_id: subject,
+      grade_id: String(grade || "9"),
+      at: nowIso(),
+      items,
+      ...buildPlacementResult(items, chaptersFor(subject, grade)),
     };
+    const learn = loadLearn();
+    learn.placements[learnKey(grade, subject)] = result;
+    saveLearn(learn);
+    return result;
+  }),
+  resetPlacement: wrap((subject, grade = "9") => {
+    const learn = loadLearn();
+    delete learn.placements[learnKey(grade, subject)];
+    saveLearn(learn);
+    return { ok: true };
+  }),
+  spiral: wrap((subject, grade = "9") => {
+    const learn = loadLearn();
+    const key = learnKey(grade, subject);
+    const placement = learn.placements[key];
+    const mistakes = mistakesList(subject, "open");
+    const due = spiralDue({
+      placement,
+      mistakes: mistakes.length,
+      checkpointAt: learn.checkpoints[key]?.at,
+      lastReviewAt: learn.spirals[key]?.at,
+    });
+    const pool = listQuestions(subject, undefined, grade).map(withSectionTitle);
+    const questions = pickSpiralQuestions(pool, placement, mistakes.map((m) => m.question_id)).map((q) => publicQuestion(q, false));
+    const weakSections = (placement?.sections || []).filter((s) => s.status === "gap" || s.status === "shaky").length;
+    return {
+      ...due,
+      subject_id: subject,
+      grade_id: String(grade),
+      weak_count: mistakes.length + weakSections,
+      questions,
+    };
+  }),
+  completeSpiral: wrap((subject, grade = "9") => {
+    const learn = loadLearn();
+    const payload = { at: nowIso(), subject_id: subject, grade_id: String(grade || "9") };
+    learn.spirals[learnKey(grade, subject)] = payload;
+    saveLearn(learn);
+    return payload;
+  }),
+  checkpoint: wrap((subject, grade, scope) => {
+    if (scope !== "unit" && scope !== "course") return { ok: true };
+    const learn = loadLearn();
+    learn.checkpoints[learnKey(grade, subject)] = { at: nowIso(), scope };
+    saveLearn(learn);
+    return { ok: true };
   }),
   submitSet: wrap((id, answers, startedAt) => {
     const item = getOne("sets", id) || notFound("Set");
     const { details, score, max } = gradeAnswers(item.question_ids || [], answers || {});
+    if (item.scope === "unit" || item.scope === "course") {
+      const learn = loadLearn();
+      learn.checkpoints[learnKey(item.grade_id || "9", item.subject_id)] = { at: nowIso(), scope: item.scope };
+      saveLearn(learn);
+    }
     const attempt = {
       id: newId("att-"),
       set_id: id,
@@ -361,14 +529,14 @@ export const api = {
     });
     return { ok: true };
   }),
-  progress: wrap(() => {
+  progress: wrap((grade) => {
     let tk = 0;
     let tm = 0;
     const rows = subjects.map((s) => {
-      const counts = countsFor(s.id);
+      const counts = countsFor(s.id, grade);
       tk += counts.knowledge;
       tm += counts.mastered;
-      return { ...s, counts };
+      return { ...presentSubject(s, grade), counts };
     });
     return {
       subjects: rows,
@@ -377,20 +545,21 @@ export const api = {
       open_mistakes: mistakesList(null, "open").length,
     };
   }),
-  continue: wrap(() => {
+  continue: wrap((grade) => {
     const user = loadUser();
     const last = user.activity.find((a) => a.kind === "view_knowledge" && getOne("knowledge", a.ref_id));
     if (last) {
       const k = getOne("knowledge", last.ref_id);
+      const sameGrade = !grade || !k.grade_id || k.grade_id === grade;
       const status = user.progress[k.id]?.status || "not_started";
-      if (status !== "mastered") return { ...k, status };
+      if (sameGrade && status !== "mastered") return { ...k, status };
     }
-    return attachProgress(listKnowledge()).find((k) => k.status !== "mastered") || null;
+    return attachProgress(listKnowledge(undefined, undefined, grade)).find((k) => k.status !== "mastered") || null;
   }),
-  updates: wrap(() => {
+  updates: wrap((grade) => {
     const items = [];
-    listKnowledge().forEach((k) => withinDays(k.published_at, 7) && items.push({ type: "knowledge", id: k.id, subject_id: k.subject_id, title_zh: k.title_zh, title_en: k.title_en, published_at: k.published_at }));
-    listSets().forEach((s) => withinDays(s.published_at, 7) && items.push({ type: s.kind || "set", id: s.id, subject_id: s.subject_id, title_zh: s.title_zh, title_en: s.title_en, published_at: s.published_at }));
+    listKnowledge(undefined, undefined, grade).forEach((k) => withinDays(k.published_at, 7) && items.push({ type: "knowledge", id: k.id, subject_id: k.subject_id, title_zh: k.title_zh, title_en: k.title_en, published_at: k.published_at }));
+    listSets(undefined, undefined, grade).forEach((s) => withinDays(s.published_at, 7) && items.push({ type: s.kind || "set", id: s.id, subject_id: s.subject_id, title_zh: s.title_zh, title_en: s.title_en, published_at: s.published_at }));
     return items.sort(byPublishedDesc);
   }),
   search: wrap(search),
@@ -415,7 +584,7 @@ export const api = {
   importData: wrap((json) => {
     const data = json && json.data ? json.data : json;
     if (!data || typeof data !== "object" || !("progress" in data || "knowledge" in data || "mistakes" in data)) {
-      throw new Error("Not an Edmond Study Hub backup file");
+      throw new Error("Not a Singapore International Study Site backup file");
     }
     saveUser({ ...empty(), ...data });
     return { ok: true };
@@ -423,6 +592,7 @@ export const api = {
   resetData: wrap(() => {
     try {
       localStorage.removeItem(STORE_KEY);
+      localStorage.removeItem(LEARN_KEY);
     } catch {
       /* ignore */
     }

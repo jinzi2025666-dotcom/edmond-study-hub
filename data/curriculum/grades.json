@@ -1,11 +1,14 @@
 [
   {
-    "id": "7",
-    "name_zh": "七年级",
-    "name_en": "Year 7",
-    "stage_zh": "剑桥中学初级阶段第 7 阶段",
-    "stage_en": "Cambridge Lower Secondary Stage 7",
-    "status": "upcoming"
+    "id": "9",
+    "name_zh": "九年级",
+    "name_en": "Year 9",
+    "stage_zh": "IGCSE 第一年（中三 / Sec 3）",
+    "stage_en": "IGCSE Year 1 (Sec 3 / S3)",
+    "status": "active",
+    "featured": true,
+    "badge_zh": "当前",
+    "badge_en": "Current"
   },
   {
     "id": "8",
@@ -16,11 +19,11 @@
     "status": "active"
   },
   {
-    "id": "9",
-    "name_zh": "九年级",
-    "name_en": "Year 9",
-    "stage_zh": "剑桥中学初级阶段第 9 阶段",
-    "stage_en": "Cambridge Lower Secondary Stage 9",
+    "id": "7",
+    "name_zh": "七年级",
+    "name_en": "Year 7",
+    "stage_zh": "剑桥中学初级阶段第 7 阶段",
+    "stage_en": "Cambridge Lower Secondary Stage 7",
     "status": "upcoming"
   }
 ]

@@ -37,6 +37,42 @@ export const api = {
       headers: jsonHeaders,
       body: JSON.stringify({ question_id: questionId, answer }),
     }),
+  reveal: (questionId) =>
+    request("/api/reveal", {
+      method: "POST",
+      headers: jsonHeaders,
+      body: JSON.stringify({ question_id: questionId }),
+    }),
+  placement: (subject, grade = "9") =>
+    request(`/api/learning/placement?subject=${encodeURIComponent(subject)}&grade=${encodeURIComponent(grade)}`),
+  submitPlacement: (subject, grade, answers) =>
+    request("/api/learning/placement", {
+      method: "POST",
+      headers: jsonHeaders,
+      body: JSON.stringify({ subject_id: subject, grade_id: grade, answers }),
+    }),
+  resetPlacement: async (subject, grade = "9") => {
+    await request("/api/learning/placement", {
+      method: "POST",
+      headers: jsonHeaders,
+      body: JSON.stringify({ subject_id: subject, grade_id: grade, reset: true, answers: {} }),
+    });
+    return { ok: true };
+  },
+  spiral: (subject, grade = "9") =>
+    request(`/api/learning/spiral?subject=${encodeURIComponent(subject)}&grade=${encodeURIComponent(grade)}`),
+  completeSpiral: (subject, grade = "9") =>
+    request("/api/learning/spiral/complete", {
+      method: "POST",
+      headers: jsonHeaders,
+      body: JSON.stringify({ subject_id: subject, grade_id: grade }),
+    }),
+  checkpoint: (subject, grade, scope) =>
+    request("/api/learning/checkpoint", {
+      method: "POST",
+      headers: jsonHeaders,
+      body: JSON.stringify({ subject_id: subject, grade_id: grade, scope }),
+    }),
   submitSet: (id, answers, startedAt) =>
     request(`/api/sets/${id}/submit`, {
       method: "POST",
@@ -55,9 +91,9 @@ export const api = {
   },
   masterMistake: (questionId) =>
     request(`/api/mistakes/${questionId}/master`, { method: "POST" }),
-  progress: () => request("/api/progress"),
-  continue: () => request("/api/continue"),
-  updates: () => request("/api/updates?days=7"),
+  progress: (grade) => request(grade ? `/api/progress?grade=${encodeURIComponent(grade)}` : "/api/progress"),
+  continue: (grade) => request(grade ? `/api/continue?grade=${encodeURIComponent(grade)}` : "/api/continue"),
+  updates: (grade) => request(`/api/updates?days=7${grade ? `&grade=${encodeURIComponent(grade)}` : ""}`),
   search: (q) => request(`/api/search?q=${encodeURIComponent(q)}`),
   question: (id) => request(`/api/questions/${id}`),
   coding: () => request("/api/coding/exercises"),

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLang } from "../context/LanguageContext";
+import { api } from "../api";
 import { tField } from "../utils";
 import MarkdownBody from "./MarkdownBody";
 
@@ -16,12 +17,18 @@ export default function QuestionCard({
 }) {
   const { lang, t } = useLang();
   const [answer, setAnswer] = useState(initialAnswer ?? "");
+  const [step, setStep] = useState(0);
+  const [revealed, setRevealed] = useState(null);
 
   useEffect(() => {
     setAnswer(initialAnswer ?? "");
-  }, [question?.id, initialAnswer]);
+    setStep(0);
+    setRevealed(null);
+  }, [question?.id, initialAnswer, result?.correct]);
 
   if (!question) return null;
+  const shown = revealed ? { ...result, ...revealed } : result;
+  const showSolution = Boolean(shown?.correct) || step >= 2;
   const typ = question.type || "short";
   const disabled = locked || Boolean(result);
   const typeHint = typ === "mcq" ? t("typeMcq") : typ === "numeric" ? t("typeNumeric") : typ === "structured" ? t("typeStructured") : t("typeShort");
@@ -32,6 +39,7 @@ export default function QuestionCard({
         {index != null ? `${index + 1}${total ? ` / ${total}` : ""} · ` : ""}
         {typeHint}
         {question.marks ? ` · ${t("marksCount", { n: question.marks })}` : ""}
+        {question.difficulty ? ` · ${t(`diff_${question.difficulty}`)}` : ""}
       </div>
       <MarkdownBody>{tField(question, "stem", lang)}</MarkdownBody>
 
@@ -40,9 +48,9 @@ export default function QuestionCard({
           {(question.options || []).map((opt) => {
             const selected = answer === opt.id;
             let cls = "option";
-            if (result && selected && result.correct) cls += " is-correct";
-            if (result && selected && !result.correct) cls += " is-wrong";
-            if (result && result.answer === opt.id) cls += " is-correct";
+            if (shown && selected && shown.correct) cls += " is-correct";
+            if (shown && selected && !shown.correct) cls += " is-wrong";
+            if (showSolution && shown?.answer === opt.id) cls += " is-correct";
             return (
               <label key={opt.id} className={cls}>
                 <input
@@ -95,20 +103,51 @@ export default function QuestionCard({
         <div style={{ display: "none" }} data-answer={answer} />
       )}
 
-      {result && (
-        <div className={`feedback ${result.correct ? "ok" : "bad"}`}>
-          <strong>{result.correct ? t("correct") : t("incorrect")}</strong>
-          {!result.correct && result.answer != null && result.answer !== "" && (
-            <div>
-              {t("modelAnswer")}: {String(result.answer)}
+      {shown && (
+        <div className={`feedback ${shown.correct ? "ok" : "bad"}`}>
+          <strong>{shown.correct ? t("correct") : t("incorrect")}</strong>
+          {!shown.correct && !showSolution && (
+            <div className="hint-flow">
+              <p>{tField(shown, "diagnosis", lang)}</p>
+              <p><strong>{t("hintLabel", { n: 1 })}</strong> {tField(shown, "hint1", lang)}</p>
+              {step >= 1 && <p><strong>{t("hintLabel", { n: 2 })}</strong> {tField(shown, "hint2", lang)}</p>}
+              <div className="btn-row">
+                {step < 1 && (
+                  <button type="button" className="btn" onClick={() => setStep(1)}>{t("hintStuck")}</button>
+                )}
+                {step >= 1 && (
+                  <button
+                    type="button"
+                    className="btn"
+                    onClick={async () => {
+                      const has = shown.explanation_zh || shown.explanation_en || shown.answer;
+                      if (!has) {
+                        try {
+                          setRevealed(await api.reveal(question.id));
+                        } catch {
+                          /* keep the hints if the solution cannot be loaded */
+                        }
+                      }
+                      setStep(2);
+                    }}
+                  >
+                    {t("hintShow")}
+                  </button>
+                )}
+              </div>
             </div>
           )}
-          {(tField(result, "explanation", lang) || "") && (
+          {showSolution && !shown.correct && shown.answer != null && shown.answer !== "" && (
+            <div>
+              {t("modelAnswer")}: {String(shown.answer)}
+            </div>
+          )}
+          {showSolution && (tField(shown, "explanation", lang) || "") && (
             <div>
               <div className="kicker" style={{ marginTop: "0.6rem" }}>
                 {t("explanation")}
               </div>
-              <MarkdownBody>{tField(result, "explanation", lang)}</MarkdownBody>
+              <MarkdownBody>{tField(shown, "explanation", lang)}</MarkdownBody>
             </div>
           )}
         </div>

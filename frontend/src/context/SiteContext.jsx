@@ -10,7 +10,12 @@ export function SiteProvider({ children }) {
   useEffect(() => {
     api
       .config()
-      .then(setConfig)
+      .then((cfg) => {
+        setConfig(cfg);
+        const zh = cfg?.name_zh || "新加坡国际学习网站";
+        const en = cfg?.name_en || "Singapore International Study Site";
+        document.title = `${zh} · ${en}`;
+      })
       .catch((err) => setError(err.message));
   }, []);
 

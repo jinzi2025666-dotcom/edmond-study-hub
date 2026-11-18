@@ -46,7 +46,7 @@ export function newId(prefix) {
 
 
 export function subjectPath(gradeId, subjectId) {
-  return `/grades/${gradeId || "8"}/subjects/${subjectId}`;
+  return `/grades/${gradeId || "9"}/subjects/${subjectId}`;
 }
 
 export function flattenSections(chapters) {
